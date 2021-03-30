@@ -24,6 +24,16 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <ul className="tags">
+            {post.frontmatter.tags.map((tag, index) => {
+              const link = `/tags/${tag}`
+              return(
+                <li key={index}>
+                  <a className="tag" href={link}>{tag}</a>
+                </li>
+              )
+            })}
+          </ul>
           <p>{post.frontmatter.date} - {post.timeToRead} min read</p>
         </header>
         <section
@@ -46,14 +56,14 @@ const BlogPostTemplate = ({ data, location }) => {
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                ⇠ {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {next.frontmatter.title} ⇢
               </Link>
             )}
           </li>
@@ -84,6 +94,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
       timeToRead
     }

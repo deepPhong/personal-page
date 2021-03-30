@@ -66,7 +66,7 @@ const Resume = (props) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   const info = data.allDataJson.edges[0].node
-  const { basics, awards, education, languages, skills, work } = info
+  const { basics, education, skills, work } = info
 
   return (
     <Layout location={props.location} title={siteTitle}>

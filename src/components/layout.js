@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -37,8 +36,7 @@ const Layout = ({ location, title, children }) => {
     header = (
       <header className="nav-header">
         <Link to="/">
-          {/* <h3>{title}</h3> */}
-          ← home
+          ⇠ home
         </Link>
         <ul>
           <ListLink to="/publications/">publications</ListLink>
