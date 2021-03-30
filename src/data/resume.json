@@ -1,0 +1,230 @@
+{
+  "basics": {
+    "name": "Dinh-Phong Nguyen",
+    "label": "MD, data scientist, developer",
+    "picture": "",
+    "email": "dinhphongng [at] gmail [dot] com",
+    "phone": "",
+    "website": "https://phong.ovh",
+    "summary": "Healthcare, data science and technology at heart. My medical training and pronounced taste for programming have enabled me to develop a broad skill set: machine learning, epidemiology and clinical research, conversion of databases to interoperability standards, development of decision tools for crisis management, front-end web development, etc.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Paris",
+      "countryCode": "FR",
+      "region": ""
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "deepPhong",
+        "url": "https://twitter.com/deepPhong"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "",
+        "url": "https://www.linkedin.com/in/dinh-phong-nguyen-5122a867/?locale=en_US"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "AP-HP, WIND-DSI",
+      "position": "Data scientist & Medical advisor",
+      "website": "https://eds.aphp.fr/",
+      "startDate": "2020-11-01",
+      "endDate": "today",
+      "summary": "Internship with the Big Data Platform and Data Quality teams for global data consolidation in the datalake.",
+      "highlights": ["data engineering", "machine learning", "medical expertise"]
+    },
+    {
+      "company": "Kiro",
+      "position": "Data scientist & Medical advisor",
+      "website": "https://kiro.bio/",
+      "startDate": "2020-06-01",
+      "endDate": "today",
+      "summary": "Development, deployment and evaluation of machine learning models on biological tests data.",
+      "highlights": ["machine learning", "medical expertise"]
+    },
+    {
+      "company": "Ministry of Social Affairs and Health - DGS",
+      "position": "Crisis management",
+      "website": "https://solidarites-sante.gouv.fr/",
+      "startDate": "2020-02-01",
+      "endDate": "2020-05-31",
+      "summary": "Programming of decision support and epidemics surveillance tools. Operational help for the orchestration of inter-regional and international ICU patient transfers.",
+      "highlights": ["web development", "crisis management"]
+    },
+    {
+      "company": "Ministry of Social Affairs and Health - DREES",
+      "position": "Data scientist",
+      "website": "https://solidarites-sante.gouv.fr/",
+      "startDate": "2019-11-01",
+      "endDate": "2020-01-31",
+      "summary": "Production of morbidity indicators for EU regulators (Eurostat) from the national SNDS claims database. Conversion of the SNDS database to the OMOP CDM standard.",
+      "highlights": ["data engineering", "medical expertise"]
+    },
+    {
+      "company": "AP-HP, DIM Paris-Sud + WIND-DSI",
+      "position": "Medical Information Physician",
+      "website": "https://eds.aphp.fr/",
+      "startDate": "2019-05-01",
+      "endDate": "2019-10-31",
+      "summary": "Development of a <a href='https://github.com/deepPhong/thot' target='_blank' rel='noreferrer'>visualization webapp</a> for claims data and of a <a href='https://github.com/deepPhong/icu-readmission' target='_blank' rel='noreferrer'>model for ICU readmission prediction</a>.",
+      "highlights": ["web development", "medical expertise", "machine learning"]
+    },
+    {
+      "company": "CMAP École Polytechnique",
+      "position": "Data scientist",
+      "website": "https://portail.polytechnique.edu/cmap/en",
+      "startDate": "2018-04-01",
+      "endDate": "2019-04-31",
+      "summary": "Internship with the partnership of Ecole Polytechnique and the National Health Security (Pr Bacry) for weak signal detection in adverse drug effects detection on the national SNDS claims database.",
+      "highlights": ["machine learning", "data engineering"]
+    },
+    {
+      "company": "INSERM - UMR 1018",
+      "position": "Epidemiologist",
+      "website": "https://cesp.inserm.fr/",
+      "startDate": "2017-05-01",
+      "endDate": "2017-10-31",
+      "summary": "Internship with the EpiAgeing team (Pr Singh-Manoux and Dr Elbaz). Evaluation and analysis of midlife risk scores for dementia on the Whitehall II cohort.",
+      "highlights": ["epidemiology", "survival analysis"]
+    },
+    {
+      "company": "Imagine Institute of Genetic Diseases",
+      "position": "Biostatistician",
+      "website": "https://www.institutimagine.org/en",
+      "startDate": "2016-11-01",
+      "endDate": "2017-04-30",
+      "summary": "Internship with the Biostatistics Unit of Necker hospital and Imagine Institute (Pr. JP Jaïs). Survival study and risk score evaluation for ALCL ALK positive lymphomas.",
+      "highlights": ["clinical ressearch", "survival analysis"]
+    },
+    {
+      "company": "Karolinska Institutet",
+      "position": "Exchange student",
+      "website": "https://ki.se/en",
+      "startDate": "2013-02-01",
+      "endDate": "2013-06-30",
+      "summary": "Internship with the Lallemend lab, Department of Neuroscience.",
+      "highlights": ["lab work", "neuroscience"]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "École Polytechnique",
+      "area": "Applied Mathematics, Data Science track",
+      "studyType": "Master of Science",
+      "startDate": "2017-09-01",
+      "endDate": "2018-07-31",
+      "gpa": "",
+      "courses": []
+    },
+    {
+      "institution": "Paris-Saclay University",
+      "area": "Public Health",
+      "studyType": "Master of Science",
+      "startDate": "2016-09-01",
+      "endDate": "2017-07-31",
+      "gpa": "",
+      "courses": []
+    },
+    {
+      "institution": "Sorbonne University",
+      "area": "Public Health",
+      "studyType": "Medical Doctorate",
+      "startDate": "2009-09-01",
+      "endDate": "2021-10-31",
+      "gpa": "",
+      "courses": []
+    }
+  ],
+  "awards": [
+    {
+      "title": "French Brewers Cup Champion",
+      "date": "2014-03-10",
+      "awarder": "",
+      "summary": ""
+    },
+    {
+      "title": "Swedish Aeropress Champion",
+      "date": "2013-02-13",
+      "awarder": "",
+      "summary": ""
+    }
+  ],
+  "publications": [
+    {
+      "name": "Risk prediction models for dementia: role of age and cardiometabolic risk factors",
+      "publisher": "BMC Medicine",
+      "releaseDate": "2020",
+      "website": "https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-01578-x",
+      "summary": ""
+    },
+    {
+      "name": "SCALPEL3: A scalable open-source library for healthcare claims databases",
+      "publisher": "International Journal of Medical Informatics",
+      "releaseDate": "2020",
+      "website": "https://www.sciencedirect.com/science/article/abs/pii/S1386505619312493",
+      "summary": ""
+    },
+    {
+      "name": "ALK-positive anaplastic large-cell lymphoma in adults: an individual patient data pooled analysis of 263 patients",
+      "publisher": "Haematologica",
+      "releaseDate": "2019",
+      "website": "https://haematologica.org/article/view/9181",
+      "summary": ""
+    },
+    {
+      "name": "Revolution in Health Care: How Will Data Science Impact Doctor–Patient Relationships?",
+      "publisher": "Frontiers in Public Health",
+      "releaseDate": "2018",
+      "website": "https://www.frontiersin.org/articles/10.3389/fpubh.2018.00099/full",
+      "summary": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "Data Science",
+      "level": "Expert",
+      "keywords": ["machine learning", "data engineering", "data visualization", "Python", "R"]
+    },
+    {
+      "name": "Public Health",
+      "level": "Expert",
+      "keywords": ["French healthcare system", "epidemiology", "clinical ressearch"]
+    },
+    {
+      "name": "Web Development",
+      "level": "Intermediate",
+      "keywords": ["HTML", "CSS", "Javascript", "React", "Gatsby"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "French",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Vietnamese",
+      "fluency": "Comfortable"
+    }
+  ],
+  "interests": [
+    {
+      "name": "",
+      "keywords": []
+    }
+  ],
+  "references": [
+    {
+      "name": "",
+      "reference": ""
+    }
+  ]
+}
