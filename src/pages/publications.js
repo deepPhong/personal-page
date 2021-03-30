@@ -52,14 +52,14 @@ const Publications = (props) => {
         <ul>
           {publications.map((publication, index) => {
             return (
-              <li key={index}>
-                <a href={publication.website} target="_blank" rel="noreferrer">
+              <a href={publication.website} target="_blank" rel="noreferrer">
+                <li key={index}>
                   <h4>{publication.name}</h4>
-                </a>
                 <div className="date">
-                  {publication.releaseDate} - {publication.publisher}
+                  {publication.publisher} - {publication.releaseDate}
                 </div>
-              </li>
+                </li>
+              </a>
             )
           })}
         </ul>
