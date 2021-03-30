@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Contact = () => {
+const Contact = (props) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -15,7 +15,7 @@ const Contact = () => {
   `)
   const siteTitle = data.site.siteMetadata?.title || `Title`
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle}>
       <SEO title="Contact" />
       <h2>Happy to talk, email me at the address below</h2>
       <p>

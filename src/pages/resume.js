@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Resume = () => {
+const Resume = (props) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -69,7 +69,7 @@ const Resume = () => {
   const { basics, awards, education, languages, skills, work } = info
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle}>
       <SEO title="Resume"/>
       <div className="resume">
         <h1>Resume</h1>

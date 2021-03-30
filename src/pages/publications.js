@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Publications = () => {
+const Publications = (props) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -45,7 +45,7 @@ const Publications = () => {
   const { publications } = info
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle}>
       <SEO title="Publications"/>
       <div className="publications">
         <h1>Publications</h1>
