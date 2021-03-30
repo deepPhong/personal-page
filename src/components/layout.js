@@ -2,6 +2,12 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+library.add(fab)
+
 const ListLink = props => (
   <li>
     <Link to={props.to}>{props.children}</Link>
@@ -50,13 +56,16 @@ const Layout = ({ location, title, children }) => {
       <footer>
         <div className="icons">
           <a href="https://github.com/deepPhong" target="_blank" rel='noreferrer'>
-            <StaticImage quality={100} className="icon" src="../images/github.svg" alt="github" />
+            <FontAwesomeIcon icon={["fab", "github"]} className="icon" />
+          </a>
+          <a href="https://gitlab.com/deepPhong" target="_blank" rel='noreferrer'>
+            <FontAwesomeIcon icon={["fab", "gitlab"]} className="icon" />
           </a>
           <a href="https://twitter.com/deepPhong" target="_blank" rel='noreferrer'>
-            <StaticImage quality={100} className="icon" src="../images/twitter.svg" alt="github" />
+            <FontAwesomeIcon icon={["fab", "twitter"]} className="icon" />
           </a>
           <a href="https://www.linkedin.com/in/dinh-phong-nguyen-5122a867/?locale=en_US" target="_blank" rel='noreferrer'>
-            <StaticImage quality={100} className="icon" src="../images/linkedin.svg" alt="github" />
+            <FontAwesomeIcon icon={["fab", "linkedin"]} className="icon"/>
           </a>
         </div>
       </footer>

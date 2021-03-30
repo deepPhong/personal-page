@@ -267,6 +267,7 @@ a:focus {
 }
 
 .global-header {
+  background-color: #fff;
   margin-bottom: var(--spacing-12);
 }
 
@@ -364,7 +365,7 @@ a:focus {
 
 .icons .icon {
   margin: 0 var(--spacing-2) 0 0;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 
 /* Media queries */
