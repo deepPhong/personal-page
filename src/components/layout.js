@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
-
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -17,6 +18,12 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname?location.pathname:null) === rootPath
 
+  const [isDarkMode, setDarkMode] = React.useState(false);
+
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+  };
+
   let header
 
   if (isRootPath) {
@@ -29,6 +36,16 @@ const Layout = ({ location, title, children }) => {
           <ListLink to="/publications/">publications</ListLink>
           <ListLink to="/resume/">resume</ListLink>
           <ListLink to="/contact/">contact</ListLink>
+          <ThemeToggler className="toggle">
+          {({ theme, toggleTheme }) => (
+            <DarkModeSwitch
+              style={{ marginBottom: '2rem' }}
+              checked={theme === 'dark'}
+              onChange={(e) => toggleTheme(e ? 'dark': 'light')}
+              size={25}
+            />
+          )}
+        </ThemeToggler>
         </ul>
       </header>
     )
@@ -43,6 +60,16 @@ const Layout = ({ location, title, children }) => {
           <ListLink to="/resume/">resume</ListLink>
           <ListLink to="/contact/">contact</ListLink>
         </ul>
+        <ThemeToggler className="toggle">
+          {({ theme, toggleTheme }) => (
+            <DarkModeSwitch
+              style={{ marginBottom: '2rem' }}
+              checked={theme === 'dark'}
+              onChange={(e) => toggleTheme(e ? 'dark': 'light')}
+              size={25}
+            />
+          )}
+        </ThemeToggler>
       </header>
     )
   }

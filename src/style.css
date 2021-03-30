@@ -57,6 +57,24 @@
   --color-accent: #e5a638;
 }
 
+/* Dark/light toggle */
+
+body {
+  --bg: white;
+  --text-normal: #000;
+  --color-primary: #ff5700;
+
+  background-color: var(--bg);
+}
+
+body.dark {
+  -webkit-font-smoothing: antialiased;
+
+  --bg: darkslategray;
+  --text-normal: rgba(255, 255, 255, 0.88);
+  color: var(--text-normal);
+}
+
 *,
 :after,
 :before {
@@ -306,7 +324,6 @@ a:focus {
 }
 
 .global-header {
-  background-color: #fff;
   margin-bottom: var(--spacing-12);
 }
 
@@ -331,6 +348,10 @@ a:focus {
   display: inline-block;
   margin-right: var(--spacing-4);
   margin-bottom: var(--spacing-0);
+}
+
+.nav-header svg {
+  float: right
 }
 
 .gatsby-highlight-code-line {
@@ -366,10 +387,9 @@ a:focus {
 
 .publications li {
   list-style-type: none;
-  border: 1px solid #000;
+  border: 1px solid var(--text-normal);
   border-radius: 4px;
   padding: var(--spacing-2);
-  /* color: #000; */
 }
 
 .publications li:hover {
