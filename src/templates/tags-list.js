@@ -15,7 +15,7 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <h1>{tagHeader}<a className="tag" href={link}>{tag}</a></h1>
+      <h1>{tagHeader}<a className=".tag-box" href={link}>{tag}</a></h1>
       <ul className="tag-posts">
         {edges.map(({ node }) => {
           const { slug } = node.fields

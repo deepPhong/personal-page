@@ -32,7 +32,7 @@ const TagsPage = (props) => {
           {tags.map(tag => (
             <li key={tag.fieldValue}>
               <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                <a className="tag">{tag.fieldValue} ({tag.totalCount})</a> 
+                <a className=".tag-box">{tag.fieldValue} ({tag.totalCount})</a> 
               </Link>
             </li>
           ))}

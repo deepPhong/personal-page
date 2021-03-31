@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import kebabCase from "lodash/kebabCase"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -28,10 +29,10 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <ul className="tags">
             {post.frontmatter.tags.map((tag, index) => {
-              const link = `/tags/${tag}`
+              const link = `/tags/${kebabCase(tag)}`
               return(
                 <li key={index}>
-                  <a className="tag" href={link}>{tag}</a>
+                  <a className="tag-box" href={link}>{tag}</a>
                 </li>
               )
             })}

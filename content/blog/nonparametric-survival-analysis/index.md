@@ -5,6 +5,54 @@ description: "Classical and battle-tested tools for censored time-to-event data"
 tags: ["survival", "cox", "statistics"]
 ---
 
+```jsx
+import React from "react"
+import kebabCase from "lodash/kebabCase"
+import { Link, graphql, useStaticQuery } from "gatsby"
+
+import Layout from "../components/layout"
+
+const TagsPage = (props) => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
+      }
+    } 
+  `)
+  console.log(data)
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const tags = data.allMarkdownRemark.group
+
+  return(
+    <Layout location={props.location} title={siteTitle}>
+      <div>
+        <h1>Tags</h1>
+        <ul className="tag-list">
+          {tags.map(tag => (
+            <li key={tag.fieldValue}>
+              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                <a className=".tag-box">{tag.fieldValue}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Layout>
+  )
+}
+
+export default TagsPage
+```
+
 In biomedical research, especially in the fields of epidemiology or oncology, one of the most common outcome under assessment is the time to an event of interest (also called "failure"), namely __survival time__. The considered event is often death, but could be anything else such as cancer relapse or progression instead. The vast majority of survival analyses have extensively been using Kaplan-Meier (KM) estimates, log-rank tests and Cox proportional hazards (CoxPH) models, all of which we will describe shortly. This post is an attempt to review the most classical approach to survival analyses, in prevision for a following post discussing how everything fares in the high dimensional setting and solutions to potential problems that might arise.
 
 ## Survival setting and notations
