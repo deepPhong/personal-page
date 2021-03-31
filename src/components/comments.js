@@ -22,7 +22,7 @@ const Comments = () => {
             const comments = document.getElementById(COMMENTS_ID);
             if (comments) comments.innerHTML = '';
         };
-    }, [document.body.classList]);
+    }, []);
 
     return (
         <div id={COMMENTS_ID} />
