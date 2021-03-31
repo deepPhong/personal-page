@@ -76,6 +76,7 @@ const Resume = (props) => {
         <div className="summary">
           <StaticImage
             className="bio-avatar"
+            imgClassName="picture"
             layout="fixed"
             formats={["AUTO", "WEBP", "AVIF"]}
             src="../images/profile-pic.jpg"

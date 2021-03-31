@@ -46,6 +46,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
+  --profile-pic-width: 100px;
   --color-primary: #ff5700;
   --bg: white;
   --text-normal: #000;
@@ -271,8 +272,13 @@ a:focus {
 
 .bio-avatar {
   margin-right: var(--spacing-4);
-  min-width: 100px;
-  border-radius: 50%;
+  min-width: var(--profile-pic-width);
+  border-radius: calc(var(--profile-pic-width) / 2);
+}
+
+.bio-avatar .picture {
+  min-width: var(--profile-pic-width);
+  border-radius: calc(var(--profile-pic-width) / 2);
 }
 
 .summary p {
