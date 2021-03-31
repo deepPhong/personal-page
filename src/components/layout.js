@@ -20,6 +20,41 @@ const Layout = ({ location, title, children }) => {
 
   const headline = isRootPath? title: "⇠ home";
 
+  const toggleProperties = {
+    dark: {
+      circle: {
+        r: 9,
+      },
+      mask: {
+        cx: '50%',
+        cy: '23%',
+        stroke: "black"
+      },
+      svg: {
+        transform: 'rotate(40deg)',
+      },
+      lines: {
+        opacity: 0,
+      },
+    },
+    light: {
+      circle: {
+        r: 4,
+      },
+      mask: {
+        cx: '100%',
+        cy: '0%',
+      },
+      svg: {
+        transform: 'rotate(90deg)',
+      },
+      lines: {
+        opacity: 1,
+      },
+    },
+    springConfig: { mass: 4, tension: 250, friction: 35 },
+  };
+
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="nav-header">
@@ -31,6 +66,9 @@ const Layout = ({ location, title, children }) => {
             {({ theme, toggleTheme }) => (
               <DarkModeSwitch
                 checked={theme === 'dark'}
+                moonColor="#ff5700"
+                sunColor="#ff5700"
+                animationProperties={toggleProperties}
                 onChange={(e) => {
                   toggleTheme(e ? 'dark': 'light');
                   const isComment = document.querySelector("iframe.utterances-frame") !== null
