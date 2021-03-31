@@ -4,11 +4,12 @@ const COMMENTS_ID = 'comments-container';
 
 const Comments = () => {
     useEffect(() => {
+        const toggleDark = document.body.classList.contains("dark")
         const script = document.createElement('script');
         script.src = 'https://utteranc.es/client.js';
         script.setAttribute('repo', 'deepPhong/personal-page');
         script.setAttribute('issue-term', 'pathname');
-        script.setAttribute('theme', 'github-light');
+        script.setAttribute('theme', toggleDark? 'icy-dark': 'github-light');
         script.setAttribute('crossorigin', 'anonymous');
         script.async = true;
 
@@ -21,7 +22,7 @@ const Comments = () => {
             const comments = document.getElementById(COMMENTS_ID);
             if (comments) comments.innerHTML = '';
         };
-    }, []);
+    }, [document.body.classList]);
 
     return (
         <div id={COMMENTS_ID} />
