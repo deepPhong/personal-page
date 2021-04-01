@@ -55,9 +55,9 @@ const Publications = (props) => {
               <a href={publication.website} target="_blank" rel="noreferrer">
                 <li key={index}>
                   <h4>{publication.name}</h4>
-                <div className="date">
-                  {publication.publisher} - {publication.releaseDate}
-                </div>
+                  <div className="date">
+                    {publication.publisher} - {publication.releaseDate}
+                  </div>
                 </li>
               </a>
             )
