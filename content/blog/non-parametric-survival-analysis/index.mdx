@@ -287,7 +287,7 @@ The __p-value__ of our coefficient is commonly given by a __Wald test__, which $
 
 ## Interlude: assumptions
 
-I lied a little with the title of this post: the Cox proportional hazards model is not totally non-parametric. Our model contains two unknown parameters, $$\lambda_0 (t)$$ and $\boldsymbol{\beta}$, the former being an infinite-dimensional component, but the latter being finite-dimensional. We call such a model where both coexist __semiparametric__. Therefore, on top of the ones already listed above in the previous interlude, it relies on another parametric assumption, namely the __proportional hazards assumption__.
+I lied a little with the title of this blog post: the Cox proportional hazards model is not totally non-parametric. Our model contains two unknown parameters, $$\lambda_0 (t)$$ and $\boldsymbol{\beta}$, the former being an infinite-dimensional component, but the latter being finite-dimensional. We call such a model where both coexist __semiparametric__. Therefore, on top of the ones already listed above in the previous interlude, it relies on another parametric assumption, namely the __proportional hazards assumption__.
 
 I've already mentioned it several times; when I gave an interpretation for hazard ratios, I wrote that the difference in hazard rates was effective __at all times__. This is what the proportionality assumption is. Putting it another way, the relative risk of two individuals with different covariate values is __independent of time__. For example, if the variable considered is `Age`, it would mean that the hazard ratio for the considered event between a 25y.o and a 28y.o participants is the same as the one between a 95y.o and a 98y.o participants (increase of 3 units of age in both cases).
 

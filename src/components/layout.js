@@ -100,8 +100,10 @@ const Layout = ({ location, title, children }) => {
           <ListLink to="/contact/">contact</ListLink>
         </ul>
       </header>
-      <MDXProvider components={shortcodes}>{children}</MDXProvider>
-      <footer>
+      <main className="content">
+        <MDXProvider components={shortcodes}>{children}</MDXProvider>
+      </main>
+      <footer className="footer">
         <div className="icons">
           <a 
             href="https://github.com/deepPhong"

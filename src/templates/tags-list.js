@@ -23,9 +23,7 @@ const Tags = ({ pageContext, data, location }) => {
             const { title } = node.frontmatter
             return (
               <li key={slug}>
-                <h4>
                   <Link to={slug}>{title}</Link>
-                </h4>
               </li>
             )
           })}
