@@ -1,7 +1,7 @@
 import Typography from "typography"
 import altonTheme from "typography-theme-alton"
 
-import "../style.css"
+import "../styles/style.css"
 
 altonTheme.overrideThemeStyles = () => ({
   "a": {

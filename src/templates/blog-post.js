@@ -1,16 +1,16 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import kebabCase from "lodash/kebabCase"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Comments from "../components/comments"
 
 import "katex/dist/katex.min.css"
-import "../style.css"
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -27,6 +27,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <p className="subtitle">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="tags">
             {post.frontmatter.tags.map((tag, index) => {
               const link = `/tags/${kebabCase(tag)}`
@@ -37,13 +38,8 @@ const BlogPostTemplate = ({ data, location }) => {
               )
             })}
           </ul>
-          <p>{post.frontmatter.date} - {post.timeToRead} min read</p>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        {/* <hr /> */}
+        <MDXRenderer>{post.body}</MDXRenderer>
         <Comments />
       </article>
       <nav className="blog-post-nav">
@@ -89,10 +85,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -101,7 +97,7 @@ export const pageQuery = graphql`
       }
       timeToRead
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -109,7 +105,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }

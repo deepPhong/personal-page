@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 
 const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { edges, totalCount } = data.allMdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
@@ -15,21 +15,21 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <h1>{tagHeader}<a className=".tag-box" href={link}>{tag}</a></h1>
-      <ul className="tag-posts">
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <h4>
-                <Link to={slug}>{title}</Link>
-              </h4>
-            </li>
-          )
-        })}
-      </ul>
-      <Link to="/tags">⇠ All tags</Link>
+      <section className="tag-page">
+        <h2>{tagHeader}<a className="tag-box" href={link}>{tag}</a></h2>
+        <ul className="tag-posts">
+          {edges.map(({ node }) => {
+            const { slug } = node.fields
+            const { title } = node.frontmatter
+            return (
+              <li key={slug}>
+                  <Link to={slug}>{title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+        <div className="all-tags-link">⇠<Link to="/tags">All tags</Link></div>
+      </section>
     </Layout>
   )
 }
@@ -38,7 +38,7 @@ Tags.propTypes = {
     tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }

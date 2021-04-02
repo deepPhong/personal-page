@@ -12,7 +12,7 @@ const TagsPage = (props) => {
           title
         }
       }
-      allMarkdownRemark(limit: 2000) {
+      allMdx(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
           totalCount
@@ -22,7 +22,7 @@ const TagsPage = (props) => {
   `)
   console.log(data)
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const tags = data.allMarkdownRemark.group
+  const tags = data.allMdx.group
 
   return(
     <Layout location={props.location} title={siteTitle}>

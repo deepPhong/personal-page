@@ -39,6 +39,7 @@ const Resume = (props) => {
               institution
               startDate
               studyType
+              website
             }
             languages {
               fluency
@@ -71,7 +72,7 @@ const Resume = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Resume"/>
-      <div className="resume">
+      <section className="resume">
         <h1>Resume</h1>
         <div className="summary">
           <StaticImage
@@ -89,17 +90,17 @@ const Resume = (props) => {
         </div>
         <div className="resume-columns-container">
           <div className="work">
-            <h3>Experience</h3>
+            <h2>Experience</h2>
             <ul>
               {work.map((work, index) => {
                 return (
                   <li key={index}>
+                    <a href={work.website} target="_blank" rel="noreferrer">
+                    {work.company}
+                    </a>
                     <div className="date">
                       {work.startDate.substring(0, 7)} - {work.endDate.substring(0, 7)}
                     </div>
-                    <a href={work.website} target="_blank" rel="noreferrer">
-                    <h5>{work.company}</h5> {` `}
-                    </a>
                     <p dangerouslySetInnerHTML={{ __html: work.summary }} />
                   </li>
                 )
@@ -107,29 +108,29 @@ const Resume = (props) => {
             </ul>
           </div>
           <div className="education">
-          <h3>Education</h3>
+          <h2>Education</h2>
             <ul>
               {education.map((education, index) => {
                 return (
                   <li key={index}>
+                    <a href={education.website} target="_blank" rel="noreferrer">
+                    {education.institution}
+                    </a>
                     <div className="date">
                       {education.startDate.substring(0, 7)} - {education.endDate.substring(0, 7)}
                     </div>
-                    <a target="_blank">
-                    <h5>{education.institution}</h5> {` `}
-                    </a>
                     <p>{education.studyType} - {education.area}</p>
                   </li>
                 )
               })}
             </ul>
-            <h3>Skills</h3>
+            <h2>Skills</h2>
             <ul>
               {skills.map((skill, index) => {
                 return (
                   <li key={index}>
                     <a target="_blank">
-                    <h5>{skill.name}</h5> {` `}
+                    {skill.name}
                     </a>
                     <p>{skill.level}</p>
                   </li>
@@ -138,7 +139,7 @@ const Resume = (props) => {
             </ul>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 

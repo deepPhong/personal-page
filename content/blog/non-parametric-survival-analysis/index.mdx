@@ -1,11 +1,17 @@
 ---
 date: "2018-05-22"
-title: "Nonparametric survival analysis"
+title: "Non-parametric survival analysis"
 description: "Classical and battle-tested tools for censored time-to-event data"
 tags: ["survival", "cox", "statistics"]
 ---
 
+<section>
+
 In biomedical research, especially in the fields of epidemiology or oncology, one of the most common outcome under assessment is the time to an event of interest (also called "failure"), namely __survival time__. The considered event is often death, but could be anything else such as cancer relapse or progression instead. The vast majority of survival analyses have extensively been using Kaplan-Meier (KM) estimates, log-rank tests and Cox proportional hazards (CoxPH) models, all of which we will describe shortly. This post is an attempt to review the most classical approach to survival analyses, in prevision for a following post discussing how everything fares in the high dimensional setting and solutions to potential problems that might arise.
+
+</section>
+
+<section>
 
 ## Survival setting and notations
 
@@ -56,6 +62,9 @@ where $\Lambda(t)$ is called the __cumulative hazard__ and is interpretable as t
 
 In summary, we can say that while the hazard relates to the incident (current) event rate and survival reflects the cumulative non-occurrence, both provide equivalent characterizations of the distribution $T$. Given the survival function, we can always differentiate to obtain the density and then calculate the hazard. Given the hazard, we can always integrate to obtain the cumulative hazard and then exponentiate to obtain the survival function.
 
+</section>
+<section>
+
 ## Kaplan-Meier estimation
 
 However, estimation of the survival function is not trivial. If the data were not censored, the obvious estimate would be the empirical survival function derived from our data
@@ -64,9 +73,7 @@ $$
 \hat{S}(t) = \frac1n \sum_{i=1}^n \mathbb{I}_{t_i > t}
 $$
 
-where $\mathbb{I}_{t_i > t}$ is the indicator function that takes the value $1$ if the associated condition is true and $0$ otherwise. The estimator is then simply the proportion of participants alive (ie. that did not experiment the event) at time $t$. But due to censoring, we do not have the time of event $t_i$ for all patients and therefore must find another way to estimate the survival function. Kaplan and Meier (1958) came up with a way to do that elegantly. 
-
-> Small anecdote: after submitting similar manuscripts to the _Journal of the American Statistical Association_, its editor, Pr. John Tukey, then coworker of Kaplan at Bell labs and PhD thesis director of Meier, convinced them to fuse their work into one single paper that will later be the most highly cited paper in the history of statistics. 
+where $\mathbb{I}_{t_i > t}$ is the indicator function that takes the value $1$ if the associated condition is true and $0$ otherwise. The estimator is then simply the proportion of participants alive (ie. that did not experiment the event) at time $t$. But due to censoring, we do not have the time of event $t_i$ for all patients and therefore must find another way to estimate the survival function. Kaplan and Meier (1958) came up with a way to do that elegantly<Marginnote id="km-paper">Small anecdote: after submitting similar manuscripts to the Journal of the American Statistical Association, its editor, Pr. John Tukey, then coworker of Kaplan at Bell labs and PhD thesis director of Meier, convinced them to fuse their work into one single paper that will later be the most highly cited paper in the history of statistics.</Marginnote>.
 
 Let $t_{(1)} < t_{(2)} < ... < t_{(m)}$ denote the distinct ordered times of events, and let $n\_i$ be the number alive just before $t_{(i)}$; $n_i$ is considered the number exposed to risk at time $t\_i$. The __Kaplan-Meier estimator__ of the survival function is 
 
@@ -74,30 +81,44 @@ $$
 \hat{S}(t) = \prod_{i:t_{(i)} < t} \left( 1 - \frac{d_i}{n_i} \right) 
 $$ 
 
-which is really just a product of the observed probability to survive at time $t_{(1)}$ times the probability to survive at time $t_{(2)}$ conditioned on having survived at time $t_{(1)}$, and so on. The value of $\hat{S}(t)$ being constant between times of events, the estimated probability is a step function that changes value only at the time of each event. Interestingly enough, this estimator actually corresponds to the __nonparametric maximum likelihood estimator__ (MLE) of the survival function. Furthermore, if there is no censoring, the KM estimate coincides with the empirical survival function.
+which is really just a product of the observed probability to survive at time $t_{(1)}$ times the probability to survive at time $t_{(2)}$ conditioned on having survived at time $t_{(1)}$, and so on. The value of $\hat{S}(t)$ being constant between times of events, the estimated probability is a step function that changes value only at the time of each event. Interestingly enough, this estimator actually corresponds to the __non-parametric maximum likelihood estimator__ (MLE) of the survival function. Furthermore, if there is no censoring, the KM estimate coincides with the empirical survival function.
 
 The KM survival curve, a plot of the KM survival probability against time, provides a useful summary of the data that can be used to estimate measures such as median survival time. As an example, we'll be using a dataset of 42 leukemia patients in a clinical trial to compare treatment with placebo (from [Freireich et al.](http://www.bloodjournal.org/content/21/6/699?sso-checked=true), 1963).
 
-|![General KM](km_general.png)|
-|:--:|
-|Each step of the curve corresponds to an event time at which one or several patients relapsed. X-axis corresponds to survival time in weeks and Y-axis to the proportion of survivors among participants at risk at each time t. In pale red is the 95% confidence interval, and each tick on the curve corresponds to censoring time (ie. indicates when a patient was lost to follow-up without having the event).|
+<figure>
 
+<Marginnote id="km-general-legend">Each step of the curve corresponds to an event time at which one or several patients relapsed. X-axis corresponds to survival time in weeks and Y-axis to the proportion of survivors among participants at risk at each time t. In pale red is the 95% confidence interval, and each tick on the curve corresponds to censoring time (ie. indicates when a patient was lost to follow-up without having the event).</Marginnote> 
 
-|![Gender KM](km_gender.png)|
-|:--:|
-|Here we plot survival curves estimates according to `Gender` groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.|
+![General KM](km_general.png)
 
-|![Treatment KM](km_treatment.png)|
-|:--:|
-|If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.|
+</figure>
 
-> It is good practice to also report the risk count table under the curves, which indicates at each time the number of participants at risk of having the event. It was omitted here for the sake of tidyness.
+<figure>
+
+<Marginnote id="km-general-legend">Here we plot survival curves estimates according to <code>>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.</Marginnote> 
+
+![General KM](km_gender.png)
+
+</figure>
+
+<figure>
+
+<Marginnote id="km-general-legend">If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.</Marginnote> 
+
+![General KM](km_treatment.png)
+
+</figure>
+
+It is good practice to also report the risk count table under the curves, which indicates at each time the number of participants at risk of having the event. It was omitted here for the sake of tidyness.
 
 The Kaplan-Meier curves are a really useful way to represent survival analyses, as they speak for themselves and are relatively easy to interprete. This quality is one of the main reasons that made them so widespread in the medical research area. They are often accompanied by a p-value that is obtained by a formal test we'll be discussing now.
 
+</section>
+<section>
+
 ## Log-rank test
 
-Survival in two or more groups can be compared by formal statistical tests, among which the log-rank test ([Peto et al.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2394262/#bib12), 1977) is the most common by far—so common in fact, that you're expected to justify it in your paper if you're using another one. It is a nonparametric test used to test the null hypothesis that there is no difference between the populations in the probability of an event at any time point.  At each time of events and for each group, we calculate the number of events one would expect since the previous event if there were no differences between the groups, and compare them to the observed number of events with the following statistic
+Survival in two or more groups can be compared by formal statistical tests, among which the log-rank test ([Peto et al.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2394262/#bib12), 1977) is the most common by far—so common in fact, that you're expected to justify it in your paper if you're using another one. It is a non-parametric test used to test the null hypothesis that there is no difference between the populations in the probability of an event at any time point.  At each time of events and for each group, we calculate the number of events one would expect since the previous event if there were no differences between the groups, and compare them to the observed number of events with the following statistic
 
 $$
 \chi^2 = \sum_{g=1}^G \frac{(O_g - E_g)^2}{E_g}
@@ -119,16 +140,23 @@ $$
 
 where $O_g/E_g$ is the estimated relative excess hazard in group $g$. This will serve as a very brief introduction to the important notion of hazard ratio; in practice, it is better to estimate it using a regression modelling technique such as the Cox proportional hazards model we will study shortly. 
 
+<div className="table-wrapper">
+
 |Variable | Log-rank $\chi^2$ statistic | p-value|
 |--- | --- | ---|
 |Gender | $0.5569$ | $0.4555$|
 |Treatment | $16.7929$ | $<10^{-4}$|
 
+</div>
+
 Above are the log-rank tests for the plots we saw in the previous section. Our visual intuitions have indeed been comforted by the tests results: we were not able to detect a difference in survival between genders, but there is a significant one between the placebo and the treatment groups. Looking back at the plots, we can say that the highlighted difference is in favor of the treatment group. Because the logrank test is purely a test of significance it cannot provide an estimate of the size of the difference between the groups or a confidence interval.
+
+</section>
+<section>
 
 ## Interlude: assumptions
 
-Even if the Kaplan-Meier estimate and the log-rank test are considered nonparametric, they still rely on non-trivial assumptions. Luckily, they are the same for both:
+Even if the Kaplan-Meier estimate and the log-rank test are considered non-parametric, they still rely on non-trivial assumptions. Luckily, they are the same for both:
 
 1. At any time, patients who are censored should have the same survival prospects as those who continue to be followed—ie. censoring should not be related to prognosis.
 
@@ -137,6 +165,9 @@ Even if the Kaplan-Meier estimate and the log-rank test are considered nonparame
 3. We assume that the event happens at the time specified. This is often not the case for events happening between two examinations for example.
 
 These three conditions are seldom completely fulfilled; this rarely forbids the use of the above mentioned methods, but this can lead to some bias in the estimations and should be reported in the papers.
+
+</section>
+<section>
 
 ## Cox proportional hazards model
 
@@ -193,7 +224,7 @@ Cox-PH model summary:
 n = 42, number of events = 30
 ```
 
-<div class="table-wrapper">
+<div className="table-wrapper">
 
 |Variable | coef | exp(coef) | se(coef) | $z$ | $p$| $\downarrow$ 0.95 | $\uparrow$ 0.95 |
 |--- | --- | --- | --- | --- | ---| --- | --- |
@@ -211,10 +242,14 @@ The coefficients in a Cox regression relate to hazard; a positive coefficient in
 
 The __hazards ratio__ associated with a predictor variable is given by the exponent of its coefficient, with $\text{HR}<1$ indicating protective effect, $\text{HR}=1$ no influence and $\text{HR}>1$ worse prognosis. It can be seen as a relative event rate and its interpretation depends on the measurement scale of the covariate in question; an increase in $x$ units leads to an increase in hazard rate of $x \times\text{HR}$ if all other covariates remain the same. If we take the `Treatment` variable, as it is binary ($0$ for treatment, $1$ for placebo), we can say that receiving a placebo (ie. an increase of one unit) leads to an increase in $4.5$ of the hazard rate (ie. at all times, an individual from the placebo group has $4.5\times$ more chance to have the event than an individual from the treatment group that has the same gender and logWBC). If we take the `logWBC` variable (logarithm of the white blood cells count), we see that an increase in one unit leads to an increase in $5.4$ in the hazard rate. More broadly, if we consider the two following individuals
 
+<div className="table-wrapper">
+
 | ID | Gender | Treatment | logWBC |
 | --- | --- | --- | --- |
 | 1 | Female | placebo | 1 |
 | 2 | Male | treatment | 3 |
+
+</div>
 
 then their hazard rate can be expressed as 
 
@@ -247,9 +282,12 @@ Back to our Cox-model summary, the next value is the __standard error__ of our c
 
 The __p-value__ of our coefficient is commonly given by a __Wald test__, which $\boldsymbol{z}$ statistic is calculated by $z=\beta / se(\beta)$ and then compared to a normal distribution. The lower and upper bounds of the $95\%$ confidence interval is just $$\beta \pm 1.96 \times se(\beta)$$. If the p-value is lower than a threshold (usually $0.05$), then we can say that our coefficient is significantly different than $0$ (equivalent to saying that our HR is significantly different than $1$) and that our corresponding covariate is associated with the event rate. If not, then we cannot say for sure that the value we estimated is actually reflecting the real value or not given our sample; in our example, the p-value for the variable `Gender` is non significant, which means we cannot say much about its relation to the event rate. It doesn't mean that it's not related—maybe we just lack power and it would be significant with more participants in our study.
 
+</section>
+<section>
+
 ## Interlude: assumptions
 
-I lied a little with the title of this post: the Cox proportional hazards model is not totally nonparametric. Our model contains two unknown parameters, $$\lambda_0 (t)$$ and $\boldsymbol{\beta}$, the former being an infinite-dimensional component, but the latter being finite-dimensional. We call such a model where both coexist __semiparametric__. Therefore, on top of the ones already listed above in the previous interlude, it relies on another parametric assumption, namely the __proportional hazards assumption__.
+I lied a little with the title of this blog post: the Cox proportional hazards model is not totally non-parametric. Our model contains two unknown parameters, $$\lambda_0 (t)$$ and $\boldsymbol{\beta}$, the former being an infinite-dimensional component, but the latter being finite-dimensional. We call such a model where both coexist __semiparametric__. Therefore, on top of the ones already listed above in the previous interlude, it relies on another parametric assumption, namely the __proportional hazards assumption__.
 
 I've already mentioned it several times; when I gave an interpretation for hazard ratios, I wrote that the difference in hazard rates was effective __at all times__. This is what the proportionality assumption is. Putting it another way, the relative risk of two individuals with different covariate values is __independent of time__. For example, if the variable considered is `Age`, it would mean that the hazard ratio for the considered event between a 25y.o and a 28y.o participants is the same as the one between a 95y.o and a 98y.o participants (increase of 3 units of age in both cases).
 
@@ -262,15 +300,18 @@ $$
 
 Thus, if the proportional hazards hold, the log cumulative hazards for each group should differ by the same constant—ie. the curves should be parralel.
 
-|![Log-log](loglog.png)|
-|:--:|
-|The log cumulative hazard curves for the `Gender` variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the `Treatment` variable which means it satisfies th PH assumption.|
+<figure>
+<Marginnote id="loglog">The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.</Marginnote>
 
-> For continuous variables, such as `logWBC`, we can plot the same after categorizing our data according to quantiles.
+![img](loglog.png)
+</figure>
 
 So now, what to do when there are covariates that do not satisfy the PH assumption? We will just shortly mention the two most common options out there: either [stratifying](https://stat.ethz.ch/education/semesters/ss2011/seminar/contents/presentation_5.pdf) the model according to the concerned variables (if there's just a few), or introducing [time-dependent effects](http://www.math.ucsd.edu/~rxu/math284/slect7.pdf). The former method assumes PH in each strata, while the latter lets the impact of covariates vary over time. Both are easily implemented in common statistical softwares.
 
 Two other assumptions for the Cox model are made explicit by the formulation of the hazard function: it assumes linear combination of the covariates, as well as the fact that the link function is exponential (cf. [generalized linear models](https://en.wikipedia.org/wiki/Generalized_linear_model)).
+
+</section>
+<section>
 
 ## Evaluation of the model
 
@@ -285,20 +326,32 @@ The most widespread statistic to measure goodness-of-fit is __Harrell's [C-index
 
 Many papers only report the C-statistic as a goodness-of-fit index of their model, but as stated by [Steryerberg et al.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3575184/), it is not enough to capture all aspects of it. The C-statistic is a good measure of the __discrimination__ of a model—ie. the ability to discriminate between those with and those without the outcome—but other metrics should be reported alongside it such as calibration plots or the Hosmer-Lemeshow test that measure __calibration__ of a model (agreement between observed outcomes and predictions). When possible, overall performance should also be evaluated on external data that was not used to fit the model.
 
+</section>
+<section>
+
 ## Interpretation pitfalls
 
 Many biases can be introduced from the design of the study, and should always be taken into account when interpreting the results of survival analyses (and of any other kind of analysis in general). In clinical trials for example, proper randomization of treatment assignment is not always possible, and can lead to serious __selection biases__, ie. the samples obtained are not representative of the population intended to be analyzed. Among those, one of the most prominent is the __survival bias__ or survivorship bias, where the sample is only represented by participants that survived up to some point. An excellent (and cynical) example of its consequences can be found in this 
 [correspondance](http://ascopubs.org/doi/full/10.1200/JCO.2009.23.3601) to the authors of a biased paper published in one of the most influential oncology journal; in a secondary analysis, they compared three treatment durations and concluded that longer treatment increased overall, disease-free and progression-free survival. However, patients who received treatment for more than 5 years (ie, group 3) __first had to live for 5 years__—ie. group 3 was composed of subjects that were maybe just inherently more resistant than the two other groups. The following plots were simulated by the authors of the correspondance
 
-|![bias1](survival_bias1.jpeg)|
-|:--:|
-|At first glance, it seems like group 3 has indeed better prospects than the other groups, with a significant p-value for the overall Wald test.|
+<figure>
+<Marginnote id="survival-bias-1">At first glance, it seems like group 3 has indeed better prospects than the other groups, with a significant p-value for the overall Wald test.</Marginnote>
 
-|![bias1](survival_bias2.jpeg)|
-|:--:|
-|However, when keeping only the subjects that survived 5 years in all groups for analysis (the landmark method, [Anderson et al.](http://ascopubs.org/doi/10.1200/JCO.1983.1.11.710)), the advantage is no more.|
+![bias1](survival_bias1.jpeg)
+</figure>
+
+<figure>
+<Marginnote id="survival-bias-2">However, when keeping only the subjects that survived 5 years in all groups for analysis (the landmark method, <a href="http://ascopubs.org/doi/10.1200/JCO.1983.1.11.710" target="_blank" rel="noreferrer">Anderson et al</a>, the advantage is no more.
+
+</Marginnote>
+
+![bias1](survival_bias2.jpeg)
+</figure>
 
 There are many other types of biases one should be aware of when analysing results, especially in secondary analyses as study designs are usually conceived with only primary outcomes in mind and are often ill-suited for others, but they relate to statistical biases in general and would take a whole post to write about.
+
+</section>
+<section>
 
 ## Conclusion
 
@@ -306,13 +359,4 @@ This concludes my review of classical methods commonly found in survival analyse
 
 All code from this post can be found in a notebook on my github [here](https://github.com/deepPhong/blog-resources/blob/master/blog_survival.ipynb).
 
----
-
-__Sources__
-
-https://arxiv.org/pdf/1705.10245.pdf
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2394262/
-http://data.princeton.edu/wws509/notes/c7s1.html
-https://web.stanford.edu/~lutian/coursepdf/STAT331unit3.pdf
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC403858/
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3575184/
+</section>

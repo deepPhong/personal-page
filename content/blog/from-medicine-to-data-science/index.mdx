@@ -5,6 +5,47 @@ description: "Useful resources to catch up"
 tags: ["resources", "medicine", "data science", "books"]
 ---
 
+<section>
+
+```jsx
+import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
+const Bio = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          social {
+            twitter
+          }
+        }
+      }
+    }
+  `)
+
+  // Set these values by editing "siteMetadata" in gatsby-config.js
+  const author = data.site.siteMetadata?.author
+
+  return (
+    <section className="bio">
+      {author?.name && (
+        <p>
+          {author?.summary || null}
+        </p>
+      )}
+    </section>
+  )
+}
+
+export default Bio
+
+```
+
 Massive amounts of healthcare data are generated everyday in public hospitals, most of which are sitting untouched in storage. It is especially true here in France, where data access policies are pretty strict, electronic health records (EHR) pretty new, and hospital-employed data scientists pretty non-existant (well, let's see what will change in the future with the recent announcements of our president and [Rapport Villani](https://www.aiforhumanity.fr/en/)). Among other reasons, this realization led me to where I am today; I recently — yesterday in fact — finished an [MSc in Data Science](https://datascience-x-master-paris-saclay.fr/) at Ecole Polytechnique and Université Paris-Saclay, and am planning to put what I've learned to unravel the mysteries hidden in all this dormant data.
 
 As this is my first post on this blog, it will also serve as a brief introduction to my background. After medical school, tired of numbingly learning books by heart, I chose to pursue a residency in Public Health and Social Medicine to do a little more maths than other specialties allowed. My first year was divided into two research internships, one in biostatistics and one in epidemiology. In both, on top of being inspired by great mentors, I discovered how properly handled data could give powerful insights and have a huge impact on people's health and well-being. I also realized how scarce "new" statistical approaches (ie. machine learning, deep learning) were to be found in actual studies and real-life applications. By that time, I'd already heard of a solid MSc in Data Science given by one of our top schools, sent my application, and voilà, here I am today, eager to start my new internship next week doing research on adverse drug reaction detection in large databases. More on that later.
@@ -12,6 +53,9 @@ As this is my first post on this blog, it will also serve as a brief introductio
 This year taught me tremendous amounts of knowledge, but it was hard. Very hard. The fact that I was actually accepted in an applied maths curriculum still surprises me to this day; coming from medicine (which you start right after high school in France), I did not meet the mathematical nor programming prerequisites. Sure, I did spend a year working on statistical analyses, and at that time I thought that I was ready to go deeper, but I soon realized how much I lacked in terms mathematical foundations to truly get the most of out my Data Science MSc.
 
 Having spent the summer digging out good resources to get me to a decent level in a limited amount of time, I figured I would start this blog by sharing what helped me preparing this year and getting through it alive (spoiler: I even enjoyed it). I will list in no specific order some of the courses I had, and the relevant associated resources linked underneath.
+
+</section>
+<section>
 
 ## Convex Optimization
 
@@ -25,21 +69,33 @@ Convex optimization was one of the hardest subjects for me this year, drawing he
 
 * __Fabian Pedregosa's__ [blog](http://fa.bianp.net/) — lots of useful posts that were key for me to understand some of my lectures. Also, a useful [inequalities cheatsheet](http://fa.bianp.net/blog/2017/optimization-inequalities-cheatsheet/) for exercises and exams.
 
+</section>
+<section>
+
 ## Probabilistic Graphical Models / Bayesian Statistics
 
 Those two subjects were heavily based on a very famous book in the data science field.
 
 * __Pattern recognition and Machine Learning__ by _Christopher Bishop_ — do not be scared by the size of this [book](https://www.microsoft.com/en-us/research/people/cmbishop/#!prml-book?from=http%3A%2F%2Fresearch.microsoft.com%2F~cmbishop%2Fprml%2Findex.htm). It's a well-written one that starts from the basics. Hopefully, you won't need to read it all in one go (I didn't), and the most helpul chapters were the ones about Gaussian Mixture, Variational Bayesian inference and Markov Chain Monte Carlo (MCMC) methods.
 
+</section>
+<section>
+
 ## Machine Learning
 
 * __Data Science from Scratch__ by _Joel Grus_ — the author dives into each of the widely used machine learning models, coding everything in base Python and Numpy from scratch. It's a very helpful way, if not the best, to understand how the models work. It is also a good way to learn Python best practices. All code available on the author's associated [github repository](https://github.com/joelgrus/data-science-from-scratch).
+
+</section>
+<section>
 
 ## Speech, Text and Natural Language Processing
 
 * __Speech and Language Processing__ by _Dan Jurafsky_ and _James H. Martin_ — it was the [book](https://web.stanford.edu/~jurafsky/slp3/) recommended by the teachers and the chapters on parsing (from 11 to 14) were really useful when we tackled the subject.
 
 * __NLTK book__ by _Steven Bird_, _Ewan Klein_, and _Edward Loper_ — `NLTK` is one of the most widely used package for natural language processing (NLP) in Python. The autors have written a book commonly referred as ["The NLTK book"](http://www.nltk.org/book/) which is a great introduction to NLP with NLTK (obviously).
+
+</section>
+<section>
 
 ## Deep Learning
 
@@ -53,9 +109,15 @@ Those two subjects were heavily based on a very famous book in the data science 
 
 * __The Matrix Calculus You Need for Deep Learning__ by _Terence Parr_ and _Jeremy Howard_ — this is a perfect example of what I've found thanks to Twitter. I actually read it after the course finished, but this [paper](https://arxiv.org/abs/1802.01528) is definitely something I wish I'd found at the beginning.
 
+</section>
+<section>
+
 ## Learning with Agregation
 
 * __Prediction, Learning and Games__ by _Nicolò Cesa-Bianchi_ and _Gabor Lugosi_ — the [book](http://homes.dsi.unimi.it/~cesabian/predbook/) of reference in the field, with progressive build-up and easy-to-follow proofs. Aiming to predict as well as the best out of a bunch of predictors for one or multiple tasks is really fun.
+
+</section>
+<section>
 
 ## Compressed Sensing
 
@@ -65,8 +127,13 @@ One of the most interesting subject this year, grounded in solid maths and with 
 
 * __Michael Lustig's website__ — he is an associate professor as UC Berkeley, and has worked a lot on the applications of compressed sensing in MRI. His website has a lot of useful resources, links to seminal papers and exercises to play with.
 
+</section>
+<section>
+
 ## Kernel Methods for Machine Learning
 
 * __The course's slides__ by _Jean-Philippe Vert_ and _Julien Mairal_ — these [slides](http://members.cbio.mines-paristech.fr/~jvert/svn/kernelcourse/course/2018mva/index.html) are really well-made and are self-contained; I usually hate reading slides when I study for exams, but those were the exception.
 
 And that's it. These were the resources that helped me make sense of what I was taught during lectures, and I'm sure I'll come back to them on a regular basis. Do not hesitate to add other links in the comment section, I'm always in the lookout for great teaching content to learn from.
+
+</section>
