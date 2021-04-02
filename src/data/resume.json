@@ -29,7 +29,7 @@
   },
   "work": [
     {
-      "company": "AP-HP, WIND-DSI",
+      "company": "AP-HP - WIND-DSI",
       "position": "Data scientist & Medical advisor",
       "website": "https://eds.aphp.fr/",
       "startDate": "2020-11-01",
@@ -65,7 +65,7 @@
       "highlights": ["data engineering", "medical expertise"]
     },
     {
-      "company": "AP-HP, DIM Paris-Sud + WIND-DSI",
+      "company": "AP-HP - DIM Paris-Sud + WIND-DSI",
       "position": "Medical Information Physician",
       "website": "https://eds.aphp.fr/",
       "startDate": "2019-05-01",
@@ -118,6 +118,7 @@
       "studyType": "Master of Science",
       "startDate": "2017-09-01",
       "endDate": "2018-07-31",
+      "website": "https://www.ip-paris.fr/education/masters/mention-mathematiques-appliquees-statistiques/master-year-2-data-science",
       "gpa": "",
       "courses": []
     },
@@ -127,6 +128,7 @@
       "studyType": "Master of Science",
       "startDate": "2016-09-01",
       "endDate": "2017-07-31",
+      "website": "https://www.universite-paris-saclay.fr/en/education/master/public-health/m1-methodes-en-sante-publique-filieres-medicales",
       "gpa": "",
       "courses": []
     },
@@ -136,6 +138,7 @@
       "studyType": "Medical Doctorate",
       "startDate": "2009-09-01",
       "endDate": "2021-10-31",
+      "website": "https://medecine.sorbonne-universite.fr/",
       "gpa": "",
       "courses": []
     }

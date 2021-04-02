@@ -28,48 +28,36 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
       <Bio />
-      <div className="posts">
-      <h2>Posts</h2>
-        <ol style={{ listStyle: `none` }}>
+      <section className="posts">
+        <h2>Posts</h2>
+        <ol>
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
-
             return (
               <li key={post.fields.slug}>
-                <article
-                  className="post-list-item"
-                  itemScope
-                  itemType="http://schema.org/Article"
-                >
+                <div className="post-list-item">
                   <header>
-                    <h4 
-                      style={{ display: `inline`}}
-                    >
+                    <h3>
                       <Link to={post.fields.slug} itemProp="url">
                         <span itemProp="headline">{title}</span>
                       </Link>
-                    </h4>
-                    <br />
-                    <small 
-                      // style={{ listStyle: `none`, float: `right` }}
-                    >
+                    </h3>
+                    <small>
                       {post.frontmatter.date} - {post.timeToRead} min read
                     </small>
                   </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
-                      }}
-                      itemProp="description"
-                    />
-                  </section>
-                </article>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: post.frontmatter.description || post.excerpt,
+                    }}
+                    itemProp="description"
+                  />
+                </div>
               </li>
             )
           })}
         </ol>
-      </div>
+      </section>
     </Layout>
   )
 }

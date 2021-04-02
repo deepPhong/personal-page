@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 import Comments from "../components/comments"
 
 import "katex/dist/katex.min.css"
-import "../style.css"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
@@ -28,6 +27,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <p className="subtitle">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="tags">
             {post.frontmatter.tags.map((tag, index) => {
               const link = `/tags/${kebabCase(tag)}`
@@ -38,10 +38,8 @@ const BlogPostTemplate = ({ data, location }) => {
               )
             })}
           </ul>
-          <p>{post.frontmatter.date} - {post.timeToRead} min read</p>
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
-        {/* <hr /> */}
         <Comments />
       </article>
       <nav className="blog-post-nav">

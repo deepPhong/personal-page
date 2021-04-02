@@ -275,7 +275,6 @@ a:focus {
 .summary {
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-6);
 }
 
 .bio-avatar {
@@ -287,12 +286,6 @@ a:focus {
 .bio-avatar .picture {
   min-width: var(--profile-pic-width);
   border-radius: calc(var(--profile-pic-width) / 2);
-}
-
-.summary p {
-  font-size: var(--fontSize-1);
-  margin-bottom: var(--spacing-0);
-  line-height: var(--lineHeight-subnormal);
 }
 
 .tags {
@@ -451,19 +444,13 @@ a:focus {
 
 .publications h4 {
   margin-bottom: var(--spacing-2);
-  /* color: var(--color-primary) */
 }
 
 .publications .date {
   text-align: right;
 }
 
-.resume h5 {
-  display: inline;
-}
-
 .resume .date {
-  /* display: inline; */
   font-size: var(--fontSize-mini);
 }
 

@@ -12,12 +12,6 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -133,7 +127,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `dinh-phong nguyen`,
-        short_name: `phong`,
+        short_name: `dpnguyen.com`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ff5700`,
@@ -150,6 +144,12 @@ module.exports = {
         name: 'src',
         path: `${__dirname}/src/`
       }
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://dpnguyen.com`,
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

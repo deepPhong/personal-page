@@ -15,21 +15,23 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <h1>{tagHeader}<a className=".tag-box" href={link}>{tag}</a></h1>
-      <ul className="tag-posts">
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <h4>
-                <Link to={slug}>{title}</Link>
-              </h4>
-            </li>
-          )
-        })}
-      </ul>
-      <Link to="/tags">⇠ All tags</Link>
+      <section className="tag-page">
+        <h2>{tagHeader}<a className="tag-box" href={link}>{tag}</a></h2>
+        <ul className="tag-posts">
+          {edges.map(({ node }) => {
+            const { slug } = node.fields
+            const { title } = node.frontmatter
+            return (
+              <li key={slug}>
+                <h4>
+                  <Link to={slug}>{title}</Link>
+                </h4>
+              </li>
+            )
+          })}
+        </ul>
+        <div className="all-tags-link">⇠<Link to="/tags">All tags</Link></div>
+      </section>
     </Layout>
   )
 }
