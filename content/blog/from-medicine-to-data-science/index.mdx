@@ -7,45 +7,6 @@ tags: ["resources", "medicine", "data science", "books"]
 
 <section>
 
-```jsx
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `)
-
-  // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author
-
-  return (
-    <section className="bio">
-      {author?.name && (
-        <p>
-          {author?.summary || null}
-        </p>
-      )}
-    </section>
-  )
-}
-
-export default Bio
-
-```
-
 Massive amounts of healthcare data are generated everyday in public hospitals, most of which are sitting untouched in storage. It is especially true here in France, where data access policies are pretty strict, electronic health records (EHR) pretty new, and hospital-employed data scientists pretty non-existant (well, let's see what will change in the future with the recent announcements of our president and [Rapport Villani](https://www.aiforhumanity.fr/en/)). Among other reasons, this realization led me to where I am today; I recently — yesterday in fact — finished an [MSc in Data Science](https://datascience-x-master-paris-saclay.fr/) at Ecole Polytechnique and Université Paris-Saclay, and am planning to put what I've learned to unravel the mysteries hidden in all this dormant data.
 
 As this is my first post on this blog, it will also serve as a brief introduction to my background. After medical school, tired of numbingly learning books by heart, I chose to pursue a residency in Public Health and Social Medicine to do a little more maths than other specialties allowed. My first year was divided into two research internships, one in biostatistics and one in epidemiology. In both, on top of being inspired by great mentors, I discovered how properly handled data could give powerful insights and have a huge impact on people's health and well-being. I also realized how scarce "new" statistical approaches (ie. machine learning, deep learning) were to be found in actual studies and real-life applications. By that time, I'd already heard of a solid MSc in Data Science given by one of our top schools, sent my application, and voilà, here I am today, eager to start my new internship next week doing research on adverse drug reaction detection in large databases. More on that later.
