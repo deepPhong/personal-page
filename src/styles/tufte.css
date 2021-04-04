@@ -638,6 +638,10 @@ body,
 
 .blog-post-nav {
   width: var(--section-width);
+  display: flex;
+  justify-content: space-around;
+  margin: var(--spacing-4) var(--spacing-0);
+  font-size: var(--fontSize-3);
 }
 
 .summary {
@@ -845,5 +849,9 @@ body,
   
   .resume .education {
     margin: 0;
+  }
+
+  .blog-post-nav {
+    font-size: var(--fontSize-1);
   }
 }
