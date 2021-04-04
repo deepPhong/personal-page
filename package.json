@@ -49,6 +49,7 @@
     "react-toggle-dark-mode": "^1.0.4",
     "react-typography": "^0.16.19",
     "remark-html-katex": "^3.0.0",
+    "remark-unwrap-images": "^2.0.0",
     "rose-pine": "github:rose-pine/vscode",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "babel-preset-gatsby": "^1.2.0",
+    "gatsby-remark-code-titles": "^1.1.0",
     "prettier": "2.2.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",

@@ -25,7 +25,7 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        <section>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p className="subtitle">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="tags">
@@ -38,7 +38,7 @@ const BlogPostTemplate = ({ data, location }) => {
               )
             })}
           </ul>
-        </header>
+        </section>
         <MDXRenderer>{post.body}</MDXRenderer>
         <Comments />
       </article>
