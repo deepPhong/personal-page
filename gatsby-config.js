@@ -2,11 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `dinh-phong nguyen`,
     author: {
-      name: `Dinh-Phong NGUYEN`,
-      summary: `Once in a while, I write about machine learning, biostatistics and programming in an attempt to clarify ideas in my head.`,
+      name: `Dinh-Phong Nguyen`,
+      summary: `Once in a while, I write about machine learning, biostatistics and web development in an attempt to clarify ideas in my head.`,
     },
-    description: `My personal page`,
-    siteUrl: `http://phong.ovh`,
+    description: `dinh-phong nguyen`,
+    siteUrl: `http://dpnguyen.com`,
     social: {
       twitter: `deepPhong`,
     },
