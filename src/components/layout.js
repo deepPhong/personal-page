@@ -23,8 +23,6 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname?location.pathname:null) === rootPath
 
-  // const headline = isRootPath? title: "⇠ home";
-
   const toggleProperties = {
     dark: {
       circle: {
@@ -75,9 +73,9 @@ const Layout = ({ location, title, children }) => {
                 sunColor="#ff5700"
                 animationProperties={toggleProperties}
                 onChange={(e) => {
-                  toggleTheme(e ? 'dark': 'light');
-                  const isComment = document.querySelector("iframe.utterances-frame") !== null
-                  if (isComment === true) {
+                  toggleTheme(e? 'dark': 'light');
+                  const isComment = document.querySelector("iframe.utterances-frame")
+                  if (isComment) {
                     const utterancesTheme = e? "icy-dark": "github-light";
                     (
                       document

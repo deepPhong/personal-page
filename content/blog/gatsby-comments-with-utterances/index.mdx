@@ -52,6 +52,46 @@ const COMMENTS_ID = "comments-container";
 
 const Comments = () => {
   useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    // Replace with the repo on which you configured Utterances
+    script.setAttribute("repo", "[ENTER REPO HERE]");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("crossorigin", "anonymous");
+    script.async = true;
+
+    const comments = document.getElementById(COMMENTS_ID);
+    if (comments) comments.appendChild(script);
+
+    return () => {
+      const comments = document.getElementById(COMMENTS_ID);
+      if (comments) comments.innerHTML = "";
+    };
+  }, []);
+
+  return (
+    <div id={COMMENTS_ID} />
+  );
+};
+
+export default Comments;
+```
+</section>
+
+<section>
+
+## Dynamically change the theme
+
+As the created widget is actually an iframe, we cannot change its CSS properties ourselves directly. Another way to make its theme match your blog's is to add a toggle that will switch the theme according to the class of your `body` or `html` element, depending on how you implemented your dark theme toggle. For example, on this website, a "dark" class is added to the `body` element when you click on the sun/moon icon on the top right, which in turn triggers some color changes in my CSS file. Let's add a little bit of code to our component (see highlighted lines):
+
+```jsx:title=src/components/comments.js
+import React, { useEffect } from "react";
+
+const COMMENTS_ID = "comments-container";
+
+const Comments = () => {
+  useEffect(() => {
     const toggleDark = document.body.classList.contains("dark"); // highlight-line
 
     const script = document.createElement("script");
@@ -80,8 +120,40 @@ const Comments = () => {
 export default Comments;
 ```
 
-As the created widget is actually an iframe, we cannot change its CSS properties ourselves directly. Another way of dynamically make its theme match your blog's is to add a toggle that will switch the theme according to the class of your `body` or `html` element, depending on how you implemented your dark theme toggle (see highlighted lines). For example, on this website, a "dark" class is added to the `body` element when you click on the sun/moon icon on the top right, which in turn triggers some color changes in my CSS file.
+Now if you import and use the `<Comments />` component in your blog post template (mine is at `src/templates/blog-post.js`, as yours should be if you've used the `gatsby-starter-blog`), it will indeed match the theme of the Utterances widget to your blog's theme, but **only on the blog posts's initial loading**. If you try to switch your theme while already on the blog post, it will not toggle a change in the comments widget. Let's correct this!
 
-And voilà, now you can just import the `<Comments />` component you created anywhere you'd like. A good place would be at the bottom of your blog post template if you have one (mine is at `src/templates/blog-post.js`, as should be yours if you've used the `gatsby-starter-blog`).
+Below is an extract from my layout template, which is the skeleton that is loaded on each page, mainly containing the navigation bar and the footer. The <DarkModeSwitch /> component is basically a glorified checkbox that keeps track of the currently selected theme. We will make use of the `iframe.contentWindow.postMessage()` method, which enables to send a "message" directly to the Utterances iframe content through [cross-window communication](https://javascript.info/cross-window-communication).
+
+<Marginnote id="dark-mode-switch-component">
+  When clicked, what the <code>DarkModeSwitch</code> does is
+  <ol>
+  <li>Switches the theme class of our <code>body</code> element with <code>toggleTheme()</code></li>
+  <li>If there is an Utterances iframe in the current page, sends a "message" to it containing the theme we wish to set</li>
+</ol>
+</Marginnote>
+
+```jsx:title=src/components/layout.js
+<DarkModeSwitch
+  checked={theme === 'dark'}
+  onChange={(e) => {
+    toggleTheme(e? 'dark': 'light');
+    const isComment = document.querySelector("iframe.utterances-frame");
+    if (isComment) {
+      const utterancesTheme = e? "icy-dark": "github-light";
+      (
+        document
+        .querySelector("iframe.utterances-frame")
+        .contentWindow.postMessage(
+          { type: "set-theme", theme: utterancesTheme },
+          "https://utteranc.es/"
+        )
+      )
+    }
+  }}
+/>
+```
+
+
+And voilà, you now have a fully functional `<Comments />` component that can bring a fully functional and themed comment system wherever you'd like! 
 
 </section>

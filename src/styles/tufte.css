@@ -365,6 +365,11 @@ img {
   position: relative;
 }
 
+.sidenote > ol,
+.marginnote > ol {
+  font-size: 1.1rem;
+}
+
 .sidenote-number {
   counter-increment: sidenote-counter;
 }
