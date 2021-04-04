@@ -88,6 +88,9 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
 
+  --color-background-dark: #2f4f4f;
+  --color-background-light: #fffff8;
+
   --profile-pic-width: 100px;
   --color-primary: #ff5700;
   --color-text-normal: #111;
@@ -111,6 +114,8 @@
   --color-text-regex: #9B71C6;
   --color-text-number: #8799B0;
   --color-text-important: #E45734;
+
+  --grvsc-border-radius: 6px;
 }
 
 /* Tufte CSS styles */
@@ -128,11 +133,13 @@ body {
   color: var(--color-text-normal);
   max-width: 1400px;
   counter-reset: sidenote-counter;
+  --color-code-title: var(--color-background-dark);
 }
 
 body.dark {
-  --color-text-normal: #fffff8;
-  --color-background: #2f4f4f;
+  --color-text-normal: var(--color-background-light);
+  --color-background: var(--color-background-dark);
+  --color-code-title: var(--color-background-light);
 }
 
 h1 {
@@ -253,7 +260,8 @@ blockquote footer {
 
 section > p,
 section > footer,
-section > table {
+section > table,
+section > span {
   width: var(--section-width);
 }
 
@@ -336,6 +344,11 @@ a:link::-moz-selection {
 /* Sidenotes, margin notes, figures, captions */
 img {
   max-width: 100%;
+}
+
+.gatsby-resp-image-wrapper, .gatsby-resp-image-wrapper * {
+  border-radius: var(--grvsc-border-radius);
+  max-width: 100% !important;
 }
 
 .sidenote,
@@ -422,9 +435,7 @@ h3 > code {
 
 pre {
   width: var(--section-width);
-  padding-left: var(--spacing-6);
-  padding-right: var(--spacing-6);
-  margin-left: calc(-1 * var(--spacing-6));
+  margin: var(--spacing-0);
 }
 
 pre > code {
@@ -482,7 +493,7 @@ label.margin-toggle:not(.sidenote-number) {
   display: block;
   overflow-x: auto;
   width: var(--section-width);
-  padding-right: var(--spacing-8);
+  margin: var(--spacing-4) var(--spacing-0);
 }
 
 table {
@@ -680,6 +691,26 @@ body,
   font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif;
 }
 
+.gatsby-remark-code-title {
+  width: var(--section-width);
+  margin: var(--spacing-0);
+  box-sizing: border-box;
+  padding: 0.4rem var(--spacing-6);
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: var(--fontSize-0);
+  background-color: var(--color-code-title);
+  color: var(--color-background);
+  border-top-left-radius: var(--grvsc-border-radius);
+  border-top-right-radius: var(--grvsc-border-radius);
+  position: relative;
+  display: inline-block;
+}
+
+.gatsby-remark-code-title + .grvsc-container {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 @media (max-width: 760px) {
 
   :root {
@@ -754,6 +785,16 @@ body,
     margin: 1rem 2.5%;
     vertical-align: baseline;
     position: relative;
+  }
+
+  span.gatsby-resp-image-wrapper {
+    margin-left:initial !important;
+    margin-right: initial !important;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
   }
 
   label {

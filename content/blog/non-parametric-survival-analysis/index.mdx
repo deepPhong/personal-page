@@ -73,7 +73,7 @@ $$
 \hat{S}(t) = \frac1n \sum_{i=1}^n \mathbb{I}_{t_i > t}
 $$
 
-where $\mathbb{I}_{t_i > t}$ is the indicator function that takes the value $1$ if the associated condition is true and $0$ otherwise. The estimator is then simply the proportion of participants alive (ie. that did not experiment the event) at time $t$. But due to censoring, we do not have the time of event $t_i$ for all patients and therefore must find another way to estimate the survival function. Kaplan and Meier (1958) came up with a way to do that elegantly<Marginnote id="km-paper">Small anecdote: after submitting similar manuscripts to the Journal of the American Statistical Association, its editor, Pr. John Tukey, then coworker of Kaplan at Bell labs and PhD thesis director of Meier, convinced them to fuse their work into one single paper that will later be the most highly cited paper in the history of statistics.</Marginnote>.
+where $\mathbb{I}_{t_i > t}$ is the indicator function that takes the value $1$ if the associated condition is true and $0$ otherwise. The estimator is then simply the proportion of participants alive (ie. that did not experiment the event) at time $t$. But due to censoring, we do not have the time of event $t_i$ for all patients and therefore must find another way to estimate the survival function. Kaplan and Meier (1958) came up with a way to do that elegantly<Marginnote id="km-paper" tag="span">Small anecdote: after submitting similar manuscripts to the Journal of the American Statistical Association, its editor, Pr. John Tukey, then coworker of Kaplan at Bell labs and PhD thesis director of Meier, convinced them to fuse their work into one single paper that will later be the most highly cited paper in the history of statistics.</Marginnote>.
 
 Let $t_{(1)} < t_{(2)} < ... < t_{(m)}$ denote the distinct ordered times of events, and let $n\_i$ be the number alive just before $t_{(i)}$; $n_i$ is considered the number exposed to risk at time $t\_i$. The __Kaplan-Meier estimator__ of the survival function is 
 
@@ -95,17 +95,17 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <figure>
 
-<Marginnote id="km-general-legend">Here we plot survival curves estimates according to <code>>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.</Marginnote> 
+<Marginnote id="km-gender-legend">Here we plot survival curves estimates according to <code>>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.</Marginnote> 
 
-![General KM](km_gender.png)
+![Gender KM](km_gender.png)
 
 </figure>
 
 <figure>
 
-<Marginnote id="km-general-legend">If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.</Marginnote> 
+<Marginnote id="km-treatment-legend">If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.</Marginnote> 
 
-![General KM](km_treatment.png)
+![Treatment KM](km_treatment.png)
 
 </figure>
 
@@ -283,6 +283,7 @@ Back to our Cox-model summary, the next value is the __standard error__ of our c
 The __p-value__ of our coefficient is commonly given by a __Wald test__, which $\boldsymbol{z}$ statistic is calculated by $z=\beta / se(\beta)$ and then compared to a normal distribution. The lower and upper bounds of the $95\%$ confidence interval is just $$\beta \pm 1.96 \times se(\beta)$$. If the p-value is lower than a threshold (usually $0.05$), then we can say that our coefficient is significantly different than $0$ (equivalent to saying that our HR is significantly different than $1$) and that our corresponding covariate is associated with the event rate. If not, then we cannot say for sure that the value we estimated is actually reflecting the real value or not given our sample; in our example, the p-value for the variable `Gender` is non significant, which means we cannot say much about its relation to the event rate. It doesn't mean that it's not related—maybe we just lack power and it would be significant with more participants in our study.
 
 </section>
+
 <section>
 
 ## Interlude: assumptions
@@ -301,9 +302,11 @@ $$
 Thus, if the proportional hazards hold, the log cumulative hazards for each group should differ by the same constant—ie. the curves should be parralel.
 
 <figure>
-<Marginnote id="loglog">The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.</Marginnote>
 
-![img](loglog.png)
+<Marginnote id="loglog">The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.</Marginnote> 
+
+![Log Log](./loglog.png)
+
 </figure>
 
 So now, what to do when there are covariates that do not satisfy the PH assumption? We will just shortly mention the two most common options out there: either [stratifying](https://stat.ethz.ch/education/semesters/ss2011/seminar/contents/presentation_5.pdf) the model according to the concerned variables (if there's just a few), or introducing [time-dependent effects](http://www.math.ucsd.edu/~rxu/math284/slect7.pdf). The former method assumes PH in each strata, while the latter lets the impact of covariates vary over time. Both are easily implemented in common statistical softwares.
@@ -345,7 +348,7 @@ Many biases can be introduced from the design of the study, and should always be
 
 </Marginnote>
 
-![bias1](survival_bias2.jpeg)
+![bias2](survival_bias2.jpeg)
 </figure>
 
 There are many other types of biases one should be aware of when analysing results, especially in secondary analyses as study designs are usually conceived with only primary outcomes in mind and are often ill-suited for others, but they relate to statistical biases in general and would take a whole post to write about.

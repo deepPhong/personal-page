@@ -35,8 +35,18 @@ module.exports = {
 					default: require.resolve(`./src/components/layout.js`),
           posts: require.resolve(`./src/templates/blog-post.js`)
 				},
-        remarkPlugins: [ require('remark-math'), require('remark-html-katex') ],
+        remarkPlugins: [ 
+          require('remark-math'), 
+          require('remark-html-katex'),
+          require('remark-unwrap-images')
+        ],
         gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'gatsby-remark-code-title',
+            },
+          },
           {
             resolve: `gatsby-remark-katex`,
             options: {
@@ -46,9 +56,6 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 630,
-            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
