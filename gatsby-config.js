@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -69,7 +70,7 @@ module.exports = {
               theme: {
                 default: `Solarized Light`,
                 parentSelector: {
-                  'body.dark': `Solarized Dark`,
+                  'html.dark': `Solarized Dark`,
                 }
               },
               inlineCode: {

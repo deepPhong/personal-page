@@ -27,17 +27,17 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      <Bio />
-      <section className="posts">
+      <Bio className="md:w-tufte-section mb-10" />
+      <section className="md:w-tufte-section my-8">
         <h2>Posts</h2>
-        <ol>
-          {posts.map(post => {
+        <ol className="list-disc md:pl-12">
+          { posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
             return (
               <li key={post.fields.slug}>
-                <div className="post-list-item">
+                <div>
                   <header>
-                    <h3>
+                    <h3 className="mb-0">
                       <Link to={post.fields.slug} itemProp="url">
                         <span itemProp="headline">{title}</span>
                       </Link>
@@ -46,7 +46,7 @@ const BlogIndex = ({ data, location }) => {
                       {post.frontmatter.date} - {post.timeToRead} min read
                     </small>
                   </header>
-                  <p
+                  <p className="mt-0"
                     dangerouslySetInnerHTML={{
                       __html: post.frontmatter.description || post.excerpt,
                     }}

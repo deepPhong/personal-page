@@ -72,12 +72,11 @@ const Resume = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Resume"/>
-      <section className="resume">
+      <section>
         <h1>Resume</h1>
-        <div className="summary">
+        <div className="flex flex-col md:flex-row items-center">
           <StaticImage
-            className="bio-avatar"
-            imgClassName="picture"
+            className="mr-4 min-w-avatar min-h-avatar rounded-full"
             layout="fixed"
             formats={["AUTO", "WEBP", "AVIF"]}
             src="../images/profile-pic.jpg"
@@ -88,51 +87,56 @@ const Resume = (props) => {
           />
           <p>{basics.summary}</p>
         </div>
-        <div className="resume-columns-container">
-          <div className="work">
+        <div className="md:flex md:flex-row">
+          <div className="md:mr-2 md:flex-grow-2 md:flex-shrink-3">
             <h2>Experience</h2>
-            <ul>
+            <ul className="list-none pl-0">
               {work.map((work, index) => {
                 return (
                   <li key={index}>
                     <a href={work.website} target="_blank" rel="noreferrer">
                     {work.company}
                     </a>
-                    <div className="date">
+                    <div className="text-sm">
                       {work.startDate.substring(0, 7)} - {work.endDate.substring(0, 7)}
                     </div>
-                    <p dangerouslySetInnerHTML={{ __html: work.summary }} />
+                    <p 
+                      className="mt-0 font-sans text-tufte-margin leading-tight" 
+                      dangerouslySetInnerHTML={{ __html: work.summary }} 
+                    />
                   </li>
                 )
               })}
             </ul>
           </div>
-          <div className="education">
+          <div className="md:ml-2 md:flex-grow md:flex-shrink-2">
           <h2>Education</h2>
-            <ul>
+            <ul className="list-none pl-0">
               {education.map((education, index) => {
                 return (
                   <li key={index}>
                     <a href={education.website} target="_blank" rel="noreferrer">
                     {education.institution}
                     </a>
-                    <div className="date">
+                    <div className="text-sm">
                       {education.startDate.substring(0, 7)} - {education.endDate.substring(0, 7)}
                     </div>
-                    <p>{education.studyType} - {education.area}</p>
+                    <p className="mt-0 font-sans text-tufte-margin leading-tight" >
+                      {education.studyType} - {education.area}
+                    </p>
                   </li>
                 )
               })}
             </ul>
             <h2>Skills</h2>
-            <ul>
+            <ul className="list-none pl-0">
               {skills.map((skill, index) => {
                 return (
                   <li key={index}>
-                    <a target="_blank">
-                    {skill.name}
-                    </a>
-                    <p>{skill.level}</p>
+                    <p className="mb-0">{skill.name}</p>
+                    <p className="mt-0 font-sans text-tufte-margin leading-tight">
+                      {skill.level}
+                    </p>
                   </li>
                 )
               })}

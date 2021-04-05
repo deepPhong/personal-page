@@ -21,36 +21,35 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <section>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p className="subtitle">{post.frontmatter.date} - {post.timeToRead} min read</p>
-          <ul className="tags">
-            {post.frontmatter.tags.map((tag, index) => {
+        <section className="w-full mt-8 mb-18">
+          <h1 className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
+          <p className="text-tufte-subtitle italic mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
+          <ul className="flex flex-row list-none pl-0">
+            { post.frontmatter.tags.map((tag, index) => {
               const link = `/tags/${kebabCase(tag)}`
               return(
-                <li key={index}>
-                  <a className="tag-box" href={link}>{tag}</a>
+                <li key={index} className="mr-4">
+                  <a href={link}>{tag}</a>
                 </li>
               )
             })}
           </ul>
         </section>
         <MDXRenderer>{post.body}</MDXRenderer>
-        <Comments />
+        <Comments className="md:w-tufte-section"/>
       </article>
-      <nav className="blog-post-nav">
+      <nav className="md:w-tufte-section flex flex-row justify-around my-8">
         {previous && (
-          <Link to={previous.fields.slug} rel="prev">⇠ previous post</Link>
+          <Link to={previous.fields.slug} rel="prev">⇠ previous</Link>
         )}
         <Link to="/" rel="home">
-          take me home
+          home
         </Link>
         {next && (
-          <Link to={next.fields.slug} rel="next">next post ⇢</Link>
+          <Link to={next.fields.slug} rel="next">next ⇢</Link>
         )}
       </nav>
     </Layout>

@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 
 const COMMENTS_ID = "comments-container";
 
-const Comments = () => {
+const Comments = (props) => {
   useEffect(() => {
-    const toggleDark = document.body.classList.contains("dark");
+    const toggleDark = document.documentElement.classList.contains("dark");
 
     const script = document.createElement("script");
     script.src = "https://utteranc.es/client.js";
@@ -24,7 +24,7 @@ const Comments = () => {
   }, []);
 
   return (
-    <div id={COMMENTS_ID} />
+    <div id={COMMENTS_ID} className={ props.className } />
   );
 };
 

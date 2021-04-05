@@ -15,6 +15,9 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@tailwindcss/forms": "^0.3.2",
+    "@tailwindcss/line-clamp": "^0.2.0",
+    "@tailwindcss/typography": "^0.4.0",
     "gatsby": "^3.1.2",
     "gatsby-plugin-canonical-urls": "^3.2.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
@@ -51,6 +54,7 @@
     "remark-html-katex": "^3.0.0",
     "remark-unwrap-images": "^2.0.0",
     "rose-pine": "github:rose-pine/vscode",
+    "tailwindcss-children": "^2.1.0",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
@@ -58,9 +62,13 @@
     "typography-theme-ocean-beach": "^0.16.19"
   },
   "devDependencies": {
+    "autoprefixer": "^10.2.5",
     "babel-preset-gatsby": "^1.2.0",
+    "gatsby-plugin-postcss": "^4.2.0",
     "gatsby-remark-code-titles": "^1.1.0",
-    "prettier": "2.2.1"
+    "postcss": "^8.2.9",
+    "prettier": "2.2.1",
+    "tailwindcss": "^2.0.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
