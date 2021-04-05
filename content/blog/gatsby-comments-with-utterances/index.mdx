@@ -122,13 +122,13 @@ export default Comments;
 
 Now if you import and use the `<Comments />` component in your blog post template (mine is at `src/templates/blog-post.js`, as yours should be if you've used the `gatsby-starter-blog`), it will indeed match the theme of the Utterances widget to your blog's theme, but **only on the blog posts's initial loading**. If you try to switch your theme while already on the blog post, it will not toggle a change in the comments widget. Let's correct this!
 
-Below is an extract from my layout template, which is the skeleton that is loaded on each page, mainly containing the navigation bar and the footer. The <DarkModeSwitch /> component is basically a glorified checkbox that keeps track of the currently selected theme. We will make use of the `iframe.contentWindow.postMessage()` method, which enables to send a "message" directly to the Utterances iframe content through [cross-window communication](https://javascript.info/cross-window-communication).
+Below is an extract from my layout template, which is the skeleton that is loaded on each page, mainly containing the navigation bar and the footer. The `<DarkModeSwitch />` component is basically a glorified checkbox that keeps track of the currently selected theme. We will make use of the `iframe.contentWindow.postMessage()` method, which enables to send a "message" directly to the Utterances iframe content through [cross-window communication](https://javascript.info/cross-window-communication).
 
 <Marginnote id="dark-mode-switch-component">
-  When clicked, what the <code>DarkModeSwitch</code> does is
+  When clicked, what the <code>&lt;DarkModeSwitch /&gt;</code> component does is
   <ol>
-  <li>Switches the theme class of our <code>body</code> element with <code>toggleTheme()</code></li>
-  <li>If there is an Utterances iframe in the current page, sends a "message" to it containing the theme we wish to set</li>
+  <li>It switches the theme class of our <code>body</code> element with the <code>toggleTheme()</code> function (defined elsewhere)</li>
+  <li>If there is an Utterances iframe in the current page, it sends a “message” to its content to set its theme accordingly</li>
 </ol>
 </Marginnote>
 
