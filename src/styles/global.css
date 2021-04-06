@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "katex/dist/katex.min.css";
 
 :root {
   --white: #fffff8;
@@ -182,6 +183,6 @@ body,
   }
 
   .table-wrapper {
-    @apply block overflow-x-auto w-full my-4 !important;
+    @apply block overflow-x-auto w-full my-4;
   }
 }
