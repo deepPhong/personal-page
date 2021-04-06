@@ -176,10 +176,18 @@ body,
 
   .katex { 
     @apply text-xl w-full !important;
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+    width: 100% !important;
   }
 
   .katex-display > .katex > .katex-html {
     @apply w-full py-3 overflow-x-auto overflow-y-visible !important;
+    width: 100% !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
   }
 
   .table-wrapper {
