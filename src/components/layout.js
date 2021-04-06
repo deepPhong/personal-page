@@ -61,6 +61,22 @@ const Layout = ({ location, title, children }) => {
   return (
     <div data-is-root-path={isRootPath} className="flex flex-col h-full">
       <Helmet>
+        <script
+            key="dpnguyen-theme"
+            dangerouslySetInnerHTML={{
+              __html: `(function() {
+                  try {
+                    let mode = localStorage.getItem('theme');
+                    let supportDarkMode =
+                      window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+                    if (!mode && supportDarkMode)
+                      document.documentElement.classList.add('dark');
+                    if (!mode) return;
+                    document.documentElement.classList.add(mode);
+                  } catch (e) {}
+                })();`,
+            }}
+          />
           <body className="bg-white font-serif text-tufte-base text-black dark:bg-green dark:text-white px-tufte-main md:w-tufte-main md:pl-tufte-main-md md:pr-0 max-w-screen-2xl box-content" />
       </Helmet>
       <header className="py-8 md:w-tufte-section">
