@@ -9,9 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import Marginnote from "./tufte-marginnote"
-
-const shortcodes = { Marginnote }
+import MDXStyles from "./mdx-styles"
 
 library.add(fab)
 
@@ -111,7 +109,7 @@ const Layout = ({ location, title, children }) => {
         </ul>
       </header>
       <main className="flex-grow flex-shrink-0">
-        <MDXProvider components={shortcodes}>{children}</MDXProvider>
+        <MDXProvider components={ MDXStyles }>{children}</MDXProvider>
       </main>
       <footer className="py-8 flex-shrink-0">
         <div className="flex flex-row">

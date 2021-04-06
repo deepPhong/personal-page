@@ -97,25 +97,12 @@ body,
     @apply text-parent-xs;
   }
 
-  a {
-    @apply underline;
-  }
-
   p {
     @apply my-5;
   }
 
   svg {
     @apply my-auto mx-0;
-  }
-  
-  table {
-    @apply border-collapse m-auto text-tufte-margin;
-  }
-  
-  td, th {
-    @apply relative border border-solid p-2 text-left;
-    border-color: var(--color-text);
   }
 
   /* Links: replicate underline that clears descenders */
@@ -172,22 +159,6 @@ body,
   
   .gatsby-remark-code-title + .grvsc-container {
     @apply mt-0 rounded-tl-none rounded-tr-none;
-  }
-
-  .katex { 
-    @apply text-xl w-full !important;
-    font-size: 1.25rem !important;
-    line-height: 1.75rem !important;
-    width: 100% !important;
-  }
-
-  .katex-display > .katex > .katex-html {
-    @apply w-full py-3 overflow-x-auto overflow-y-visible !important;
-    width: 100% !important;
-    padding-top: 0.75rem !important;
-    padding-bottom: 0.75rem !important;
-    overflow-x: auto !important;
-    overflow-y: visible !important;
   }
 
   .table-wrapper {
