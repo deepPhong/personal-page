@@ -24,8 +24,10 @@ export default function HTML(props) {
                     window.matchMedia('(prefers-color-scheme: dark)').matches === true;
                   if (!mode && supportDarkMode)
                     document.documentElement.classList.add('dark');
+                    document.body.classList.add('dark');
                   if (!mode) return;
                   document.documentElement.classList.add(mode);
+                  document.body.classList.add(mode);
                 } catch (e) {}
               })();`,
           }}
