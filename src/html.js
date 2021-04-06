@@ -14,6 +14,22 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
+        <script
+          key="dpnguyen-theme"
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+                try {
+                  let mode = localStorage.getItem('theme');
+                  let supportDarkMode =
+                    window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+                  if (!mode && supportDarkMode)
+                    document.documentElement.classList.add('dark');
+                  if (!mode) return;
+                  document.documentElement.classList.add(mode);
+                } catch (e) {}
+              })();`,
+          }}
+        />
         {props.preBodyComponents}
         <div
           key={`body`}
