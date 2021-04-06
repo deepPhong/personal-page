@@ -10,7 +10,7 @@ const checkedSiblingPlugin = plugin(function ({ addVariant, e }) {
 
 module.exports = {
   important: true,
-  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
+  purge: ["./src/**/*.{js,jsx,ts,tsx,mdx}"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontFamily: {
