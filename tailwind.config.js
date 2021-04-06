@@ -8,6 +8,14 @@ const checkedSiblingPlugin = plugin(function ({ addVariant, e }) {
   });
 });
 
+const preHeaderSiblingPlugin = plugin(function ({ addVariant, e }) {
+  addVariant("pre-header-sibling", ({ container }) => {
+    container.walkRules((rule) => {
+      rule.selector = `.gatsby-code-title + .pre-header-sibling\\:${rule.selector.slice(1)}`;
+    });
+  });
+});
+
 module.exports = {
   important: true,
   purge: ["./src/**/*.{js,jsx,ts,tsx,mdx}", "./content/**/**/*.{js,jsx,ts,tsx,mdx}"],
@@ -21,10 +29,14 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      black: "#111",
-      white: "#fffff8",
-      green: "#2f4f4f",
-      blue: "#b4d5fe",
+      black: "var(--black)",
+      white: "var(--white)",
+      green: "var(--green)",
+      blue: "var(--blue)",
+      "current-text": "var(--color-text)",
+      "current-bg": "var(--color-background)",
+      "current-select": "var(--color-select)",
+      "current-pre-header": "var(--color-pre-header)",
     },
     extend: {
       fontSize: {
@@ -74,6 +86,8 @@ module.exports = {
       margin: ["checked-sibling"],
       verticalAlign: ["checked-sibling"],
       position: ["checked-sibling"],
+      borderRadius: ["pre-header-sibling"],
+      borderRadius: ["pre-header-sibling"],
     },
   },
   plugins: [
@@ -81,5 +95,6 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/line-clamp"),
     checkedSiblingPlugin,
+    preHeaderSiblingPlugin,
   ],
 }

@@ -28,6 +28,13 @@ body,
   @apply h-full;
 }
 
+html.dark {
+  --color-text: var(--white);
+  --color-background: var(--green);
+  --color-select: var(--blue);
+  --color-pre-header: var(--white);
+}
+
 @layer base {
   @font-face {
     font-family: "et-book";
@@ -63,13 +70,6 @@ body,
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-  }
-
-  html.dark {
-    --color-text: var(--white);
-    --color-background: var(--green);
-    --color-select: var(--blue);
-    --color-pre-header: var(--white);
   }  
 
   h1 {
@@ -141,23 +141,5 @@ body,
   .no-tufte-underline:link {
     background: unset;
     text-shadow: unset;
-  }
-
-  .gatsby-resp-image-wrapper, .gatsby-resp-image-wrapper * {
-    @apply rounded max-w-full !important;
-  }
-
-  .gatsby-remark-code-title {
-    @apply py-1.5 px-4 w-full font-mono text-xs rounded-tl rounded-tr relative inline-block;
-    background-color: var(--color-pre-header);
-    color: var(--color-background);
-  }
-
-  .grvsc-container {
-    @apply my-4 rounded;
-  }
-  
-  .gatsby-remark-code-title + .grvsc-container {
-    @apply mt-0 rounded-tl-none rounded-tr-none;
   }
 }

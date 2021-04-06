@@ -87,7 +87,9 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <figure>
 
-<Marginnote id="km-general-legend">Each step of the curve corresponds to an event time at which one or several patients relapsed. X-axis corresponds to survival time in weeks and Y-axis to the proportion of survivors among participants at risk at each time t. In pale red is the 95% confidence interval, and each tick on the curve corresponds to censoring time (ie. indicates when a patient was lost to follow-up without having the event).</Marginnote> 
+<Marginnote id="km-general-legend">
+  Each step of the curve corresponds to an event time at which one or several patients relapsed. X-axis corresponds to survival time in weeks and Y-axis to the proportion of survivors among participants at risk at each time t. In pale red is the 95% confidence interval, and each tick on the curve corresponds to censoring time (ie. indicates when a patient was lost to follow-up without having the event).
+</Marginnote> 
 
 ![General KM](km_general.png)
 
@@ -95,7 +97,9 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <figure>
 
-<Marginnote id="km-gender-legend">Here we plot survival curves estimates according to <code>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.</Marginnote> 
+<Marginnote id="km-gender-legend">
+  Here we plot survival curves estimates according to <code>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.
+</Marginnote> 
 
 ![Gender KM](km_gender.png)
 
@@ -103,7 +107,9 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <figure>
 
-<Marginnote id="km-treatment-legend">If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.</Marginnote> 
+<Marginnote id="km-treatment-legend">
+  If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.
+</Marginnote> 
 
 ![Treatment KM](km_treatment.png)
 
@@ -303,7 +309,9 @@ Thus, if the proportional hazards hold, the log cumulative hazards for each grou
 
 <figure>
 
-<Marginnote id="loglog">The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.</Marginnote> 
+<Marginnote id="loglog">
+  The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.
+</Marginnote> 
 
 ![Log Log](./loglog.png)
 
@@ -338,17 +346,23 @@ Many biases can be introduced from the design of the study, and should always be
 [correspondance](http://ascopubs.org/doi/full/10.1200/JCO.2009.23.3601) to the authors of a biased paper published in one of the most influential oncology journal; in a secondary analysis, they compared three treatment durations and concluded that longer treatment increased overall, disease-free and progression-free survival. However, patients who received treatment for more than 5 years (ie, group 3) __first had to live for 5 years__—ie. group 3 was composed of subjects that were maybe just inherently more resistant than the two other groups. The following plots were simulated by the authors of the correspondance
 
 <figure>
-<Marginnote id="survival-bias-1">At first glance, it seems like group 3 has indeed better prospects than the other groups, with a significant p-value for the overall Wald test.</Marginnote>
+
+<Marginnote id="survival-bias-1">
+  At first glance, it seems like group 3 has indeed better prospects than the other groups, with a significant p-value for the overall Wald test.
+</Marginnote>
 
 ![bias1](survival_bias1.jpeg)
+
 </figure>
 
 <figure>
-<Marginnote id="survival-bias-2">However, when keeping only the subjects that survived 5 years in all groups for analysis (the landmark method, <a href="http://ascopubs.org/doi/10.1200/JCO.1983.1.11.710" target="_blank" rel="noreferrer">Anderson et al</a>, the advantage is no more.
 
+<Marginnote id="survival-bias-2">
+  However, when keeping only the subjects that survived 5 years in all groups for analysis (the landmark method, <a href="http://ascopubs.org/doi/10.1200/JCO.1983.1.11.710" target="_blank" rel="noreferrer">Anderson et al</a>, the advantage is no more.
 </Marginnote>
 
 ![bias2](survival_bias2.jpeg)
+
 </figure>
 
 There are many other types of biases one should be aware of when analysing results, especially in secondary analyses as study designs are usually conceived with only primary outcomes in mind and are often ill-suited for others, but they relate to statistical biases in general and would take a whole post to write about.
