@@ -86,6 +86,7 @@ module.exports = {
       margin: ["checked-sibling"],
       verticalAlign: ["checked-sibling"],
       position: ["checked-sibling"],
+      inset: ["checked-sibling"],
       borderRadius: ["pre-header-sibling"],
       borderRadius: ["pre-header-sibling"],
     },
