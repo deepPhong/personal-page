@@ -140,7 +140,7 @@ $$
 
 where $O_g/E_g$ is the estimated relative excess hazard in group $g$. This will serve as a very brief introduction to the important notion of hazard ratio; in practice, it is better to estimate it using a regression modelling technique such as the Cox proportional hazards model we will study shortly. 
 
-<div className="table-wrapper">
+<div className="block overflow-x-auto w-full my-4">
 
 |Variable | Log-rank $\chi^2$ statistic | p-value|
 |--- | --- | ---|
@@ -224,7 +224,7 @@ Cox-PH model summary:
 n = 42, number of events = 30
 ```
 
-<div className="table-wrapper">
+<div className="block overflow-x-auto w-full my-4">
 
 |Variable | coef | exp(coef) | se(coef) | $z$ | $p$| $\downarrow$ 0.95 | $\uparrow$ 0.95 |
 |--- | --- | --- | --- | --- | ---| --- | --- |
@@ -242,7 +242,7 @@ The coefficients in a Cox regression relate to hazard; a positive coefficient in
 
 The __hazards ratio__ associated with a predictor variable is given by the exponent of its coefficient, with $\text{HR}<1$ indicating protective effect, $\text{HR}=1$ no influence and $\text{HR}>1$ worse prognosis. It can be seen as a relative event rate and its interpretation depends on the measurement scale of the covariate in question; an increase in $x$ units leads to an increase in hazard rate of $x \times\text{HR}$ if all other covariates remain the same. If we take the `Treatment` variable, as it is binary ($0$ for treatment, $1$ for placebo), we can say that receiving a placebo (ie. an increase of one unit) leads to an increase in $4.5$ of the hazard rate (ie. at all times, an individual from the placebo group has $4.5\times$ more chance to have the event than an individual from the treatment group that has the same gender and logWBC). If we take the `logWBC` variable (logarithm of the white blood cells count), we see that an increase in one unit leads to an increase in $5.4$ in the hazard rate. More broadly, if we consider the two following individuals
 
-<div className="table-wrapper">
+<div className="block overflow-x-auto w-full my-4">
 
 | ID | Gender | Treatment | logWBC |
 | --- | --- | --- | --- |
