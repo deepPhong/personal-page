@@ -47,25 +47,23 @@ const Publications = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Publications"/>
-      {/* <article> */}
-        <section className="publications">
-          <h1>Publications</h1>
-          <ul>
-            {publications.map((publication, index) => {
-              return (
-                <li key={index}>
-                  <a href={publication.website} target="_blank" rel="noreferrer">
-                    {publication.name}
-                  </a>
-                  <div className="date">
-                    {publication.publisher}, {publication.releaseDate}
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
-        </section>
-      {/* </article> */}
+      <section className="md:w-tufte-section">
+        <h1>Publications</h1>
+        <ul>
+          {publications.map((publication, index) => {
+            return (
+              <li key={index}>
+                <a href={publication.website} target="_blank" rel="noreferrer">
+                  {publication.name}
+                </a>
+                <div className="date">
+                  {publication.publisher}, {publication.releaseDate}
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
     </Layout>
   )
 

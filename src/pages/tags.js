@@ -20,7 +20,6 @@ const TagsPage = (props) => {
       }
     } 
   `)
-  console.log(data)
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const tags = data.allMdx.group
 
@@ -32,7 +31,7 @@ const TagsPage = (props) => {
           {tags.map(tag => (
             <li key={tag.fieldValue}>
               <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                <a className=".tag-box">{tag.fieldValue} ({tag.totalCount})</a> 
+                {tag.fieldValue} ({tag.totalCount})
               </Link>
             </li>
           ))}

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Bio = () => {
+const Bio = (props) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -22,7 +22,7 @@ const Bio = () => {
   const author = data.site.siteMetadata?.author
 
   return (
-    <section className="bio">
+    <section className={ props.className }>
       {author?.name && (
         <p>
           {author?.summary || null}

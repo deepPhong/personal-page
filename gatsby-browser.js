@@ -1,6 +1,8 @@
 // normalize CSS across browsers
-import "./src/styles/normalize.css"
-// custom CSS styles
-// import "./src/styles/style.css"
+// import "./src/styles/normalize.css"
 
-import "./src/styles/tufte.css"
+// custom CSS
+// import "./src/styles/tufte.css"
+
+// tailwind
+import './src/styles/global.css';

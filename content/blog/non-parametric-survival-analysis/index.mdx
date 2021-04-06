@@ -73,7 +73,7 @@ $$
 \hat{S}(t) = \frac1n \sum_{i=1}^n \mathbb{I}_{t_i > t}
 $$
 
-where $\mathbb{I}_{t_i > t}$ is the indicator function that takes the value $1$ if the associated condition is true and $0$ otherwise. The estimator is then simply the proportion of participants alive (ie. that did not experiment the event) at time $t$. But due to censoring, we do not have the time of event $t_i$ for all patients and therefore must find another way to estimate the survival function. Kaplan and Meier (1958) came up with a way to do that elegantly<Marginnote id="km-paper" tag="span">Small anecdote: after submitting similar manuscripts to the Journal of the American Statistical Association, its editor, Pr. John Tukey, then coworker of Kaplan at Bell labs and PhD thesis director of Meier, convinced them to fuse their work into one single paper that will later be the most highly cited paper in the history of statistics.</Marginnote>.
+where $\mathbb{I}_{t_i > t}$ is the indicator function that takes the value $1$ if the associated condition is true and $0$ otherwise. The estimator is then simply the proportion of participants alive (ie. that did not experiment the event) at time $t$. But due to censoring, we do not have the time of event $t_i$ for all patients and therefore must find another way to estimate the survival function. Kaplan and Meier (1958) came up with a way to do that elegantly.<Marginnote id="km-paper" tag="span">Small anecdote: after submitting similar manuscripts to the Journal of the American Statistical Association, its editor, Pr. John Tukey, then coworker of Kaplan at Bell labs and PhD thesis director of Meier, convinced them to fuse their work into one single paper that will later be the most highly cited paper in the history of statistics.</Marginnote>
 
 Let $t_{(1)} < t_{(2)} < ... < t_{(m)}$ denote the distinct ordered times of events, and let $n\_i$ be the number alive just before $t_{(i)}$; $n_i$ is considered the number exposed to risk at time $t\_i$. The __Kaplan-Meier estimator__ of the survival function is 
 
@@ -95,7 +95,7 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <figure>
 
-<Marginnote id="km-gender-legend">Here we plot survival curves estimates according to <code>>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.</Marginnote> 
+<Marginnote id="km-gender-legend">Here we plot survival curves estimates according to <code>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.</Marginnote> 
 
 ![Gender KM](km_gender.png)
 
@@ -219,7 +219,7 @@ The only thing left now is to estimate the $\beta$ coefficients for all covariat
 
 You will then get the following output, even though it might slightly differ depending on the statistical software and/or librairies you're using:
 
-```text
+```
 Cox-PH model summary:
 n = 42, number of events = 30
 ```
@@ -234,7 +234,7 @@ n = 42, number of events = 30
 
 </div>
 
-```text
+```
 Concordance = 0.851
 ```
 

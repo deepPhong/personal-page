@@ -15,9 +15,9 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <section className="tag-page">
-        <h2>{tagHeader}<a className="tag-box" href={link}>{tag}</a></h2>
-        <ul className="tag-posts">
+      <section>
+        <h1>{tagHeader}<a href={link}>{tag}</a></h1>
+        <ul className="mb-8">
           {edges.map(({ node }) => {
             const { slug } = node.fields
             const { title } = node.frontmatter
@@ -28,7 +28,7 @@ const Tags = ({ pageContext, data, location }) => {
             )
           })}
         </ul>
-        <div className="all-tags-link">⇠<Link to="/tags">All tags</Link></div>
+        <div className="text-tufte-base">⇠<Link to="/tags">All tags</Link></div>
       </section>
     </Layout>
   )
