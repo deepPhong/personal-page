@@ -160,8 +160,4 @@ body,
   .gatsby-remark-code-title + .grvsc-container {
     @apply mt-0 rounded-tl-none rounded-tr-none;
   }
-
-  .table-wrapper {
-    @apply block overflow-x-auto w-full my-4;
-  }
 }
