@@ -139,7 +139,7 @@ body,
   }
   
   table {
-    @apply border-collapse m-auto;
+    @apply border-collapse m-auto text-tufte-margin;
   }
   
   td, th {
