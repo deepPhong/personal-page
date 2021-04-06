@@ -107,36 +107,6 @@ body,
   svg {
     @apply my-auto mx-0;
   }
-
-  .gatsby-resp-image-wrapper, .gatsby-resp-image-wrapper * {
-    @apply rounded max-w-full !important;
-  }
-
-  .gatsby-remark-code-title {
-    @apply py-1.5 px-4 w-full font-mono text-xs rounded-tl rounded-tr relative inline-block;
-    background-color: var(--color-pre-header);
-    color: var(--color-background);
-  }
-
-  .grvsc-container {
-    @apply my-4 rounded;
-  }
-  
-  .gatsby-remark-code-title + .grvsc-container {
-    @apply mt-0 rounded-tl-none rounded-tr-none;
-  }
-
-  .katex { 
-    @apply text-xl w-full !important;
-  }
-
-  .katex-display > .katex > .katex-html {
-    @apply w-full py-3 overflow-x-auto overflow-y-visible;
-  }
-
-  .table-wrapper {
-    @apply block overflow-x-auto w-full my-4;
-  }
   
   table {
     @apply border-collapse m-auto text-tufte-margin;
@@ -151,11 +121,6 @@ body,
   a:link,
   a:visited {
     color: inherit;
-  }
-
-  .no-tufte-underline:link {
-    background: unset;
-    text-shadow: unset;
   }
 
   a:link, .tufte-underline, .hover-tufte-underline:hover {
@@ -180,5 +145,43 @@ body,
   a:link::-moz-selection {
     text-shadow: 0.03em 0   var(--color-select), -0.03em 0   var(--color-select), 0 0.03em   var(--color-select), 0 -0.03em   var(--color-select), 0.06em 0   var(--color-select), -0.06em 0   var(--color-select), 0.09em 0   var(--color-select), -0.09em 0   var(--color-select), 0.12em 0   var(--color-select), -0.12em 0   var(--color-select), 0.15em 0   var(--color-select), -0.15em 0   var(--color-select);
     background:   var(--color-select);
+  }
+}
+
+@layer components {
+
+  .no-tufte-underline:link {
+    background: unset;
+    text-shadow: unset;
+  }
+
+  .gatsby-resp-image-wrapper, .gatsby-resp-image-wrapper * {
+    @apply rounded max-w-full !important;
+  }
+
+  .gatsby-remark-code-title {
+    @apply py-1.5 px-4 w-full font-mono text-xs rounded-tl rounded-tr relative inline-block;
+    background-color: var(--color-pre-header);
+    color: var(--color-background);
+  }
+
+  .grvsc-container {
+    @apply my-4 rounded;
+  }
+  
+  .gatsby-remark-code-title + .grvsc-container {
+    @apply mt-0 rounded-tl-none rounded-tr-none;
+  }
+
+  .katex { 
+    @apply text-xl w-full !important;
+  }
+
+  .katex-display > .katex > .katex-html {
+    @apply w-full py-3 overflow-x-auto overflow-y-visible !important;
+  }
+
+  .table-wrapper {
+    @apply block overflow-x-auto w-full my-4 !important;
   }
 }
