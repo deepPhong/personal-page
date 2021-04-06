@@ -1,7 +1,8 @@
+@import "katex/dist/katex.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "katex/dist/katex.min.css";
 
 :root {
   --white: #fffff8;
@@ -19,7 +20,6 @@
 html {
   @apply text-tufte-root md:text-tufte-root-md;
 }
-
 
 html,
 body,
