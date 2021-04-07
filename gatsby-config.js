@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     {
