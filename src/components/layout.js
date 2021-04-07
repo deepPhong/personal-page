@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Helmet } from 'react-helmet';
 
+import '../styles/fonts.css';
+
 import { Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
