@@ -1,8 +1,5 @@
 import * as React from "react"
 import { Helmet } from 'react-helmet';
-
-import '../styles/fonts.css';
-
 import { Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
@@ -71,9 +68,6 @@ const Layout = ({ location, title, children }) => {
           <ThemeToggler>
             {({ theme, toggleTheme }) => {
               const isDark = theme === "dark";
-              if (isDark) {
-                document.documentElement.classList.add("dark")
-              }
               return(<DarkModeSwitch
                 checked={ isDark }
                 moonColor="#ff5700"
@@ -82,7 +76,9 @@ const Layout = ({ location, title, children }) => {
                 onChange={(e) => {
                   if (e) {
                     document.documentElement.classList.add("dark")
+                    document.documentElement.classList.remove("light")
                   } else {
+                    document.documentElement.classList.add("light")
                     document.documentElement.classList.remove("dark")
                   }
                   toggleTheme(e? "dark" : "light")
@@ -113,39 +109,39 @@ const Layout = ({ location, title, children }) => {
       <main className="flex-grow flex-shrink-0">
         <MDXProvider components={ MDXStyles }>{children}</MDXProvider>
       </main>
-      <footer className="py-8 flex-shrink-0">
-        <div className="flex flex-row">
+      <footer className="flex flex-col items-center md:items-start py-8 flex-shrink-0">
+        <div className="flex flex-row items-center">
           <a 
             href="https://github.com/deepPhong"
             target="_blank" 
             rel='noreferrer'
-            className="text-base mr-2 no-tufte-underline"
+            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:ml-0 no-tufte-underline"
           >
-            <FontAwesomeIcon icon={["fab", "github"]} className="icon" />
+            <FontAwesomeIcon icon={["fab", "github"]} />
           </a>
           <a 
             href="https://gitlab.com/deepPhong"
             target="_blank" 
             rel='noreferrer'
-            className="text-base mr-2 no-tufte-underline"
+            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:mx-3 no-tufte-underline"
           >
-            <FontAwesomeIcon icon={["fab", "gitlab"]} className="icon" />
+            <FontAwesomeIcon icon={["fab", "gitlab"]} />
           </a>
           <a 
             href="https://twitter.com/deepPhong"
             target="_blank" 
             rel='noreferrer'
-            className="text-base mr-2 no-tufte-underline"
+            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:mx-3 no-tufte-underline"
           >
-            <FontAwesomeIcon icon={["fab", "twitter"]} className="icon" />
+            <FontAwesomeIcon icon={["fab", "twitter"]} />
           </a>
           <a 
             href="https://www.linkedin.com/in/dinh-phong-nguyen-5122a867/?locale=en_US" 
             target="_blank" 
             rel='noreferrer'
-            className="text-base no-tufte-underline"
+            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:mx-3 no-tufte-underline"
           >
-            <FontAwesomeIcon icon={["fab", "linkedin"]} className="icon"/>
+            <FontAwesomeIcon icon={["fab", "linkedin"]}/>
           </a>
         </div>
         <p className="text-xs my-2">© {new Date().getFullYear()},
