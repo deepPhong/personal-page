@@ -158,6 +158,15 @@ module.exports = {
         icon: `src/images/phi-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-V1Z920SRNP", // Google Analytics / GA
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-gatsby-cloud`,
     'gatsby-transformer-json',
