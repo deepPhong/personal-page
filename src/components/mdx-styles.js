@@ -1,6 +1,5 @@
 import * as React from "react"
 import Marginnote from "./marginnote"
-import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 const MDXStyles = () => {
   const classNamesReplacements = {
@@ -48,9 +47,7 @@ const MDXStyles = () => {
     wrapper: ({children, ...props}) => {
       return <>{ recursiveMap(children, replaceClassName(classNamesReplacements)) }</>
     },
-    Marginnote: props => <Marginnote {...props} />,
-    getImage,
-    GatsbyImage
+    Marginnote: props => <Marginnote {...props} />
   }) 
 }
 

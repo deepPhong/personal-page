@@ -12,6 +12,8 @@ embeddedImagesLocal:
   - survival-bias-2.jpeg
 ---
 
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+
 <section>
 
 In biomedical research, especially in the fields of epidemiology or oncology, one of the most common outcome under assessment is the time to an event of interest (also called "failure"), namely __survival time__. The considered event is often death, but could be anything else such as cancer relapse or progression instead. The vast majority of survival analyses have extensively been using Kaplan-Meier (KM) estimates, log-rank tests and Cox proportional hazards (CoxPH) models, all of which we will describe shortly. This post is an attempt to review the most classical approach to survival analyses, in prevision for a following post discussing how everything fares in the high dimensional setting and solutions to potential problems that might arise.
