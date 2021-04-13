@@ -63,8 +63,8 @@ const Layout = ({ location, title, children }) => {
           <body className="bg-white font-serif text-tufte-base text-black px-tufte-main mx-auto md:w-tufte-main md:pl-tufte-main-md md:pr-0 max-w-screen-2xl box-content dark:bg-green dark:text-white" />
       </Helmet>
       <header className="py-8 md:w-tufte-section">
-        <div className="flex flex-row justify-between align-baseline mb-4">
-          <Link to="/" className="text-tufte-xxl no-tufte-underline">{title}</Link>
+        <div className="flex flex-row justify-between items-baseline mb-4">
+          <Link to="/" className="text-tufte-xxl no-tufte-underline mr-8">{title}</Link>
           <ThemeToggler>
             {({ theme, toggleTheme }) => {
               const isDark = theme === "dark";

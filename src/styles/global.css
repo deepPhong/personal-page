@@ -63,7 +63,7 @@ html.dark {
   }
 
   svg {
-    @apply my-auto mx-0;
+    @apply m-0;
   }
 
   figure {
@@ -108,7 +108,7 @@ html.dark {
     text-shadow: unset;
   }
 
-  [data-gatsby-image-wrapper] * {
+  .gatsby-image-wrapper * {
     @apply rounded-md
   }
 }
