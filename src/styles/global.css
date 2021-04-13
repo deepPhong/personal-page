@@ -109,6 +109,6 @@ html.dark {
   }
 
   [data-main-image] {
-    @apply rounded-md
+    @apply rounded-md !important;
   }
 }
