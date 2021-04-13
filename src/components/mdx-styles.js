@@ -7,12 +7,12 @@ const MDXStyles = () => {
     "katex": "katex text-xl w-full",
     "katex-html": "katex-html w-full py-3 overflow-x-auto overflow-y-visible",
     "table-wrapper": "table-wrapper block overflow-x-auto w-full my-4",
-    "grvsc-container": "grvsc-container my-4 rounded pre-header-sibling:mt-0 pre-header-sibling:rounded-tl-none pre-header-sibling:rounded-tr-none",
-    "gatsby-code-title gatsby-remark-code-title": "gatsby-code-title gatsby-remark-code-title py-1.5 px-4 w-full font-mono text-xs rounded-tl rounded-tr relative inline-block bg-current-pre-header text-current-bg",
-    "gatsby-resp-image-wrapper": "gatsby-resp-image-wrapper rounded max-w-full mb-6",
-    "gatsby-resp-image-link": "gatsby-resp-image-link rounded max-w-full",
-    "gatsby-resp-image-image": "gatsby-resp-image-image rounded max-w-full",
-    "gatsby-resp-image-background-image": "gatsby-resp-image-background-image rounded max-w-full",
+    "grvsc-container": "grvsc-container my-4 rounded-md pre-header-sibling:mt-0 pre-header-sibling:rounded-tl-none pre-header-sibling:rounded-tr-none",
+    "gatsby-code-title gatsby-remark-code-title": "gatsby-code-title gatsby-remark-code-title py-1.5 px-4 w-full font-mono text-xs rounded-tl-md rounded-tr-md relative inline-block bg-current-pre-header text-current-bg",
+    // "gatsby-resp-image-wrapper": "gatsby-resp-image-wrapper rounded-md max-w-full mb-6",
+    // "gatsby-resp-image-link": "gatsby-resp-image-link rounded-md max-w-full",
+    // "gatsby-resp-image-image": "gatsby-resp-image-image rounded-md max-w-full",
+    // "gatsby-resp-image-background-image": "gatsby-resp-image-background-image rounded-md max-w-full",
   }
 
   const recursiveMap = (children, fn) => {
