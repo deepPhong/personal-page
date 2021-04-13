@@ -108,7 +108,7 @@ html.dark {
     text-shadow: unset;
   }
 
-  [data-main-image] {
+  /* [data-main-image] {
     @apply rounded-md !important;
-  }
+  } */
 }
