@@ -3,6 +3,8 @@ title: "Adding comments to your Gatsby blog with Utterances"
 date: "2020-04-03"
 description: "A simple React component for comments and how to dynamically change its theme"
 tags: ["Gatsby", "React", "blog"]
+embeddedImagesLocal:
+  - utterances-preview.png
 ---
 
 <section>
@@ -17,7 +19,7 @@ On the previous iteration of my blog, I defaulted to use the Disqus plugin readi
   This interface will most likely feel familiar to you. You can even write your comments in GitHub flavored markdown.
 </Marginnote>
 
-![img](utterances-preview.png)
+<GatsbyImage alt="utterances preview" image={getImage(props.localImages[0])} />
 
 </figure>
 

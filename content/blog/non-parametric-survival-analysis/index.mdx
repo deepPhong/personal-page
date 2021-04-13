@@ -3,6 +3,13 @@ date: "2018-05-22"
 title: "Non-parametric survival analysis"
 description: "Classical and battle-tested tools for censored time-to-event data"
 tags: ["survival", "cox", "statistics"]
+embeddedImagesLocal:
+  - km-general.png
+  - km-gender.png
+  - km-treatment.png
+  - loglog.png
+  - survival-bias-1.png
+  - survival-bias-2.png
 ---
 
 <section>
@@ -91,7 +98,7 @@ The KM survival curve, a plot of the KM survival probability against time, provi
   Each step of the curve corresponds to an event time at which one or several patients relapsed. X-axis corresponds to survival time in weeks and Y-axis to the proportion of survivors among participants at risk at each time t. In pale red is the 95% confidence interval, and each tick on the curve corresponds to censoring time (ie. indicates when a patient was lost to follow-up without having the event).
 </Marginnote> 
 
-![General KM](km_general.png)
+<GatsbyImage alt="general kaplan meier curve" image={getImage(props.localImages[0])} />
 
 </figure>
 
@@ -101,7 +108,7 @@ The KM survival curve, a plot of the KM survival probability against time, provi
   Here we plot survival curves estimates according to <code>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.
 </Marginnote> 
 
-![Gender KM](km_gender.png)
+<GatsbyImage alt="kaplan meier curves by gender groups" image={getImage(props.localImages[1])} />
 
 </figure>
 
@@ -111,7 +118,7 @@ The KM survival curve, a plot of the KM survival probability against time, provi
   If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.
 </Marginnote> 
 
-![Treatment KM](km_treatment.png)
+<GatsbyImage alt="kaplan meier curves by treatment groups" image={getImage(props.localImages[2])} />
 
 </figure>
 
@@ -313,7 +320,7 @@ Thus, if the proportional hazards hold, the log cumulative hazards for each grou
   The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.
 </Marginnote> 
 
-![Log Log](./loglog.png)
+<GatsbyImage alt="log log curve" image={getImage(props.localImages[3])} />
 
 </figure>
 
@@ -351,7 +358,7 @@ Many biases can be introduced from the design of the study, and should always be
   At first glance, it seems like group 3 has indeed better prospects than the other groups, with a significant p-value for the overall Wald test.
 </Marginnote>
 
-![bias1](survival_bias1.jpeg)
+<GatsbyImage alt="survival bias illustration" image={getImage(props.localImages[4])} />
 
 </figure>
 
@@ -361,7 +368,7 @@ Many biases can be introduced from the design of the study, and should always be
   However, when keeping only the subjects that survived 5 years in all groups for analysis (the landmark method, <a href="http://ascopubs.org/doi/10.1200/JCO.1983.1.11.710" target="_blank" rel="noreferrer">Anderson et al</a>, the advantage is no more.
 </Marginnote>
 
-![bias2](survival_bias2.jpeg)
+<GatsbyImage alt="corrected survival bias illustration" image={getImage(props.localImages[5])} />
 
 </figure>
 

@@ -106,16 +106,16 @@ const Layout = ({ location, title, children }) => {
           <ListLink className="text-tufte-base" to="/contact/">contact</ListLink>
         </ul>
       </header>
-      <main className="flex-grow flex-shrink-0">
+      <main className="flex-grow flex-shrink-0 ">
         <MDXProvider components={ MDXStyles }>{children}</MDXProvider>
       </main>
-      <footer className="flex flex-col items-center md:items-start py-8 flex-shrink-0">
+      <footer className="flex flex-col md:flex-row items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section">
         <div className="flex flex-row items-center">
           <a 
             href="https://github.com/deepPhong"
             target="_blank" 
             rel='noreferrer'
-            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:ml-0 no-tufte-underline"
+            className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 md:ml-0 no-tufte-underline"
           >
             <FontAwesomeIcon icon={["fab", "github"]} />
           </a>
@@ -123,7 +123,7 @@ const Layout = ({ location, title, children }) => {
             href="https://gitlab.com/deepPhong"
             target="_blank" 
             rel='noreferrer'
-            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:mx-3 no-tufte-underline"
+            className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"
           >
             <FontAwesomeIcon icon={["fab", "gitlab"]} />
           </a>
@@ -131,7 +131,7 @@ const Layout = ({ location, title, children }) => {
             href="https://twitter.com/deepPhong"
             target="_blank" 
             rel='noreferrer'
-            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:mx-3 no-tufte-underline"
+            className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"
           >
             <FontAwesomeIcon icon={["fab", "twitter"]} />
           </a>
@@ -139,7 +139,7 @@ const Layout = ({ location, title, children }) => {
             href="https://www.linkedin.com/in/dinh-phong-nguyen-5122a867/?locale=en_US" 
             target="_blank" 
             rel='noreferrer'
-            className="text-3xl md:text-2xl p-3 md:p-0 m-3 md:mx-3 no-tufte-underline"
+            className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"
           >
             <FontAwesomeIcon icon={["fab", "linkedin"]}/>
           </a>

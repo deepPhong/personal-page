@@ -66,8 +66,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({ node, createNodeId, actions, getNode, cache, store }) => {
+  const { createNodeField, createNode } = actions
 
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
@@ -77,6 +77,29 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+  }
+
+  if (
+    node.internal.type === 'Mdx' &&
+    node.frontmatter &&
+    node.frontmatter.embeddedImagesRemote
+  ) {
+    return Promise.all(
+      node.frontmatter.embeddedImagesRemote.map((url) => {
+        try {
+          return createRemoteFileNode({
+            url,
+            parentNodeId: node.id,
+            createNode,
+            createNodeId,
+            cache,
+            store
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      })
+    );
   }
 }
 
@@ -110,10 +133,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       fields: Fields
     }
 
-    type Frontmatter {
-      title: String
-      description: String
+    type Frontmatter @dontInfer {
+      title: String!
+      description: String!
       date: Date @dateformat
+      tags: [String!]!
+      embeddedImagesRemote: [File] @link(by: "url")
+      embeddedImagesLocal: [File] @fileByRelativePath
     }
 
     type Fields {
