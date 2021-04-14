@@ -45,10 +45,10 @@ const Publications = (props) => {
   const { publications } = info
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle} pageTitle="Publications">
       <SEO title="Publications"/>
       <section className="md:w-tufte-section">
-        <h1>Publications</h1>
+        <h1 id="pageTitle">Publications</h1>
         <ul>
           {publications.map((publication, index) => {
             return (

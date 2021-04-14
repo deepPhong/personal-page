@@ -62,7 +62,7 @@ html.dark {
     @apply my-5;
   }
 
-  svg {
+  header svg {
     @apply m-0;
   }
 
@@ -108,7 +108,28 @@ html.dark {
     text-shadow: unset;
   }
 
-  /* [data-main-image] {
-    @apply rounded-md !important;
-  } */
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 }

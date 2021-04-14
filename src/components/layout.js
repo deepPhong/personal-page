@@ -1,9 +1,10 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import { Helmet } from 'react-helmet';
-import { Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
+
+import Navbar from "./navbar"
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -12,104 +13,41 @@ import MDXStyles from "./mdx-styles"
 
 library.add(fab)
 
-const ListLink = props => (
-  <li>
-    <Link to={props.to} className={props.className}>{props.children}</Link>
-  </li>
-)
-
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname?location.pathname:null) === rootPath
 
-  const toggleProperties = {
-    dark: {
-      circle: {
-        r: 9,
-      },
-      mask: {
-        cx: '50%',
-        cy: '23%',
-        stroke: "black"
-      },
-      svg: {
-        transform: 'rotate(40deg)',
-      },
-      lines: {
-        opacity: 0,
-      },
-    },
-    light: {
-      circle: {
-        r: 4,
-      },
-      mask: {
-        cx: '100%',
-        cy: '0%',
-      },
-      svg: {
-        transform: 'rotate(90deg)',
-      },
-      lines: {
-        opacity: 1,
-      },
-    },
-    springConfig: { mass: 4, tension: 250, friction: 35 },
-  };
+  const [topPosition, setTopPosition] = useState(true)
+  const [pageTitle, setPageTitle] = useState("");
+
+  useEffect(() => {
+    title = document.getElementById("pageTitle") ? document.getElementById("pageTitle").innerHTML : "";
+    setPageTitle(title)
+  });
+
+  useEffect (() => {
+    const threshold = document.querySelector("main");
+    const stickyTop = threshold.offsetTop;
+    document.addEventListener("scroll", e => {
+        let scrolled = document.scrollingElement.scrollTop;
+        if (scrolled > stickyTop) {
+          setTopPosition(false)
+        } else  {
+          setTopPosition(true)
+        }
+      })
+  },[])
 
   return (
-    <div data-is-root-path={isRootPath} className="flex flex-col h-full">
+    <div data-is-root-path={ isRootPath } className="flex flex-col h-full">
       <Helmet>
-          <body className="bg-white font-serif text-tufte-base text-black px-tufte-main mx-auto md:w-tufte-main md:pl-tufte-main-md md:pr-0 max-w-screen-2xl box-content dark:bg-green dark:text-white" />
+          <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 max-w-screen-2xl box-content dark:bg-green dark:text-white" />
       </Helmet>
-      <header className="py-8 md:w-tufte-section">
-        <div className="flex flex-row justify-between items-baseline mb-4">
-          <Link to="/" className="text-tufte-xxl no-tufte-underline mr-8">{title}</Link>
-          <ThemeToggler>
-            {({ theme, toggleTheme }) => {
-              const isDark = theme === "dark";
-              return(<DarkModeSwitch
-                checked={ isDark }
-                moonColor="#ff5700"
-                sunColor="#ff5700"
-                animationProperties={ toggleProperties }
-                onChange={(e) => {
-                  if (e) {
-                    document.documentElement.classList.add("dark")
-                    document.documentElement.classList.remove("light")
-                  } else {
-                    document.documentElement.classList.add("light")
-                    document.documentElement.classList.remove("dark")
-                  }
-                  toggleTheme(e? "dark" : "light")
-                  const isComment = document.querySelector("iframe.utterances-frame")
-                  if (isComment) {
-                    const utterancesTheme = e? "icy-dark": "github-light";
-                    (
-                      document
-                      .querySelector("iframe.utterances-frame")
-                      .contentWindow.postMessage(
-                        { type: "set-theme", theme: utterancesTheme },
-                        "https://utteranc.es/"
-                      )
-                    )
-                  }
-                }}
-              />)
-            }}
-          </ThemeToggler>
-        </div>
-        <ul className="flex flex-row list-none pl-0">
-          <ListLink className="mr-4 text-tufte-base" to="/">blog</ListLink>
-          <ListLink className="mr-4 text-tufte-base" to="/publications/">publications</ListLink>
-          <ListLink className="mr-4 text-tufte-base" to="/resume/">resume</ListLink>
-          <ListLink className="text-tufte-base" to="/contact/">contact</ListLink>
-        </ul>
-      </header>
-      <main className="flex-grow flex-shrink-0 ">
-        <MDXProvider components={ MDXStyles }>{children}</MDXProvider>
+      <Navbar location={ location } title={ title } topPosition={ topPosition } pageTitle={ pageTitle } />
+      <main className={"flex-grow px-tufte-main md:pl-tufte-main-md flex-shrink-0 relative" + (topPosition ? "" : " pt-36" ) }>
+        <MDXProvider components={ MDXStyles }>{ children }</MDXProvider>
       </main>
-      <footer className="flex flex-col md:flex-row items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section">
+      <footer className="flex flex-col md:pl-tufte-main-md md:flex-row items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section">
         <div className="flex flex-row items-center">
           <a 
             href="https://github.com/deepPhong"
@@ -146,7 +84,7 @@ const Layout = ({ location, title, children }) => {
         </div>
         <p className="text-xs my-2">© {new Date().getFullYear()},
           {` `}
-          dinh-phong nguyen
+          { title }
         </p>
       </footer>
     </div>
