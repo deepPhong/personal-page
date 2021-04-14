@@ -16,9 +16,14 @@ library.add(fab)
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname?location.pathname:null) === rootPath
-  const pageTitle = document.getElementById("pageTitle") ? document.getElementById("pageTitle").innerHTML : "";
 
   const [topPosition, setTopPosition] = useState(true)
+  const [pageTitle, setPageTitle] = useState("");
+
+  useEffect(() => {
+    title = document.getElementById("pageTitle") ? document.getElementById("pageTitle").innerHTML : "";
+    setPageTitle(title)
+  });
 
   useEffect (() => {
     const threshold = document.querySelector("main");
