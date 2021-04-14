@@ -70,10 +70,10 @@ const Resume = (props) => {
   const { basics, education, skills, work } = info
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle} pageTitle="Resume">
       <SEO title="Resume"/>
       <section>
-        <h1>Resume</h1>
+        <h1 id="pageTitle">Resume</h1>
         <div className="flex flex-col md:flex-row items-center">
           <StaticImage
             className="mr-4 min-w-avatar min-h-avatar rounded-full"

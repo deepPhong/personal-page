@@ -16,18 +16,18 @@ library.add(fab)
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname?location.pathname:null) === rootPath
+  const pageTitle = document.getElementById("pageTitle") ? document.getElementById("pageTitle").innerHTML : "";
 
   const [topPosition, setTopPosition] = useState(true)
 
   useEffect (() => {
-    const threshold = document.getElementById("navbar")
+    const threshold = document.querySelector("main");
     const stickyTop = threshold.offsetTop;
-    const stickyHeight = threshold.offsetHeight;
     document.addEventListener("scroll", e => {
         let scrolled = document.scrollingElement.scrollTop;
         if (scrolled > stickyTop) {
           setTopPosition(false)
-        } else if (scrolled < stickyTop + stickyHeight) {
+        } else  {
           setTopPosition(true)
         }
       })
@@ -38,8 +38,8 @@ const Layout = ({ location, title, children }) => {
       <Helmet>
           <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 max-w-screen-2xl box-content dark:bg-green dark:text-white" />
       </Helmet>
-      <Navbar title={ title } topPosition={ topPosition } />
-      <main className={"flex-grow px-tufte-main md:pl-tufte-main-md flex-shrink-0 relative" + (topPosition ? "" : " pt-40" ) }>
+      <Navbar location={ location } title={ title } topPosition={ topPosition } pageTitle={ pageTitle } />
+      <main className={"flex-grow px-tufte-main md:pl-tufte-main-md flex-shrink-0 relative" + (topPosition ? "" : " pt-36" ) }>
         <MDXProvider components={ MDXStyles }>{ children }</MDXProvider>
       </main>
       <footer className="flex flex-col md:pl-tufte-main-md md:flex-row items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section">

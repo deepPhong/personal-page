@@ -15,7 +15,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} pageTitle={post.frontmatter.title}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -25,7 +25,7 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <section className="w-full mt-8 mb-18">
-          <h1 className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
+          <h1 id="pageTitle" className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
           <p className="text-tufte-subtitle italic mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="flex flex-row list-none pl-0">
             { post.frontmatter.tags.map((tag, index) => {

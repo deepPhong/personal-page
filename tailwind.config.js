@@ -64,6 +64,10 @@ module.exports = {
         "tufte-main-md": "12.5%",
         "tufte-main": "8%",
       },
+      inset: {
+        "tufte-main-md": "12.5%",
+        "tufte-main": "8%",
+      },
       margin: {
         "tufte-marginnote": "-60%",
       },
@@ -78,6 +82,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      boxShadow: ["dark"],
       display: ["checked-sibling"],
       float: ["checked-sibling"],
       padding: ["checked-sibling"],
