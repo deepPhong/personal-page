@@ -32,7 +32,6 @@ const MDXStyles = () => {
   const replaceClassName = (classNamesReplacements) => {
     return (child) => {
       if (classNamesReplacements.hasOwnProperty(child.props.className)) {
-        console.log(child)
         return React.cloneElement(child, {
           className: classNamesReplacements[child.props.className]
         })

@@ -62,7 +62,7 @@ html.dark {
     @apply my-5;
   }
 
-  svg {
+  header svg {
     @apply m-0;
   }
 
