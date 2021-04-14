@@ -21,9 +21,9 @@ const Layout = ({ location, title, children }) => {
   const [pageTitle, setPageTitle] = useState("");
 
   useEffect(() => {
-    title = document.getElementById("pageTitle") ? document.getElementById("pageTitle").innerHTML : "";
+    let title = document.getElementById("pageTitle") ? document.getElementById("pageTitle").innerHTML : "";
     setPageTitle(title)
-  });
+  }, []);
 
   useEffect (() => {
     const threshold = document.querySelector("main");
