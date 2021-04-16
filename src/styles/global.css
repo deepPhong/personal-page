@@ -38,11 +38,11 @@ html.dark {
   }
 
   h2 {
-    @apply text-tufte-xl mt-8 mb-5 italic;
+    @apply text-tufte-xl mt-0 mb-5 italic;
   }
 
   h3 {
-    @apply text-tufte-l mt-8 mb-5 italic;
+    @apply text-tufte-l mt-0 mb-5 italic;
   }
 
   section {

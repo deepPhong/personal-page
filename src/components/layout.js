@@ -13,7 +13,7 @@ import MDXStyles from "./mdx-styles"
 
 library.add(fab)
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, layoutAbsolute, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname?location.pathname:null) === rootPath
 
@@ -39,15 +39,15 @@ const Layout = ({ location, title, children }) => {
   },[])
 
   return (
-    <div data-is-root-path={ isRootPath } className="flex flex-col h-full">
+    <div data-is-root-path={ isRootPath } className={"flex flex-col" + (layoutAbsolute ? " h-screen my-0 py-0" : " h-full" )}>
       <Helmet>
           <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 max-w-screen-2xl box-content dark:bg-green dark:text-white" />
       </Helmet>
       <Navbar location={ location } title={ title } topPosition={ topPosition } pageTitle={ pageTitle } />
-      <main className={"flex-grow px-tufte-main md:pl-tufte-main-md flex-shrink-0 relative" + (topPosition ? "" : " pt-36" ) }>
+      <main className={"px-tufte-main md:pl-tufte-main-md md:pr-0" + (topPosition ? "" : " pt-36" ) + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative" ) }>
         <MDXProvider components={ MDXStyles }>{ children }</MDXProvider>
       </main>
-      <footer className="flex flex-col md:pl-tufte-main-md md:flex-row items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section">
+      <footer className={"flex flex-col md:pl-tufte-main-md items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section" + (layoutAbsolute ? "flex" : "" )}>
         <div className="flex flex-row items-center">
           <a 
             href="https://github.com/deepPhong"
@@ -82,7 +82,7 @@ const Layout = ({ location, title, children }) => {
             <FontAwesomeIcon icon={["fab", "linkedin"]}/>
           </a>
         </div>
-        <p className="text-xs my-2">© {new Date().getFullYear()},
+        <p className="text-xs my-0">© {new Date().getFullYear()},
           {` `}
           { title }
         </p>

@@ -24,7 +24,7 @@ const TagsPage = (props) => {
   const tags = data.allMdx.group
 
   return(
-    <Layout location={props.location} title={siteTitle} pageTitle="Tags">
+    <Layout location={props.location} title={siteTitle}>
       <div>
         <h1 id="pageTitle">Tags</h1>
         <ul className="tag-list">

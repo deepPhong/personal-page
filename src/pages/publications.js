@@ -45,10 +45,10 @@ const Publications = (props) => {
   const { publications } = info
 
   return (
-    <Layout location={props.location} title={siteTitle} pageTitle="Publications">
+    <Layout location={props.location} title={siteTitle}>
       <SEO title="Publications"/>
-      <section className="md:w-tufte-section">
-        <h1 id="pageTitle">Publications</h1>
+      <section className="md:w-tufte-main">
+        <h2 id="pageTitle">Publications</h2>
         <ul>
           {publications.map((publication, index) => {
             return (
@@ -63,6 +63,7 @@ const Publications = (props) => {
             )
           })}
         </ul>
+        <p>More on my <a href="https://scholar.google.com/citations?user=YVBpD3oAAAAJ" target="_blank" rel="noreferrer">Google Scholar profile</a></p>
       </section>
     </Layout>
   )

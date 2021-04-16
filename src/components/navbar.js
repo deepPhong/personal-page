@@ -50,13 +50,14 @@ const Navbar = (props) => {
     <header className={"flex items-center h-25 w-full md:pl-0" + (props.topPosition ? "" : " bg-current-bg top-0 fixed z-10 h-14 shadow-sm dark:shadow")}>
       <div className={"flex flex-row justify-between md:pl-tufte-main-md h-25 w-full md:w-tufte-main" + (props.topPosition ? " px-tufte-main md:pr-0 pt-8 pb-6" : " px-6 md:px-0 items-center h-14")}>
         <div className={"flex" + (props.topPosition ? " flex-col" : " flex-row truncate")}>
-          <Link to="/" className={"transition-all duration-300 no-tufte-underline" + (props.topPosition ? " text-tufte-xxl mr-8 md:mr-0" : " text-tufte-l mr-4 md:mr-8")}>
+          <Link to="/" className={"transition-all no-tufte-underline" + (props.topPosition ? " text-tufte-xxl mr-8 md:mr-0" : " text-tufte-l mr-4 md:mr-8")}>
             { props.topPosition ? props.title : "φ" }
           </Link>
-          <ul id="navbar" className={"transition-all duration-300 flex flex-row list-none pl-0 py-4" + (props.topPosition ? "" : "flex-none hidden")}>
+          <ul id="navbar" className={"flex flex-row flex-wrap list-none pl-0 py-4" + (props.topPosition ? "" : "flex-none hidden")}>
             <ListLink className="mr-4 text-tufte-base" to="/">blog</ListLink>
             <ListLink className="mr-4 text-tufte-base" to="/publications/">publications</ListLink>
             <ListLink className="mr-4 text-tufte-base" to="/resume/">resume</ListLink>
+            <ListLink className="mr-4 text-tufte-base" to="/about/">about</ListLink>
             <ListLink className="text-tufte-base" to="/contact/">contact</ListLink>
           </ul>
           <Link to={ props.location.pathname } className={"transition-all duration-500 no-tufte-underline" + (props.topPosition ? " hidden" : " text-tufte-base truncate")}>

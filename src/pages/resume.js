@@ -70,10 +70,10 @@ const Resume = (props) => {
   const { basics, education, skills, work } = info
 
   return (
-    <Layout location={props.location} title={siteTitle} pageTitle="Resume">
+    <Layout location={props.location} title={siteTitle}>
       <SEO title="Resume"/>
-      <section>
-        <h1 id="pageTitle">Resume</h1>
+      <section className="md:w-tufte-main">
+        <h2 id="pageTitle">Resume</h2>
         <div className="flex flex-col md:flex-row items-center">
           <StaticImage
             className="mr-4 min-w-avatar min-h-avatar rounded-full"
@@ -87,9 +87,9 @@ const Resume = (props) => {
           />
           <p>{basics.summary}</p>
         </div>
-        <div className="md:flex md:flex-row">
+        <div className="md:flex md:flex-row mt-8">
           <div className="md:mr-2 md:flex-grow-2 md:flex-shrink-3">
-            <h2>Experience</h2>
+            <h3>Experience</h3>
             <ul className="list-none pl-0">
               {work.map((work, index) => {
                 return (
@@ -110,7 +110,7 @@ const Resume = (props) => {
             </ul>
           </div>
           <div className="md:ml-2 md:flex-grow md:flex-shrink-2">
-          <h2>Education</h2>
+            <h3 className="mt-10 md:mt-0">Education</h3>
             <ul className="list-none pl-0">
               {education.map((education, index) => {
                 return (
@@ -128,7 +128,7 @@ const Resume = (props) => {
                 )
               })}
             </ul>
-            <h2>Skills</h2>
+            <h3 className="mt-10">Skills</h3>
             <ul className="list-none pl-0">
               {skills.map((skill, index) => {
                 return (

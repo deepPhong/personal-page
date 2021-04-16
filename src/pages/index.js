@@ -25,11 +25,11 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle} pageTitle="Home">
+    <Layout location={location} title={siteTitle} layoutAbsolute={true}>
       <SEO title="Home" />
       <Bio className="md:w-tufte-section mb-10" />
       <section className="md:w-tufte-section my-8">
-        <h2>Posts</h2>
+        <h2 id="pageTitle">Posts</h2>
         <ol className="list-disc md:pl-12">
           { posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
