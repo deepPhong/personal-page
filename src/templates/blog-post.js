@@ -24,7 +24,7 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <section className="w-full mt-8 mb-18">
+        <section className="w-full md:w-tufte-main mt-8 mb-18">
           <h1 id="pageTitle" className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
           <p className="text-tufte-subtitle italic mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="flex flex-row list-none pl-0">

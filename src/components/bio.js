@@ -24,7 +24,7 @@ const Bio = (props) => {
   return (
     <section className={ props.className }>
       {author?.name && (
-        <p>
+        <p className="m-0">
           {author?.summary || null}
         </p>
       )}
