@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Transition, Popover } from "@headlessui/react"
+import { Transition, Popover} from "@headlessui/react"
 import { Link } from "gatsby"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
@@ -112,64 +112,59 @@ const ThemeSwitch = (props) => {
 
 const PopoverMenu = (props) => {
   return (
-    <div className={props.className}>
-      <Popover>
-        {({ open }) => (
-          <div className="flex flex-col items-end">
-            <Transition
-              show={open}
-              as={React.Fragment}
-              enter="transition ease-out duration-150"
-              enterFrom="transform opacity-0 translate-y-20"
-              enterTo="transform opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
-              leaveFrom="transform opacity-100 translate-y-0"
-              leaveTo="transform opacity-0 translate-y-20"
+    <Popover className="flex flex-col items-end md:w-tufte-main">
+      {({ open }) => (
+        <>
+          <Transition
+            show={open && props.appearsWhen}
+            as={React.Fragment}
+            enter="transition ease-out duration-150"
+            enterFrom="transform opacity-0 translate-y-20"
+            enterTo="transform opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="transform opacity-100 translate-y-0"
+            leaveTo="transform opacity-0 translate-y-20"
+          >
+            <Popover.Panel
+              static
+              as="ul"
+              className="relative z-10 flex flex-col space-y-4 bg-transparent list-none my-6 w-full max-w-xs overflow-visible"
             >
-              <Popover.Panel
-                static
-                className="relative z-10 my-6 w-full max-w-xs"
-              >
-                <div className="overflow-visible rounded-md">
-                  <ul className="flex flex-col space-y-4 bg-transparent list-none">
-                    {menuItems.map((item) => (
-                      <ListLink to={item.href}>
-                        <div className="rounded-md py-2 px-4 text-tufte-base bg-current-bg shadow dark:shadow-lg">
-                          {item.name}
-                        </div>
-                      </ListLink>
-                    ))}
-                  </ul>
-                </div>
-              </Popover.Panel>
-            </Transition>
-            <div className="flex justify-end items-center w-full">
-              <Transition
-                    show={props.appearsWhen}
-                    enter="transition ease-out duration-300"
-                    enterFrom="transform opacity-0 translate-y-20"
-                    enterTo="transform opacity-100 translate-y-0"
-                    leave="transition ease-in duration-300"
-                    leaveFrom="transform opacity-100 translate-y-0"
-                    leaveTo="transform opacity-0 translate-y-20"
-                  >
-                <Popover.Button
-                  className="bg-current-bg rounded-full w-16 h-16 flex justify-center items-center outline-none shadow dark:shadow-md"
+              {menuItems.map((item) => (
+                <ListLink to={item.href}>
+                  <div className="rounded-md py-2 px-4 text-tufte-base bg-current-bg shadow dark:shadow-lg">
+                    {item.name}
+                  </div>
+                </ListLink>
+              ))}
+            </Popover.Panel>
+          </Transition>
+          <div className="flex justify-end items-center w-full">
+            <Transition
+                  show={props.appearsWhen}
+                  enter="transition ease-out duration-300"
+                  enterFrom="transform opacity-0 translate-y-20"
+                  enterTo="transform opacity-100 translate-y-0"
+                  leave="transition ease-in duration-300"
+                  leaveFrom="transform opacity-100 translate-y-0"
+                  leaveTo="transform opacity-0 translate-y-20"
                 >
-                  {open ?
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg> :
-                  <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
-                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-                  </svg>}
-                </Popover.Button>
-              </Transition>
-            </div>
+              <Popover.Button
+                className="bg-current-bg rounded-full w-16 h-16 flex justify-center items-center outline-none shadow dark:shadow-md"
+              >
+                {open ?
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg> :
+                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+                  <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                </svg>}
+              </Popover.Button>
+            </Transition>
           </div>
-        )}
-      </Popover>
-    </div>
+        </>
+      )}
+    </Popover>
   );
 }
 
@@ -208,7 +203,7 @@ const Navbar = (props) => {
         </div>
       </Transition>
       <div className="fixed z-10 bottom-8 md:bottom-14 w-full md:pl-tufte-main-md px-tufte-main md:pr-0">
-        <PopoverMenu className="md:w-tufte-main" appearsWhen={!props.topPosition}/>
+        <PopoverMenu appearsWhen={!props.topPosition}/>
       </div>
     </header>
   )
