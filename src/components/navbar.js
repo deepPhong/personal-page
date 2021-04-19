@@ -131,7 +131,7 @@ const PopoverMenu = (props) => {
                 className="relative z-10 my-6 w-full max-w-xs"
               >
                 <div className="overflow-visible rounded-md">
-                  <ul className="flex flex-col gap-4 bg-transparent list-none">
+                  <ul className="flex flex-col space-y-4 bg-transparent list-none">
                     {menuItems.map((item) => (
                       <ListLink to={item.href}>
                         <div className="rounded-md py-2 px-4 text-tufte-base bg-current-bg shadow dark:shadow-lg">
@@ -185,18 +185,10 @@ const Navbar = (props) => {
           </Link>
           <ThemeSwitch className="scale-75 md:scale-100 motion-safe:animate-fadeIn"/>
         </div>
-        <ul id="navbar" className="flex flex-row flex-wrap list-none pl-0 py-4">
-          {menuItems.map((item, i) => {
-            if (i === menuItems.length - 1) {
-              return(
-                <ListLink to={item.href} className="text-tufte-base">{item.name}</ListLink>
-              )
-            } else {
-              return(
-                <ListLink to={item.href} className="mr-4 text-tufte-base">{item.name}</ListLink>
-              )
-            }
-          })}
+        <ul id="navbar" className="flex flex-row space-x-4 list-none pl-0 py-4">
+          {menuItems.map((item) => (
+            <ListLink to={item.href} className="text-tufte-base">{item.name}</ListLink>
+          ))}
         </ul>
       </div>
       <Transition 
