@@ -154,17 +154,15 @@ const PopoverMenu = (props) => {
                     leaveTo="transform opacity-0 translate-y-20"
                   >
                 <Popover.Button
-                  className="bg-current-bg ml-4 py-2 rounded-full w-14 h-14 flex justify-center items-center outline-none shadow dark:shadow-md"
+                  className="bg-current-bg rounded-full w-16 h-16 flex justify-center items-center outline-none shadow dark:shadow-md"
                 >
-                  <button type="button" aria-label="toggle menu" className="outline-none">
-                      {open ?
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                      </svg> :
-                      <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
-                      </svg>}
-                    </button>
+                  {open ?
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg> :
+                  <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                  </svg>}
                 </Popover.Button>
               </Transition>
             </div>

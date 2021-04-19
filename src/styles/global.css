@@ -108,4 +108,6 @@ html.dark {
     background: unset;
     text-shadow: unset;
   }
+
+  .katex * { border-color: var(--color-text) }
 }
