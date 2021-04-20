@@ -39,12 +39,12 @@ const Layout = ({ location, title, layoutAbsolute, children }) => {
   },[])
 
   return (
-    <div data-is-root-path={isRootPath} className={"flex flex-col" + (layoutAbsolute ? " h-screen my-0 py-0" : " h-full")}>
+    <div data-is-root-path={isRootPath} className={"flex flex-col" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
       <Helmet>
-          <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 max-w-screen-2xl box-content dark:bg-green dark:text-white" />
+          <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 box-content dark:bg-green dark:text-white" />
       </Helmet>
       <Navbar location={location} title={title} topPosition={topPosition} pageTitle={pageTitle} />
-      <main className={"px-tufte-main md:pl-tufte-main-md md:pr-0" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>
+      <main className={"px-tufte-main w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>
         <MDXProvider components={MDXStyles}>{children}</MDXProvider>
       </main>
       <footer className={"flex flex-col md:pl-tufte-main-md items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section" + (layoutAbsolute ? "flex" : "")}>

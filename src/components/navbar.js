@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Transition, Popover} from "@headlessui/react"
+import { MenuAlt3Icon, XIcon } from '@heroicons/react/outline'
 import { Link } from "gatsby"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
@@ -112,7 +113,7 @@ const ThemeSwitch = (props) => {
 
 const PopoverMenu = (props) => {
   return (
-    <Popover className="flex flex-col items-end md:w-tufte-main">
+    <Popover className="flex flex-col items-end">
       {({ open }) => (
         <>
           <Transition
@@ -128,7 +129,7 @@ const PopoverMenu = (props) => {
             <Popover.Panel
               static
               as="ul"
-              className="relative z-10 flex flex-col space-y-4 bg-transparent list-none my-6 w-full max-w-xs overflow-visible"
+              className="z-10 flex flex-col space-y-4 bg-transparent list-none pl-0 my-6 overflow-visible"
             >
               {menuItems.map((item) => (
                 <ListLink to={item.href}>
@@ -139,29 +140,22 @@ const PopoverMenu = (props) => {
               ))}
             </Popover.Panel>
           </Transition>
-          <div className="flex justify-end items-center w-full">
-            <Transition
-                  show={props.appearsWhen}
-                  enter="transition ease-out duration-300"
-                  enterFrom="transform opacity-0 translate-y-20"
-                  enterTo="transform opacity-100 translate-y-0"
-                  leave="transition ease-in duration-300"
-                  leaveFrom="transform opacity-100 translate-y-0"
-                  leaveTo="transform opacity-0 translate-y-20"
-                >
-              <Popover.Button
-                className="bg-current-bg rounded-full w-16 h-16 flex justify-center items-center outline-none shadow dark:shadow-md"
+          <Transition
+                show={props.appearsWhen}
+                as={React.Fragment}
+                enter="transition ease-out duration-300"
+                enterFrom="transform opacity-0 translate-y-20"
+                enterTo="transform opacity-100 translate-y-0"
+                leave="transition ease-in duration-300"
+                leaveFrom="transform opacity-100 translate-y-0"
+                leaveTo="transform opacity-0 translate-y-20"
               >
-                {open ?
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg> :
-                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
-                  <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-                </svg>}
-              </Popover.Button>
-            </Transition>
-          </div>
+            <Popover.Button
+              className="bg-current-bg rounded-full w-16 h-16 flex justify-center items-center outline-none shadow dark:shadow-md"
+            >
+              {open ? <XIcon className="h-8 w-8"/> : <MenuAlt3Icon className="h-8 w-8"/>}
+            </Popover.Button>
+          </Transition>
         </>
       )}
     </Popover>
@@ -170,9 +164,9 @@ const PopoverMenu = (props) => {
 
 const Navbar = (props) => {
   return(
-    <header id="top" className="w-full md:px-0">
-      <div className="w-full md:pl-tufte-main-md px-tufte-main md:pr-0 pt-8 pb-6">
-        <div className="flex flex-row md:w-tufte-main justify-between">
+    <header id="top">
+      <div className="w-full md:pl-tufte-main-md md:w-tufte-main px-tufte-main md:pr-0 max-w-screen-2xl pt-8 pb-6">
+        <div className="flex flex-row justify-between">
           <Link to="/" className="no-tufte-underline text-tufte-xxl mr-8 md:mr-0">
             {props.title}
           </Link>
@@ -194,15 +188,15 @@ const Navbar = (props) => {
         leaveTo="transform -translate-y-18"
         className="transform -translate-y-14 w-full bg-current-bg top-0 fixed z-10 h-14 shadow dark:shadow-md"
       >
-        <div className="flex flex-row items-center h-full justify-between px-tufte-main md:w-tufte-main md:pl-tufte-main-md">
-          <div className="flex flex-row truncate">
+        <div className="flex flex-row items-center h-full px-tufte-main w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl">
+          <div className="truncate">
             <Link to={props.location.pathname} className="no-tufte-underline text-tufte-base truncate">
               {props.pageTitle}
             </Link>
           </div>
         </div>
       </Transition>
-      <div className="fixed z-10 bottom-8 md:bottom-14 w-full md:pl-tufte-main-md px-tufte-main md:pr-0">
+      <div className="fixed z-10 bottom-8 md:bottom-14 flex flex-row justify-end px-tufte-main w-full md:w-tufte-main md:pl-tufte-main-md md:pr-0 max-w-screen-2xl">
         <PopoverMenu appearsWhen={!props.topPosition}/>
       </div>
     </header>

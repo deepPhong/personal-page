@@ -23,7 +23,7 @@ html,
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
-  @apply h-full;
+  height: 100%;
 }
 
 html.dark {
