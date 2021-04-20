@@ -72,7 +72,7 @@ const Resume = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Resume"/>
-      <section className="md:w-tufte-main">
+      <section className="md:w-tufte-main mb-8">
         <h2 id="pageTitle">Resume</h2>
         <div className="flex flex-col md:flex-row items-center">
           <StaticImage
@@ -87,8 +87,10 @@ const Resume = (props) => {
           />
           <p>{basics.summary}</p>
         </div>
-        <div className="md:flex md:flex-row mt-8">
-          <div className="md:mr-2 md:flex-grow-2 md:flex-shrink-3">
+      </section>
+      <section className="md:w-tufte-main">
+        <div className="md:flex md:flex-row md:space-x-4 md:justify-between">
+          <div className="md:flex-grow-2 md:flex-shrink-3">
             <h3>Experience</h3>
             <ul className="list-none pl-0">
               {work.map((work, index) => {
@@ -109,7 +111,7 @@ const Resume = (props) => {
               })}
             </ul>
           </div>
-          <div className="md:ml-2 md:flex-grow md:flex-shrink-2">
+          <div className="md:flex-grow md:flex-shrink-2">
             <h3 className="mt-10 md:mt-0">Education</h3>
             <ul className="list-none pl-0">
               {education.map((education, index) => {

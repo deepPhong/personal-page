@@ -47,7 +47,7 @@ const Layout = ({ location, title, layoutAbsolute, children }) => {
       <main className={"px-tufte-main w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>
         <MDXProvider components={MDXStyles}>{children}</MDXProvider>
       </main>
-      <footer className={"flex flex-col md:pl-tufte-main-md items-center md:items-baseline md:justify-between pb-6 pt-2 flex-shrink-0 md:w-tufte-section" + (layoutAbsolute ? "flex" : "")}>
+      <footer className={"flex flex-col items-center md:items-start md:justify-between w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl pb-6 pt-2 flex-shrink-0" + (layoutAbsolute ? "flex" : "")}>
         <div className="flex flex-row items-center">
           <a 
             href="https://github.com/deepPhong"

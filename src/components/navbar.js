@@ -5,12 +5,6 @@ import { Link } from "gatsby"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
-const ListLink = props => (
-  <li>
-    <Link to={props.to} className={props.className}>{props.children}</Link>
-  </li>
-)
-
 const menuItems = [
   {
     name: "blog",
@@ -33,6 +27,12 @@ const menuItems = [
     href: "/contact/"
   },
 ];
+
+const ListLink = props => (
+  <li>
+    <Link to={props.to} className={props.className}>{props.children}</Link>
+  </li>
+)
 
 const ThemeSwitch = (props) => {
   const toggleProperties = {
@@ -164,20 +164,20 @@ const PopoverMenu = (props) => {
 
 const Navbar = (props) => {
   return(
-    <header id="top">
-      <div className="w-full md:pl-tufte-main-md md:w-tufte-main px-tufte-main md:pr-0 max-w-screen-2xl pt-8 pb-6">
+    <nav>
+      <header className="w-full md:pl-tufte-main-md md:w-tufte-main px-tufte-main md:pr-0 max-w-screen-2xl pt-8 pb-6">
         <div className="flex flex-row justify-between">
           <Link to="/" className="no-tufte-underline text-tufte-xxl mr-8 md:mr-0">
             {props.title}
           </Link>
           <ThemeSwitch className="scale-75 md:scale-100 motion-safe:animate-fadeIn"/>
         </div>
-        <ul id="navbar" className="flex flex-row space-x-4 list-none pl-0 py-4">
+        <ul className="flex flex-row space-x-4 list-none pl-0 py-4">
           {menuItems.map((item) => (
             <ListLink to={item.href} className="text-tufte-base">{item.name}</ListLink>
           ))}
         </ul>
-      </div>
+      </header>
       <Transition 
         show={!props.topPosition}
         enter="transition-transform duration-300"
@@ -199,7 +199,7 @@ const Navbar = (props) => {
       <div className="fixed z-10 bottom-8 md:bottom-14 flex flex-row justify-end px-tufte-main w-full md:w-tufte-main md:pl-tufte-main-md md:pr-0 max-w-screen-2xl">
         <PopoverMenu appearsWhen={!props.topPosition}/>
       </div>
-    </header>
+    </nav>
   )
 }
 
