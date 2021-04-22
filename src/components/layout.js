@@ -39,15 +39,15 @@ const Layout = ({ location, title, layoutAbsolute, children }) => {
   },[])
 
   return (
-    <div data-is-root-path={isRootPath} className={"flex flex-col" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
+    <div data-is-root-path={isRootPath} className={"flex flex-col max-w-screen-2xl mx-auto" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
       <Helmet>
           <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 box-content dark:bg-green dark:text-white" />
       </Helmet>
       <Navbar location={location} title={title} topPosition={topPosition} pageTitle={pageTitle} />
-      <main className={"px-tufte-main w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>
+      <main className={"px-tufte-main w-full md:pl-tufte-main-md md:pr-0" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>
         <MDXProvider components={MDXStyles}>{children}</MDXProvider>
       </main>
-      <footer className={"flex flex-col items-center md:items-start md:justify-between w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl pb-6 pt-2 flex-shrink-0" + (layoutAbsolute ? "flex" : "")}>
+      <footer className={"flex flex-col items-center md:items-start md:justify-between w-full md:pl-tufte-main-md md:pr-0 pb-6 pt-2 flex-shrink-0" + (layoutAbsolute ? "flex" : "")}>
         <div className="flex flex-row items-center">
           <a 
             href="https://github.com/deepPhong"

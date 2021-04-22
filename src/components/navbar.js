@@ -113,9 +113,9 @@ const ThemeSwitch = (props) => {
 
 const PopoverMenu = (props) => {
   return (
-    <Popover className="flex flex-col items-end">
+    <Popover className={props.className}>
       {({ open }) => (
-        <>
+        <div className="flex flex-col items-end">
           <Transition
             show={open && props.appearsWhen}
             as={React.Fragment}
@@ -156,7 +156,7 @@ const PopoverMenu = (props) => {
               {open ? <XIcon className="h-8 w-8"/> : <MenuAlt3Icon className="h-8 w-8"/>}
             </Popover.Button>
           </Transition>
-        </>
+        </div>
       )}
     </Popover>
   );
@@ -165,8 +165,8 @@ const PopoverMenu = (props) => {
 const Navbar = (props) => {
   return(
     <nav>
-      <header className="w-full md:pl-tufte-main-md md:w-tufte-main px-tufte-main md:pr-0 max-w-screen-2xl pt-8 pb-6">
-        <div className="flex flex-row justify-between">
+      <header className="w-full md:pl-tufte-main-md px-tufte-main md:pr-0 pt-8 pb-6">
+        <div className="flex flex-row justify-between md:w-tufte-main">
           <Link to="/" className="no-tufte-underline text-tufte-xxl mr-8 md:mr-0">
             {props.title}
           </Link>
@@ -186,18 +186,18 @@ const Navbar = (props) => {
         leave="transition-transform duration-300"
         leaveFrom="transform translate-y-0"
         leaveTo="transform -translate-y-18"
-        className="transform -translate-y-14 w-full bg-current-bg top-0 fixed z-10 h-14 shadow dark:shadow-md"
+        className="transform -translate-y-14 w-full bg-current-bg top-0 left-0 right-0 fixed z-10 h-14 shadow dark:shadow-md"
       >
-        <div className="flex flex-row items-center h-full px-tufte-main w-full md:pl-tufte-main-md md:pr-0 max-w-screen-2xl">
-          <div className="truncate">
+        <div className="flex flex-row items-center h-full w-full mx-auto max-w-screen-2xl">
+          <div className="px-tufte-main md:pl-tufte-main-md md:pr-0 truncate">
             <Link to={props.location.pathname} className="no-tufte-underline text-tufte-base truncate">
               {props.pageTitle}
             </Link>
           </div>
         </div>
       </Transition>
-      <div className="fixed z-10 bottom-8 md:bottom-14 flex flex-row justify-end px-tufte-main w-full md:w-tufte-main md:pl-tufte-main-md md:pr-0 max-w-screen-2xl">
-        <PopoverMenu appearsWhen={!props.topPosition}/>
+      <div className="fixed z-10 bottom-8 md:bottom-14 w-full md:pl-tufte-main-md px-tufte-main md:pr-0 max-w-screen-2xl">
+        <PopoverMenu appearsWhen={!props.topPosition} className="md:w-tufte-main"/>
       </div>
     </nav>
   )
