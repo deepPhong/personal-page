@@ -4,7 +4,7 @@ import kebabCase from "lodash/kebabCase"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Comments from "../components/comments"
 
 import "katex/dist/katex.min.css"
@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle} pageTitle={post.frontmatter.title}>
-      <SEO
+      <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />

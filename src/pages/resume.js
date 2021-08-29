@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Resume = (props) => {
   const data = useStaticQuery(graphql`
@@ -71,7 +71,7 @@ const Resume = (props) => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="Resume"/>
+      <Seo title="Resume"/>
       <section className="md:w-tufte-main mb-8">
         <h2 id="pageTitle">Resume</h2>
         <div className="flex flex-col md:flex-row items-center">

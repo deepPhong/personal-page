@@ -29,15 +29,6 @@
   },
   "work": [
     {
-      "company": "AP-HP - WIND-DSI",
-      "position": "Data scientist & Medical advisor",
-      "website": "https://eds.aphp.fr/",
-      "startDate": "2020-11-01",
-      "endDate": "today",
-      "summary": "Internship with the Big Data Platform and Data Quality teams for global data consolidation in the datalake.",
-      "highlights": ["data engineering", "machine learning", "medical expertise"]
-    },
-    {
       "company": "Kiro",
       "position": "Data scientist & Medical advisor",
       "website": "https://kiro.bio/",
@@ -45,6 +36,15 @@
       "endDate": "today",
       "summary": "Development, deployment and evaluation of machine learning models on biological tests data.",
       "highlights": ["machine learning", "medical expertise"]
+    },
+    {
+      "company": "AP-HP - WIND-DSI",
+      "position": "Data scientist & Medical advisor",
+      "website": "https://eds.aphp.fr/",
+      "startDate": "2020-11-01",
+      "endDate": "2020-04-30",
+      "summary": "Internship with the Big Data Platform and Data Quality teams for global data consolidation in the datalake.",
+      "highlights": ["data engineering", "machine learning", "medical expertise"]
     },
     {
       "company": "Ministry of Social Affairs and Health - DGS",
@@ -78,7 +78,7 @@
       "position": "Data scientist",
       "website": "https://portail.polytechnique.edu/cmap/en",
       "startDate": "2018-04-01",
-      "endDate": "2019-04-31",
+      "endDate": "2019-04-30",
       "summary": "Internship with the partnership of Ecole Polytechnique and the National Health Security (Pr Bacry) for weak signal detection in adverse drug effects detection on the national SNDS claims database.",
       "highlights": ["machine learning", "data engineering"]
     },

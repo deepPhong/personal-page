@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Publications = (props) => {
   const data = useStaticQuery(graphql`
@@ -46,7 +46,7 @@ const Publications = (props) => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="Publications"/>
+      <Seo title="Publications"/>
       <section className="md:w-tufte-main">
         <h2 id="pageTitle">Publications</h2>
         <ul>

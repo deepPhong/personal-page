@@ -1,6 +1,6 @@
 import * as React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
 const About = (props) => {
@@ -16,7 +16,7 @@ const About = (props) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="About" />
+      <Seo title="About" />
       <section className="md:w-tufte-main">
         <h2>About... this website</h2>
         <p>
