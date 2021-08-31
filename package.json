@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
+    "@fontsource/rubik": "^4.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -48,6 +49,7 @@
     "gatsby-transformer-sharp": "^3.1.0",
     "html-parse-stringify": "^3.0.1",
     "katex": "^0.10.2",
+    "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

@@ -29,8 +29,8 @@ const BlogIndex = ({ data, location }) => {
       <Seo title="Home" />
       <Bio className="md:w-tufte-section mb-10" />
       <section className="md:w-tufte-section my-8">
-        <h2 id="pageTitle">Posts</h2>
-        <ol className="list-disc md:pl-12">
+        <h1 id="pageTitle">Posts</h1>
+        <ol className="list-none pl-0">
           { posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
             return (

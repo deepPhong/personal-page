@@ -11,7 +11,7 @@ const checkedSiblingPlugin = plugin(function ({ addVariant, e }) {
 const preHeaderSiblingPlugin = plugin(function ({ addVariant, e }) {
   addVariant("pre-header-sibling", ({ container }) => {
     container.walkRules((rule) => {
-      rule.selector = `.gatsby-code-title + .pre-header-sibling\\:${rule.selector.slice(1)}`;
+      rule.selector = `.gatsby-remark-code-title + .pre-header-sibling\\:${rule.selector.slice(1)}`;
     });
   });
 });
@@ -22,7 +22,7 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["Gill Sans", "Gill Sans MT", "Calibri", "sans-serif"],
+      sans: ["Rubik", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
       serif: ["et-book", "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Georgia", "serif"],
       mono: ["Consolas", "Liberation Mono", "Menlo", "Courier", "monospace"]
     },
@@ -34,6 +34,9 @@ module.exports = {
         white: "var(--white)",
         green: "var(--green)",
         blue: "var(--blue)",
+        lightBlue: "var(--light-blue)",
+        lightGreen: "var(--light-green)",
+        lightRed: "var(--light-red)",
         "current-text": "var(--color-text)",
         "current-bg": "var(--color-background)",
         "current-select": "var(--color-select)",
@@ -44,11 +47,16 @@ module.exports = {
         "tufte-root-md": "15px",
         "tufte-root": "12px",
         "tufte-margin": ["1.1rem", "1.3"],
-        "tufte-base": ["1.4rem", "2.0rem"],
-        "tufte-subtitle": ["1.8rem", "1"],
-        "tufte-xxl": ["3.2rem", "1"],
-        "tufte-xl": ["2.2rem", "1"],
-        "tufte-l": ["1.7rem", "1"],
+        // "tufte-base": ["1.4rem", "2.0rem"],
+        // "tufte-subtitle": ["1.8rem", "1"],
+        // "tufte-xxl": ["3.2rem", "1"],
+        // "tufte-xl": ["2.2rem", "1"],
+        // "tufte-l": ["1.7rem", "1"],
+        "tufte-base": ["1.0rem", "2.0rem"],
+        "tufte-subtitle": ["1.5rem", "1"],
+        "tufte-xxl": ["2.2rem", "1"],
+        "tufte-xl": ["1.7rem", "1"],
+        "tufte-l": ["1.3rem", "1"],
       },
       width: {
         "tufte-main": "87.5%",
@@ -102,7 +110,7 @@ module.exports = {
       position: ["checked-sibling"],
       inset: ["checked-sibling"],
       borderRadius: ["pre-header-sibling"],
-      borderRadius: ["pre-header-sibling"],
+      margin: ["pre-header-sibling"],
       animation: ["motion-safe"],
     },
   },

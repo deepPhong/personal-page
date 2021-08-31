@@ -9,8 +9,6 @@ embeddedImagesLocal:
 
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
-<section>
-
 ## What is Utterances?
 
 On the previous iteration of my blog, I defaulted to use the Disqus plugin readily available in the Hugo ecosystem. This time I wanted a less bloated alternative and stumbled upon [Utterances](https://utteranc.es), a lightweight and open source GitHub comments widget built on GitHub issues. 
@@ -27,9 +25,6 @@ On the previous iteration of my blog, I defaulted to use the Disqus plugin readi
 
 Under the hood, the widget is linked to a public repository, which can be your blog's own repository if it is public, or an independent one if you prefer to keep the rest of your code private or if you wish to keep your blog comments separate from your blog's other issues. The `utterances-bot` creates an issue for each page where there are comments, and then appends each comment to this issue. As you might have guessed, any reader who wishes to post a comment has to sign-in to a GitHub account (which should not be too hard a constraint if your audience is mainly developers).
 
-</section>
-
-<section>
 
 ## Integrate Utterances to your Gatsby blog
 
@@ -81,9 +76,6 @@ const Comments = () => {
 
 export default Comments;
 ```
-</section>
-
-<section>
 
 ## Dynamically change the theme
 
@@ -159,5 +151,3 @@ Below is an extract from my layout template, which is the skeleton that is loade
 
 
 And voilà, you now have a fully functional `<Comments />` component that can bring a fully functional and themed comment system wherever you'd like! 
-
-</section>
