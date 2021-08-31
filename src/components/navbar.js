@@ -192,7 +192,7 @@ const Navbar = (props) => {
       >
         <div className="flex flex-row items-center h-full w-full mx-auto max-w-screen-2xl">
           <div className="px-tufte-main md:pl-tufte-main-md md:pr-0 truncate">
-            <Link to={props.location.pathname} className="no-tufte-underline text-base truncate">
+            <Link to={props.location.pathname} className="no-tufte-underline text-base font-medium truncate">
               {props.pageTitle}
             </Link>
           </div>

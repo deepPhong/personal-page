@@ -38,12 +38,14 @@ const BlogPostTemplate = ({ data, location }) => {
             })}
           </ul>
         </section>
+        <section>
         <MDXRenderer 
           remoteImages={post.frontmatter.embeddedImagesRemote} 
           localImages={post.frontmatter.embeddedImagesLocal}
         >
           {post.body}
         </MDXRenderer>
+        </section>
         <Comments className="md:w-tufte-section"/>
       </article>
       <nav className="md:w-tufte-section flex flex-row justify-around my-8">
