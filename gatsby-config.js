@@ -69,11 +69,12 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: {
-                default: `Quiet Light`,
+                default: `Nord`,
                 parentSelector: {
                   'html.dark': `Solarized Dark`,
                 }
               },
+              extensions: ['nord-visual-studio-code'],
               inlineCode: {
                 marker: '•'
               },

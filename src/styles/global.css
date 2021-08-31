@@ -7,8 +7,10 @@
   --black: #111;
   --green: #2f4f4f;
   --blue: #b4d5fe;
-  --light-green: #d1e4dd;
-  --light-blue: #d1dfe4;
+  --light-green: #A3BE8C;
+  /* --light-blue: #d1dfe4; */
+  --light-blue: #E5E9F0;
+  --grey-blue: #434C5E;
   --light-purple: #d1d1e4;
   --light-red: #e4d1d1;
   --light-orange: #e4dad1;
@@ -17,7 +19,7 @@
   --color-text: var(--black);
   --color-background: var(--light-blue);
   --color-select: var(--blue);
-  --color-pre-header: var(--green);
+  --color-pre-header: var(--grey-blue);
 }
 
 html {
@@ -41,7 +43,7 @@ html.dark {
 
 @layer base {
   h1 {
-    @apply text-4xl mt-10 mb-4 font-semibold;
+    @apply text-4xl mt-0 mb-4 font-semibold;
   }
 
   h2 {
