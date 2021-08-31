@@ -18,7 +18,7 @@ const About = (props) => {
     <Layout location={props.location} title={siteTitle}>
       <Seo title="About" />
       <section className="md:w-tufte-main">
-        <h2>About... this website</h2>
+        <h1>About... this website</h1>
         <p>
           This website is a playground to explore basic ideas and web development tools while I learn them. The current version you're looking at is based on the following {"{"} frameworks, languages, principles {"}"}:
         </p>

@@ -73,7 +73,7 @@ const Resume = (props) => {
     <Layout location={props.location} title={siteTitle}>
       <Seo title="Resume"/>
       <section className="md:w-tufte-main mb-8">
-        <h2 id="pageTitle">Resume</h2>
+        <h1 id="pageTitle">Resume</h1>
         <div className="flex flex-col md:flex-row items-center">
           <StaticImage
             className="mr-4 min-w-avatar min-h-avatar rounded-full"
@@ -103,7 +103,7 @@ const Resume = (props) => {
                       {work.startDate.substring(0, 7)} - {work.endDate.substring(0, 7)}
                     </div>
                     <p 
-                      className="mt-0 font-sans text-tufte-margin leading-tight" 
+                      className="mt-0 font-sans text-sm leading-tight" 
                       dangerouslySetInnerHTML={{ __html: work.summary }} 
                     />
                   </li>
@@ -123,7 +123,7 @@ const Resume = (props) => {
                     <div className="text-sm">
                       {education.startDate.substring(0, 7)} - {education.endDate.substring(0, 7)}
                     </div>
-                    <p className="mt-0 font-sans text-tufte-margin leading-tight" >
+                    <p className="mt-0 font-sans text-sm leading-tight" >
                       {education.studyType} - {education.area}
                     </p>
                   </li>
@@ -136,7 +136,7 @@ const Resume = (props) => {
                 return (
                   <li key={index}>
                     <p className="mb-0">{skill.name}</p>
-                    <p className="mt-0 font-sans text-tufte-margin leading-tight">
+                    <p className="mt-0 font-sans text-sm leading-tight">
                       {skill.level}
                     </p>
                   </li>

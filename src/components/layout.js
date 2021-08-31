@@ -9,6 +9,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import "@fontsource/rubik/300.css"
+import "@fontsource/rubik/500.css"
+import "@fontsource/rubik/600.css"
+import "@fontsource/rubik/700.css"
+import "@fontsource/rubik/900.css"
+import "@fontsource/rubik"
+
 import MDXStyles from "./mdx-styles"
 
 library.add(fab)
@@ -41,7 +48,7 @@ const Layout = ({ location, title, layoutAbsolute, children }) => {
   return (
     <div data-is-root-path={isRootPath} className={"flex flex-col max-w-screen-2xl mx-auto" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
       <Helmet>
-          <body className="bg-white font-serif text-tufte-base text-black mx-auto md:pr-0 box-content dark:bg-green dark:text-white" />
+          <body className="bg-lightBlue font-sans text-base text-black mx-auto md:pr-0 box-content dark:bg-green dark:text-white" />
       </Helmet>
       <Navbar location={location} title={title} topPosition={topPosition} pageTitle={pageTitle} />
       <main className={"px-tufte-main w-full md:pl-tufte-main-md md:pr-0" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>

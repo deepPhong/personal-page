@@ -7,7 +7,7 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 const menuItems = [
   {
-    name: "blog",
+    name: "posts",
     href: "/"
   },
   {
@@ -133,7 +133,7 @@ const PopoverMenu = (props) => {
             >
               {menuItems.map((item) => (
                 <ListLink to={item.href}>
-                  <div className="rounded-md py-2 px-4 text-tufte-base bg-current-bg shadow dark:shadow-lg">
+                  <div className="rounded-md py-2 px-4 text-base bg-current-bg shadow dark:shadow-lg">
                     {item.name}
                   </div>
                 </ListLink>
@@ -167,14 +167,16 @@ const Navbar = (props) => {
     <nav>
       <header className="w-full md:pl-tufte-main-md px-tufte-main md:pr-0 pt-8 pb-6">
         <div className="flex flex-row justify-between md:w-tufte-main">
-          <Link to="/" className="no-tufte-underline text-tufte-xxl mr-8 md:mr-0">
+          <div className="flex flex-row items-center">
+          <Link to="/" className="no-tufte-underline text-xl font-medium mr-8 md:mr-0">
             {props.title}
           </Link>
+          </div>
           <ThemeSwitch className="scale-75 md:scale-100 motion-safe:animate-fadeIn"/>
         </div>
-        <ul className="flex flex-row space-x-4 list-none pl-0 py-4">
+        <ul className="flex flex-row space-x-4 list-none pl-0">
           {menuItems.map((item) => (
-            <ListLink to={item.href} className="text-tufte-base">{item.name}</ListLink>
+            <ListLink to={item.href} className="text-base no-tufte-underline">{item.name}</ListLink>
           ))}
         </ul>
       </header>
@@ -190,7 +192,7 @@ const Navbar = (props) => {
       >
         <div className="flex flex-row items-center h-full w-full mx-auto max-w-screen-2xl">
           <div className="px-tufte-main md:pl-tufte-main-md md:pr-0 truncate">
-            <Link to={props.location.pathname} className="no-tufte-underline text-tufte-base truncate">
+            <Link to={props.location.pathname} className="no-tufte-underline text-base truncate">
               {props.pageTitle}
             </Link>
           </div>

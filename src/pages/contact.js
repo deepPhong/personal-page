@@ -17,7 +17,7 @@ const Contact = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <Seo title="Contact" />
-      <h2>Happy to talk, email me at the address below</h2>
+      <h1>Happy to talk, email me at the address below</h1>
       <p>
         dinhphongng [at] gmail [dot] com
       </p>

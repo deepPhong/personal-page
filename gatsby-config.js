@@ -69,14 +69,15 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: {
-                default: `Solarized Light`,
+                default: `Quiet Light`,
                 parentSelector: {
                   'html.dark': `Solarized Dark`,
                 }
               },
               inlineCode: {
                 marker: '•'
-              }
+              },
+              wrapperClassName: 'code-block'
             }
           },
           // `gatsby-remark-prismjs`,

@@ -26,7 +26,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <section className="w-full md:w-tufte-main mt-8 mb-18">
           <h1 id="pageTitle" className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
-          <p className="text-tufte-subtitle italic mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
+          <p className="text-lg text-gray-400 mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="flex flex-row list-none pl-0">
             { post.frontmatter.tags.map((tag, index) => {
               const link = `/tags/${kebabCase(tag)}`
