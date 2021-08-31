@@ -188,7 +188,7 @@ const Navbar = (props) => {
         leave="transition-transform duration-300"
         leaveFrom="transform translate-y-0"
         leaveTo="transform -translate-y-18"
-        className="transform -translate-y-14 w-full bg-current-bg top-0 left-0 right-0 fixed z-10 h-14 shadow dark:shadow-md"
+        className="transform -translate-y-14 popover-navbar w-full bg-current-bg top-0 left-0 right-0 fixed z-10 h-14 shadow dark:shadow-md"
       >
         <div className="flex flex-row items-center h-full w-full mx-auto max-w-screen-2xl">
           <div className="px-tufte-main md:pl-tufte-main-md md:pr-0 truncate">
@@ -198,7 +198,7 @@ const Navbar = (props) => {
           </div>
         </div>
       </Transition>
-      <div className="fixed z-10 bottom-8 md:bottom-14 w-full md:pl-tufte-main-md px-tufte-main md:pr-0 max-w-screen-2xl">
+      <div className="fixed z-10 popover-navbar bottom-8 md:bottom-14 w-full md:pl-tufte-main-md px-tufte-main md:pr-0 max-w-screen-2xl">
         <PopoverMenu appearsWhen={!props.topPosition} className="md:w-tufte-main"/>
       </div>
     </nav>
