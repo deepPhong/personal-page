@@ -48,7 +48,7 @@ const Layout = ({ location, title, layoutAbsolute, children }) => {
   return (
     <div data-is-root-path={isRootPath} className={"flex flex-col mx-auto max-w-screen-2xl" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
       <Helmet>
-          <body className="bg-lightBlue font-sans text-base text-black md:pr-0 box-content dark:bg-green dark:text-white" />
+          <body className="bg-lightBlue font-sans text-lg text-black md:pr-0 box-content dark:bg-green dark:text-white" />
       </Helmet>
       <Navbar location={location} title={title} topPosition={topPosition} pageTitle={pageTitle} />
       <main className={"px-tufte-main w-full md:pl-tufte-main-md md:pr-0" + (layoutAbsolute ? " flex-1 overflow-y-auto" : " flex-shrink-0 flex-grow relative") }>

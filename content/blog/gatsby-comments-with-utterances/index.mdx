@@ -13,15 +13,12 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 On the previous iteration of my blog, I defaulted to use the Disqus plugin readily available in the Hugo ecosystem. This time I wanted a less bloated alternative and stumbled upon [Utterances](https://utteranc.es), a lightweight and open source GitHub comments widget built on GitHub issues. 
 
-<figure>
 
 <Marginnote id="utterances-preview" tag="p" className="mb-0">
   This interface will most likely feel familiar to you. You can even write your comments in GitHub flavored markdown.
 </Marginnote>
 
 <GatsbyImage alt="utterances preview" image={getImage(props.localImages[0])} />
-
-</figure>
 
 Under the hood, the widget is linked to a public repository, which can be your blog's own repository if it is public, or an independent one if you prefer to keep the rest of your code private or if you wish to keep your blog comments separate from your blog's other issues. The `utterances-bot` creates an issue for each page where there are comments, and then appends each comment to this issue. As you might have guessed, any reader who wishes to post a comment has to sign-in to a GitHub account (which should not be too hard a constraint if your audience is mainly developers).
 

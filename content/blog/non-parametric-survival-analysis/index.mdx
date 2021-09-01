@@ -85,7 +85,6 @@ which is really just a product of the observed probability to survive at time $t
 
 The KM survival curve, a plot of the KM survival probability against time, provides a useful summary of the data that can be used to estimate measures such as median survival time. As an example, we'll be using a dataset of 42 leukemia patients in a clinical trial to compare treatment with placebo (from [Freireich et al.](http://www.bloodjournal.org/content/21/6/699?sso-checked=true), 1963).
 
-<figure>
 
 <Marginnote id="km-general-legend" tag="p" className="mb-0">
   Each step of the curve corresponds to an event time at which one or several patients relapsed. X-axis corresponds to survival time in weeks and Y-axis to the proportion of survivors among participants at risk at each time t. In pale red is the 95% confidence interval, and each tick on the curve corresponds to censoring time (ie. indicates when a patient was lost to follow-up without having the event).
@@ -93,9 +92,6 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <GatsbyImage alt="general kaplan meier curve" image={getImage(props.localImages[0])} />
 
-</figure>
-
-<figure>
 
 <Marginnote id="km-gender-legend" tag="p" className="mb-0">
   Here we plot survival curves estimates according to <code>Gender</code> groups. Visually, there doesn't seem to be a constant difference in survival between females and males; even though it looks like a higher proportion of males haven't relapsed by the end of the study, their events rate is faster than that of females. We will check if this observed tendency coincides with a more formal test.
@@ -103,9 +99,6 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <GatsbyImage alt="kaplan meier curves by gender groups" image={getImage(props.localImages[1])} />
 
-</figure>
-
-<figure>
 
 <Marginnote id="km-treatment-legend" tag="p" className="mb-0">
   If we compare placebo vs. treatment, we can see some clear tendency that one group seems to have a slower rate of events and a lower proportion of relapsing patients.
@@ -113,7 +106,6 @@ The KM survival curve, a plot of the KM survival probability against time, provi
 
 <GatsbyImage alt="kaplan meier curves by treatment groups" image={getImage(props.localImages[2])} />
 
-</figure>
 
 It is good practice to also report the risk count table under the curves, which indicates at each time the number of participants at risk of having the event. It was omitted here for the sake of tidyness.
 
@@ -298,7 +290,6 @@ $$
 
 Thus, if the proportional hazards hold, the log cumulative hazards for each group should differ by the same constant—ie. the curves should be parralel.
 
-<figure>
 
 <Marginnote id="loglog">
   The log cumulative hazard curves for the <code>Gender</code> variable cross each other, the PH assumption doesn't hold here; on the opposite, the curves are parallel for the <code>Treatment</code> variable which means it satisfies th PH assumption. For continuous variables, such as <code>logWBC</code>, we can plot the same after categorizing our data according to quantiles.
@@ -306,7 +297,6 @@ Thus, if the proportional hazards hold, the log cumulative hazards for each grou
 
 <GatsbyImage alt="log log curve" image={getImage(props.localImages[3])} />
 
-</figure>
 
 So now, what to do when there are covariates that do not satisfy the PH assumption? We will just shortly mention the two most common options out there: either [stratifying](https://stat.ethz.ch/education/semesters/ss2011/seminar/contents/presentation_5.pdf) the model according to the concerned variables (if there's just a few), or introducing [time-dependent effects](http://www.math.ucsd.edu/~rxu/math284/slect7.pdf). The former method assumes PH in each strata, while the latter lets the impact of covariates vary over time. Both are easily implemented in common statistical softwares.
 
@@ -332,7 +322,6 @@ Many papers only report the C-statistic as a goodness-of-fit index of their mode
 Many biases can be introduced from the design of the study, and should always be taken into account when interpreting the results of survival analyses (and of any other kind of analysis in general). In clinical trials for example, proper randomization of treatment assignment is not always possible, and can lead to serious __selection biases__, ie. the samples obtained are not representative of the population intended to be analyzed. Among those, one of the most prominent is the __survival bias__ or survivorship bias, where the sample is only represented by participants that survived up to some point. An excellent (and cynical) example of its consequences can be found in this 
 [correspondance](http://ascopubs.org/doi/full/10.1200/JCO.2009.23.3601) to the authors of a biased paper published in one of the most influential oncology journal; in a secondary analysis, they compared three treatment durations and concluded that longer treatment increased overall, disease-free and progression-free survival. However, patients who received treatment for more than 5 years (ie, group 3) __first had to live for 5 years__—ie. group 3 was composed of subjects that were maybe just inherently more resistant than the two other groups. The following plots were simulated by the authors of the correspondance
 
-<figure>
 
 <Marginnote id="survival-bias-1">
   At first glance, it seems like group 3 has indeed better prospects than the other groups, with a significant p-value for the overall Wald test.
@@ -340,9 +329,6 @@ Many biases can be introduced from the design of the study, and should always be
 
 <GatsbyImage alt="survival bias illustration" image={getImage(props.localImages[4])} />
 
-</figure>
-
-<figure>
 
 <Marginnote id="survival-bias-2">
   However, when keeping only the subjects that survived 5 years in all groups for analysis (the landmark method, <a href="http://ascopubs.org/doi/10.1200/JCO.1983.1.11.710" target="_blank" rel="noreferrer">Anderson et al</a>, the advantage is no more.
@@ -350,7 +336,6 @@ Many biases can be introduced from the design of the study, and should always be
 
 <GatsbyImage alt="corrected survival bias illustration" image={getImage(props.localImages[5])} />
 
-</figure>
 
 There are many other types of biases one should be aware of when analysing results, especially in secondary analyses as study designs are usually conceived with only primary outcomes in mind and are often ill-suited for others, but they relate to statistical biases in general and would take a whole post to write about.
 

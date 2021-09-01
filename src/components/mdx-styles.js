@@ -6,12 +6,7 @@ const MDXStyles = () => {
     "katex": "katex text-xl w-full",
     "katex-html": "katex-html w-full py-3 overflow-x-auto overflow-y-visible",
     "table-wrapper": "table-wrapper block overflow-x-auto w-full my-4",
-    "gatsby-code-title gatsby-remark-code-title": "gatsby-code-title gatsby-remark-code-title py-1.5 px-4 w-full font-mono text-xs rounded-tl-md rounded-tr-md relative inline-block bg-current-pre-header text-current-bg",
-    // "gatsby-image-wrapper": "gatsby-image-wrapper rounded-md"
-    // "gatsby-resp-image-wrapper": "gatsby-resp-image-wrapper rounded-md max-w-full mb-6",
-    // "gatsby-resp-image-link": "gatsby-resp-image-link rounded-md max-w-full",
-    // "gatsby-resp-image-image": "gatsby-resp-image-image rounded-md max-w-full",
-    // "gatsby-resp-image-background-image": "gatsby-resp-image-background-image rounded-md max-w-full",
+    "gatsby-code-title gatsby-remark-code-title": "gatsby-code-title gatsby-remark-code-title py-1.5 px-4 w-full font-mono text-xs rounded-tl-md rounded-tr-md relative inline-block bg-current-pre-header text-current-bg"
   }
 
   const recursiveMap = (children, fn) => {
