@@ -120,7 +120,11 @@ html.dark {
   .katex * { border-color: var(--color-text) }
 
   .code-block {
-    @apply rounded-md pre-header-sibling:mt-0 pre-header-sibling:rounded-tl-none pre-header-sibling:rounded-tr-none;
+    @apply rounded-md;
+  }
+
+  .gatsby-remark-code-title {
+    @apply rounded-md;
   }
 
   .grvsc-code {

@@ -46,7 +46,7 @@ const Layout = ({ location, title, layoutAbsolute, children }) => {
   },[])
 
   return (
-    <div data-is-root-path={isRootPath} className={"flex flex-col mx-auto max-w-screen-2xl" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
+    <div data-is-root-path={isRootPath} className={"flex flex-col max-w-7xl mx-auto" + (layoutAbsolute ? " h-full my-0 py-0" : " h-full")}>
       <Helmet>
           <body className="bg-lightBlue font-sans text-lg text-black md:pr-0 box-content dark:bg-green dark:text-white" />
       </Helmet>
