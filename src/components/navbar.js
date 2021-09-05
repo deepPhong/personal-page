@@ -88,7 +88,9 @@ const Navbar = (props) => {
   const handleNavigation = useCallback(
     e => {
       const window = e.currentTarget;
-      if (y > window.scrollY) {
+      if (window.pageYOffset === 0) {
+        setScrollDirection("up");
+      } else if (y > window.scrollY) {
         setScrollDirection("up");
       } else if (y < window.scrollY) {
         setScrollDirection("down");
