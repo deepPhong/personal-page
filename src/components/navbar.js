@@ -82,7 +82,7 @@ const ThemeSwitch = (props) => {
 }
 
 const Navbar = (props) => {
-  const [y, setY] = useState(window.scrollY);
+  const [y, setY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState("up");
 
   const handleNavigation = useCallback(
@@ -98,12 +98,14 @@ const Navbar = (props) => {
   );
 
   useEffect(() => {
-    setY(window.scrollY);
-    window.addEventListener("scroll", handleNavigation);
+    if (typeof window !== `undefined`) {
+      setY(window.scrollY);
+      window.addEventListener("scroll", handleNavigation);
 
-    return () => {
-      window.removeEventListener("scroll", handleNavigation);
-    };
+      return () => {
+        window.removeEventListener("scroll", handleNavigation);
+      };
+    }
   }, [handleNavigation]);
 
   return(
