@@ -73,13 +73,13 @@
     "ws": "^8.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.3.4",
     "babel-preset-gatsby": "^1.2.0",
     "gatsby-plugin-postcss": "^4.2.0",
     "gatsby-remark-code-titles": "^1.1.0",
-    "postcss": "^8.2.9",
+    "postcss": "^8.3.6",
     "prettier": "2.2.1",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.2.9"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [

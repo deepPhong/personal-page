@@ -10,6 +10,33 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
+  const ListLink = props => (
+    <li>
+      <Link to={props.to} className="text-base no-tufte-underline">
+        <button className="border border-current-text rounded px-2 hover:border-orange hover:text-orange">{props.children}</button>
+      </Link>
+    </li>
+  )
+
+  const menuItems = [
+    {
+      name: "publications",
+      href: "/publications/"
+    },
+    {
+      name: "resume",
+      href: "/resume/"
+    },
+    {
+      name: "about",
+      href: "/about/"
+    },
+    {
+      name: "contact",
+      href: "/contact/"
+    },
+  ];
+
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -27,9 +54,15 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <Bio className="md:w-tufte-section mb-10" />
-      <section className="md:w-tufte-section my-8">
-        <h1 id="pageTitle">Posts</h1>
+      <ul className="flex flex-row space-x-2 list-none pl-0">
+        {menuItems.map((item) => (
+          <ListLink to={item.href}>{item.name}</ListLink>
+        ))}
+      </ul>
+      <Bio className="my-10" />
+      <section className="my-8">
+        <h2 id="pageTitle">Posts</h2>
+        <hr className="border-gray-300 my-4"/>
         <ol className="list-none pl-0">
           { posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug

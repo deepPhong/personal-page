@@ -47,7 +47,7 @@ const Publications = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <Seo title="Publications"/>
-      <section className="md:w-tufte-section">
+      <section>
         <h1 id="pageTitle">Publications</h1>
         <ul>
           {publications.map((publication, index) => {
@@ -57,7 +57,7 @@ const Publications = (props) => {
                   {publication.name}
                 </a>
                 <div className="date">
-                  {publication.publisher}, {publication.releaseDate}
+                  <em>{publication.publisher}, {publication.releaseDate}</em>
                 </div>
               </li>
             )

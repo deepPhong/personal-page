@@ -17,7 +17,7 @@ const About = (props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <Seo title="About" />
-      <section className="md:w-tufte-section">
+      <section>
         <h1>About... this website</h1>
         <p>
           This website is a playground to explore basic ideas and web development tools while I learn them. The current version you're looking at is based on the following {"{"} frameworks, languages, principles {"}"}:
@@ -26,7 +26,7 @@ const About = (props) => {
           <li>Language and frontend framework: JavaScript, <a href="https://reactjs.org/" target="_blank" rel="noreferrer">React</a></li>
           <li>Static site generator: <a href="https://www.gatsbyjs.com/" target="_blank" rel="noreferrer">Gatsby</a></li>
           <li>CSS framework: <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a></li>
-          <li>Typography and styling: <a href="https://edwardtufte.github.io/tufte-css/" target="_blank" rel="noreferrer">Tufte CSS</a> by Dave Liepmann, adapted to Tailwind CSS</li>
+          <li>Layout: inspired by <a href="https://edwardtufte.github.io/tufte-css/" target="_blank" rel="noreferrer">Tufte CSS</a></li>
           <li>Build/deploy: <a href="https://netlify.com/" target="_blank" rel="noreferrer">Netlify</a></li>
         </ul>
       </section>
