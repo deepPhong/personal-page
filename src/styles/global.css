@@ -5,14 +5,16 @@
 :root {
   --white: #fffff8;
   --black: #111;
-  --green: #2f4f4f;
+  --green: rgb(47, 79, 79);
+  --transparent-green: rgba(47, 79, 79, 0.15);
   --blue: #b4d5fe;
   --light-green: #A3BE8C;
-  /* --light-blue: #d1dfe4; */
-  --light-blue: #E5E9F0;
+  --light-blue: rgb(229, 233, 240);
+  --transparent-light-blue: rgba(229, 233, 240, 0.15);
   --grey-blue: #434C5E;
   --light-purple: #d1d1e4;
   --light-red: #e4d1d1;
+  --orange: #ff5700;
   --light-orange: #D08770;
   --light-yellow: #eeeadd;
   --grvsc-border-radius: 0.375rem;
@@ -20,6 +22,7 @@
   --color-background: var(--light-blue);
   --color-select: var(--blue);
   --color-pre-header: var(--grey-blue);
+  --color-nav: var(--transparent-light-blue);
 }
 
 html {
@@ -39,6 +42,7 @@ html.dark {
   --color-background: var(--green);
   --color-select: var(--blue);
   --color-pre-header: var(--white);
+  --color-nav: var(--transparent-green);
 }
 
 @layer base {
@@ -55,7 +59,7 @@ html.dark {
   }
 
   section {
-    @apply w-full md:w-tufte-section mb-10;
+    @apply w-full max-w-prose;
   }
 
   ul,

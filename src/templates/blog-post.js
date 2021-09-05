@@ -23,8 +23,9 @@ const BlogPostTemplate = ({ data, location }) => {
       <article
         itemScope
         itemType="http://schema.org/Article"
+        className="max-w-prose"
       >
-        <section className="w-full md:w-tufte-main mt-8 mb-18">
+        <section className="w-full mt-8 mb-18">
           <h1 id="pageTitle" className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
           <p className="text-lg text-gray-400 mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
           <ul className="flex flex-row list-none pl-0">
@@ -38,17 +39,17 @@ const BlogPostTemplate = ({ data, location }) => {
             })}
           </ul>
         </section>
-        <section>
+        <div>
         <MDXRenderer 
           remoteImages={post.frontmatter.embeddedImagesRemote} 
           localImages={post.frontmatter.embeddedImagesLocal}
         >
           {post.body}
         </MDXRenderer>
-        </section>
+        </div>
         <Comments className="md:w-tufte-section"/>
       </article>
-      <nav className="md:w-tufte-section flex flex-row justify-around my-8">
+      <nav className="flex flex-row justify-around my-8">
         {previous && (
           <Link to={previous.fields.slug} rel="prev">⇠ previous</Link>
         )}
