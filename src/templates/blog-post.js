@@ -23,12 +23,11 @@ const BlogPostTemplate = ({ data, location }) => {
       <article
         itemScope
         itemType="http://schema.org/Article"
-        className="max-w-prose"
       >
-        <section className="w-full mt-8 mb-18">
+        <div className="w-full mt-8 mb-18">
           <h1 id="pageTitle" className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
           <p className="text-lg text-gray-400 mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
-          <ul className="flex flex-row list-none pl-0">
+          {/* <ul className="flex flex-row list-none pl-0">
             { post.frontmatter.tags.map((tag, index) => {
               const link = `/tags/${kebabCase(tag)}`
               return(
@@ -37,19 +36,19 @@ const BlogPostTemplate = ({ data, location }) => {
                 </li>
               )
             })}
-          </ul>
-        </section>
-        <div>
-        <MDXRenderer 
-          remoteImages={post.frontmatter.embeddedImagesRemote} 
-          localImages={post.frontmatter.embeddedImagesLocal}
-        >
-          {post.body}
-        </MDXRenderer>
+          </ul> */}
         </div>
-        <Comments className="md:w-tufte-section"/>
+        <div className="max-w-prose">
+          <MDXRenderer 
+            remoteImages={post.frontmatter.embeddedImagesRemote} 
+            localImages={post.frontmatter.embeddedImagesLocal}
+          >
+            {post.body}
+          </MDXRenderer>
+        </div>
+        <Comments className="max-w-prose"/>
       </article>
-      <nav className="flex flex-row justify-around my-8">
+      <nav className="flex flex-row justify-around my-8 max-w-prose">
         {previous && (
           <Link to={previous.fields.slug} rel="prev">⇠ previous</Link>
         )}

@@ -116,14 +116,14 @@ const Navbar = (props) => {
       ease-in-out ${scrollDirection === "up" ? "" : "transform -translate-y-20"}`}
     >
       <div className={`${props.className} px-tufte-main mx-auto`}>
-        <section className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between">
           <div className="flex flex-row items-center">
           <Link to="/" className="no-tufte-underline text-xl font-semibold mr-8 md:mr-0">
             {props.blogtitle}
           </Link>
           </div>
           <ThemeSwitch className="scale-75 md:scale-100 motion-safe:animate-fadeIn"/>
-        </section>
+        </div>
       </div>
     </nav>
   )

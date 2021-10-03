@@ -136,7 +136,7 @@ const Resume = (props) => {
                 {skills.map((skill, index) => {
                   return (
                     <li key={index}>
-                      <p className="mb-0">{skill.name}</p>
+                      <p className="mb-0 mt-0">{skill.name}</p>
                       <p className="mt-0 font-sans text-sm leading-tight">
                         {skill.level}
                       </p>

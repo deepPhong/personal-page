@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `dinh-phong nguyen`,
+    title: `dinh-phong nguyen, md`,
     author: {
       name: `Dinh-Phong Nguyen`,
       summary: `Once in a while, I write about machine learning, biostatistics and web development in an attempt to clarify ideas in my head.`,
@@ -81,7 +81,6 @@ module.exports = {
               wrapperClassName: 'code-block'
             }
           },
-          // `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -99,12 +98,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-dark-mode',
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -129,7 +122,6 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  // custom_elements: [{ "content:encoded": node.html }],
                 })
               })
             },
@@ -165,7 +157,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ff5700`,
         display: `minimal-ui`,
-        icon: `src/images/phi-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/phi-icon.png`,
         icons: [
           {
             src: `/android-chrome-192x192.png`,
@@ -198,7 +190,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "G-V1Z920SRNP", // Google Analytics / GA
         ],
@@ -220,8 +211,6 @@ module.exports = {
         siteUrl: `https://dpnguyen.com`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
 }
