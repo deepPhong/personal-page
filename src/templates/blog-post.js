@@ -38,6 +38,7 @@ const BlogPostTemplate = ({ data, location }) => {
             })}
           </ul> */}
         </div>
+        <hr className="border-gray-300 my-4 border-dashed"/>
         <div className="max-w-prose">
           <MDXRenderer 
             remoteImages={post.frontmatter.embeddedImagesRemote} 

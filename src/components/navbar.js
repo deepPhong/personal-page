@@ -50,7 +50,7 @@ const ThemeSwitch = (props) => {
             checked={ isDark }
             moonColor="#ff5700"
             sunColor="#ff5700"
-            animationProperties={toggleProperties}
+            animationProperties={ toggleProperties }
             onChange={(e) => {
               if (e) {
                 document.documentElement.classList.add("dark")
@@ -84,6 +84,7 @@ const ThemeSwitch = (props) => {
 const Navbar = (props) => {
   const [y, setY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState("up");
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleNavigation = useCallback(
     e => {
@@ -112,14 +113,15 @@ const Navbar = (props) => {
 
   return(
     <nav 
-      className={`fixed top-0 z-10 w-full py-4 transition duration-500 backdrop-filter backdrop-blur-xl
+      className={`w-full py-4 fixed top-0 z-10  transition duration-500 bg-current-bg
       ease-in-out ${scrollDirection === "up" ? "" : "transform -translate-y-20"}`}
     >
       <div className={`${props.className} px-tufte-main mx-auto`}>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row items-center">
-          <Link to="/" className="no-tufte-underline text-xl font-semibold mr-8 md:mr-0">
-            {props.blogtitle}
+          <Link to="/" className="no-tufte-underline text-xl font-semibold mr-8 md:mr-0" 
+          onMouseEnter={() => {setIsHovered(true)}} onMouseLeave={() => {setIsHovered(false)}}>
+            {props.location.pathname != "/" && isHovered ? "← get back to homepage": props.blogtitle}
           </Link>
           </div>
           <ThemeSwitch className="scale-75 md:scale-100 motion-safe:animate-fadeIn"/>

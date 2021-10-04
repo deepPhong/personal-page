@@ -62,7 +62,7 @@ const BlogIndex = ({ data, location }) => {
       <Bio className="my-10" />
       <section className="my-8">
         <h2 id="pageTitle">Posts</h2>
-        <hr className="border-gray-300 my-4"/>
+        <hr className="border-gray-300 my-4 border-dashed"/>
         <ol className="list-none pl-0">
           { posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug

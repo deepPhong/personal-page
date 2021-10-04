@@ -3,7 +3,7 @@ module.exports = {
     title: `dinh-phong nguyen, md`,
     author: {
       name: `Dinh-Phong Nguyen`,
-      summary: `Once in a while, I write about machine learning, biostatistics and web development in an attempt to clarify ideas in my head.`,
+      summary: `Once in a while, I write about machine learning, biostatistics and web development in an attempt to clarify ideas in my head. I also happen to be a public health physician.`,
     },
     description: `dinh-phong nguyen`,
     siteUrl: `http://dpnguyen.com`,
