@@ -113,7 +113,7 @@ const Navbar = (props) => {
 
   return(
     <nav 
-      className={`w-full py-4 fixed top-0 z-10  transition duration-500 bg-current-bg
+      className={`w-full py-4 fixed top-0 z-10  transition-transform duration-500 bg-current-bg
       ease-in-out ${scrollDirection === "up" ? "" : "transform -translate-y-20"}`}
     >
       <div className={`${props.className} px-tufte-main mx-auto`}>
