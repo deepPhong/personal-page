@@ -5,11 +5,11 @@
 :root {
   --white: #fffff8;
   --black: #111;
-  --green: rgb(47, 79, 79);
+  --green: #2f4f4f;
   --transparent-green: rgba(47, 79, 79, 0.15);
   --blue: #b4d5fe;
   --light-green: #A3BE8C;
-  --light-blue: rgb(229, 233, 240);
+  --light-blue: #e5e9f0;
   --transparent-light-blue: rgba(229, 233, 240, 0.15);
   --grey-blue: #434C5E;
   --light-purple: #d1d1e4;
