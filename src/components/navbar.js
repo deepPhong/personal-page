@@ -84,7 +84,7 @@ const ThemeSwitch = (props) => {
 const Navbar = (props) => {
   const [y, setY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState("up");
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
 
   const handleNavigation = useCallback(
     e => {
@@ -120,8 +120,9 @@ const Navbar = (props) => {
         <div className="flex flex-row justify-between">
           <div className="flex flex-row items-center">
           <Link to="/" className="no-tufte-underline text-xl font-semibold mr-8 md:mr-0" 
-          onMouseEnter={() => {setIsHovered(true)}} onMouseLeave={() => {setIsHovered(false)}}>
-            {props.location.pathname != "/" && isHovered ? "← get back to homepage": props.blogtitle}
+          // onMouseEnter={() => {setIsHovered(true)}} onMouseLeave={() => {setIsHovered(false)}}
+          >
+            {props.blogtitle}
           </Link>
           </div>
           <ThemeSwitch className="scale-75 md:scale-100 motion-safe:animate-fadeIn"/>
