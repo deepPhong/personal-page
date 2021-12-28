@@ -67,12 +67,11 @@ const Resume = (props) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   const info = data.allDataJson.edges[0].node
-  const { basics, education, skills, work } = info
+  const { basics, education, skills, work, awards } = info
 
   return (
     <Layout location={props.location} title={siteTitle}>
       <Seo title="Resume"/>
-      <section>
         <div className="mb-8">
           <h1 id="pageTitle">Resume</h1>
           <div className="flex flex-col md:flex-row items-center">
@@ -90,7 +89,7 @@ const Resume = (props) => {
           </div>
         </div>
         <div>
-          <div className="md:flex md:flex-row md:space-x-4 md:justify-between">
+          <div className="md:flex md:flex-row md:space-x-16 md:justify-between">
             <div className="md:flex-grow-2 md:flex-shrink-3">
               <h3>Experience</h3>
               <ul className="list-none pl-0">
@@ -101,7 +100,7 @@ const Resume = (props) => {
                       {work.company}
                       </a>
                       <div className="text-sm">
-                        {work.startDate.substring(0, 7)} - {work.endDate.substring(0, 7)}
+                      <span className='font-medium'>{work.position}</span> · {work.startDate.substring(0, 7)} → {work.endDate.substring(0, 7)}
                       </div>
                       <p 
                         className="mt-0 font-sans text-sm leading-tight" 
@@ -122,7 +121,7 @@ const Resume = (props) => {
                       {education.institution}
                       </a>
                       <div className="text-sm">
-                        {education.startDate.substring(0, 7)} - {education.endDate.substring(0, 7)}
+                        {education.startDate.substring(0, 7)} → {education.endDate.substring(0, 7)}
                       </div>
                       <p className="mt-0 font-sans text-sm leading-tight" >
                         {education.studyType} - {education.area}
@@ -136,10 +135,17 @@ const Resume = (props) => {
                 {skills.map((skill, index) => {
                   return (
                     <li key={index}>
-                      <p className="mb-0 mt-0">{skill.name}</p>
-                      <p className="mt-0 font-sans text-sm leading-tight">
-                        {skill.level}
-                      </p>
+                      <p className="mb-0 mt-0 text-sm">{skill.name}</p>
+                    </li>
+                  )
+                })}
+              </ul>
+              <h3 className="mt-10">Awards</h3>
+              <ul className="list-none pl-0">
+                {awards.map((award, index) => {
+                  return (
+                    <li key={index}>
+                      <p className="mb-0 mt-0 text-sm">{award.title} · {award.date.substring(0, 4)}</p>
                     </li>
                   )
                 })}
@@ -147,7 +153,6 @@ const Resume = (props) => {
             </div>
           </div>
         </div>
-      </section>
     </Layout>
   )
 

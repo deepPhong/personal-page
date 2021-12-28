@@ -20,7 +20,7 @@ const About = (props) => {
       <section>
         <h1>About... this website</h1>
         <p>
-          This website is a playground to explore basic ideas and web development tools while I learn them. The current version you're looking at is based on the following {"{"} frameworks, languages, principles {"}"}:
+          This website is a playground to explore basic ideas and web development tools while I learn them. The current version you're looking at is based on the following frameworks and languages:
         </p>
         <ul>
           <li>Language and frontend framework: JavaScript, <a href="https://reactjs.org/" target="_blank" rel="noreferrer">React</a></li>

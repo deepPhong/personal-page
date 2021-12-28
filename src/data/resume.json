@@ -6,7 +6,7 @@
     "email": "dinhphongng [at] gmail [dot] com",
     "phone": "",
     "website": "https://dpnguyen.com",
-    "summary": "Healthcare, data science and technology at heart. My medical training and pronounced taste for programming have enabled me to develop a broad skill set: machine learning, epidemiology and clinical research, conversion of databases to interoperability standards, development of decision tools for crisis management, frontend web development, etc.",
+    "summary": "Healthcare, data science and tech. My medical training and passion for programming have led me to develop a broad skill stack: machine learning, epidemiology and clinical research, healthcare interoperability, development of decision tools for crisis management, web development... and coffee brewing.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -30,7 +30,7 @@
   "work": [
     {
       "company": "Kiro",
-      "position": "Data scientist & Medical advisor",
+      "position": "Head of Science",
       "website": "https://kiro.bio/",
       "startDate": "2020-06-01",
       "endDate": "today",
@@ -189,7 +189,7 @@
   ],
   "skills": [
     {
-      "name": "Data Science",
+      "name": "Data { sci-eng-viz }",
       "level": "Expert",
       "keywords": ["machine learning", "data engineering", "data visualization", "Python", "R"]
     },
@@ -199,9 +199,19 @@
       "keywords": ["French healthcare system", "epidemiology", "clinical ressearch"]
     },
     {
+      "name": "Medicine",
+      "level": "Expert",
+      "keywords": []
+    },
+    {
       "name": "Web Development",
       "level": "Intermediate",
       "keywords": ["HTML", "CSS", "Javascript", "React", "Gatsby"]
+    },
+    {
+      "name": "Scientific publication",
+      "level": "Expert",
+      "keywords": []
     }
   ],
   "languages": [

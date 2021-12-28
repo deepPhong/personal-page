@@ -79,7 +79,7 @@
     "gatsby-remark-code-titles": "^1.1.0",
     "postcss": "^8.3.6",
     "prettier": "2.2.1",
-    "tailwindcss": "^2.2.9"
+    "tailwindcss": "^2.2.19"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
