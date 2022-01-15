@@ -5,6 +5,7 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 const EmailListForm: React.FunctionComponent<{}> = () => {
 
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('For irregular updates and reflexions');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -14,6 +15,9 @@ const EmailListForm: React.FunctionComponent<{}> = () => {
       .then((data) => {
         if (data.result === 'success') {
           setIsSubscribed(true);
+          setMessage('Thanks for subscribing!');
+        } else {
+          setMessage('Either you are already subscribed or your email is invalid.');
         }
       })
       .catch((error: Error) => {
@@ -30,30 +34,34 @@ const EmailListForm: React.FunctionComponent<{}> = () => {
     return (
       <div>
         <p>
-          Thanks for subscribing!
+          {message}
         </p>
       </div>
     );
   } else {
     return(
-      <form onSubmit={handleSubmit} className='flex flex-col text-base'>
-        For irregular updates and reflexions
-        <div className='flex flex-row rounded-md border-current-text border shadow hover:border-orange hover:text-orange'>
-          <input
-            className='appearance-none border-none bg-transparent rounded-md h-full w-full text-sm placeholder-current-text focus:outline-none focus:ring-0'
-            placeholder="Type your email..."
-            name="email"
-            type="text"
-            onChange={handleEmailChange}
-          />
-          <button 
-            className='bg-transparent px-2'
-            type="submit"
-          >
-            subscribe
-          </button>
+      <div>
+        <div className='text-sm'>
+          {message}
         </div>
-      </form>
+        <form onSubmit={handleSubmit} className='flex flex-col text-base'>
+          <div className='flex flex-row rounded-md border-current-text border shadow w-64 hover:border-orange hover:text-orange'>
+            <input
+              className='appearance-none border-none bg-transparent rounded-md h-full w-full text-sm placeholder-current-text focus:outline-none focus:ring-0'
+              placeholder="Type your email..."
+              name="email"
+              type="text"
+              onChange={handleEmailChange}
+            />
+            <button 
+              className='bg-transparent px-2'
+              type="submit"
+            >
+              subscribe
+            </button>
+          </div>
+        </form>
+      </div>
     )
   }
 };
