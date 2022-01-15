@@ -15,7 +15,7 @@ const EmailListForm: React.FunctionComponent<{}> = () => {
       .then((data) => {
         if (data.result === 'success') {
           setIsSubscribed(true);
-          setMessage('Thanks for subscribing!');
+          setMessage('Thanks for subscribing! You should receive an email shortly.');
         } else {
           setMessage('Either you are already subscribed or your email is invalid.');
         }
