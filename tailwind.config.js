@@ -43,17 +43,13 @@ module.exports = {
         "current-bg": "var(--color-background)",
         "current-select": "var(--color-select)",
         "current-pre-header": "var(--color-pre-header)",
+        "current-nav": "var(--color-nav)",
       },
       fontSize: {
         "parent-xs": "0.65em",
         "tufte-root-md": "15px",
         "tufte-root": "12px",
         "tufte-margin": ["1.1rem", "1.3"],
-        // "tufte-base": ["1.4rem", "2.0rem"],
-        // "tufte-subtitle": ["1.8rem", "1"],
-        // "tufte-xxl": ["3.2rem", "1"],
-        // "tufte-xl": ["2.2rem", "1"],
-        // "tufte-l": ["1.7rem", "1"],
         "tufte-base": ["1.0rem", "2.0rem"],
         "tufte-subtitle": ["1.5rem", "1"],
         "tufte-xxl": ["2.2rem", "1"],
@@ -114,6 +110,7 @@ module.exports = {
       borderRadius: ["pre-header-sibling"],
       margin: ["pre-header-sibling"],
       animation: ["motion-safe"],
+      outline: ["focus"]
     },
   },
   plugins: [

@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
   const ListLink = props => (
     <li>
       <Link to={props.to} className="text-base no-tufte-underline">
-        <button className="border border-current-text rounded px-2 hover:border-orange hover:text-orange">{props.children}</button>
+        <button className="border border-current-text rounded px-2 shadow hover:border-orange hover:text-orange">{props.children}</button>
       </Link>
     </li>
   )

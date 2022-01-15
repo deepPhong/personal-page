@@ -1,9 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
+library.add(fab)
 
 const Resume = (props) => {
   const data = useStaticQuery(graphql`
@@ -88,6 +93,40 @@ const Resume = (props) => {
             <p>{basics.summary}</p>
           </div>
         </div>
+        <div className="flex flex-row items-center">
+            <a 
+              href="https://github.com/deepPhong"
+              target="_blank" 
+              rel='noreferrer'
+              className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 md:ml-0 no-tufte-underline"
+            >
+              <FontAwesomeIcon icon={["fab", "github"]} />
+            </a>
+            <a 
+              href="https://gitlab.com/deepPhong"
+              target="_blank" 
+              rel='noreferrer'
+              className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"
+            >
+              <FontAwesomeIcon icon={["fab", "gitlab"]} />
+            </a>
+            <a 
+              href="https://twitter.com/deepPhong"
+              target="_blank" 
+              rel='noreferrer'
+              className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"
+            >
+              <FontAwesomeIcon icon={["fab", "twitter"]} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/dinh-phong-nguyen-5122a867/?locale=en_US" 
+              target="_blank" 
+              rel='noreferrer'
+              className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"
+            >
+              <FontAwesomeIcon icon={["fab", "linkedin"]}/>
+            </a>
+          </div>
         <div>
           <div className="md:flex md:flex-row md:space-x-16 md:justify-between">
             <div className="md:flex-grow-2 md:flex-shrink-3">

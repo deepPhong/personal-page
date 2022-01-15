@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `dinh-phong nguyen, md`,
+    title: `dinh-phong nguyen`,
     author: {
       name: `Dinh-Phong Nguyen`,
       summary: `Once in a while, I write about machine learning, biostatistics and web development in an attempt to clarify ideas in my head. I also happen to be a public health physician.`,
@@ -212,5 +212,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://dpnguyen.us20.list-manage.com/subscribe/post?u=6523eee462b95e4b5fa534269&amp;id=9b8d5db17a',
+      },
+    },
   ],
 }
