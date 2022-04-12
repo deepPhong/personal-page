@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
   const ListLink = props => (
     <li>
       <Link to={props.to} className="text-base no-tufte-underline">
-        <button className="border border-current-text rounded px-2 shadow hover:border-orange hover:text-orange">{props.children}</button>
+        <button className="all-small-caps text-lg border border-current-text rounded px-2 shadow hover:border-orange hover:text-orange">{props.children}</button>
       </Link>
     </li>
   )
@@ -59,7 +59,7 @@ const BlogIndex = ({ data, location }) => {
           <ListLink to={item.href}>{item.name}</ListLink>
         ))}
       </ul>
-      <Bio className="my-10" />
+      <Bio className="mt-6 mb-10" />
       <section className="my-8">
         {/* <h2 id="pageTitle">Posts</h2> */}
         {/* <hr className="border-current mb-4 border-1"/> */}
@@ -75,9 +75,9 @@ const BlogIndex = ({ data, location }) => {
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h3>
-                    <small>
-                      {post.frontmatter.date} - {post.timeToRead} min read
-                    </small>
+                    <div className="all-small-caps text-lg">
+                      {post.frontmatter.date} • {post.timeToRead} min read
+                    </div>
                   </header>
                   <p className="mt-0"
                     dangerouslySetInnerHTML={{
