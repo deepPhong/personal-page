@@ -22,7 +22,7 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["Rubik", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
+      sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
       serif: ["et-book", "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Georgia", "serif"],
       mono: ["Consolas", "Liberation Mono", "Menlo", "Courier", "monospace"]
     },
@@ -114,7 +114,8 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
+    require('@tailwindcss/typography'),
+    require('tailwindcss-opentype'),
     require("@tailwindcss/forms"),
     require("@tailwindcss/line-clamp"),
     checkedSiblingPlugin,

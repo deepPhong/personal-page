@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
+    "@fontsource/inter": "^4.5.7",
     "@fontsource/rubik": "^4.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
@@ -18,9 +19,10 @@
     "@heroicons/react": "^1.0.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@tailwindcss/forms": "^0.3.2",
+    "@reach/router": "^1.3.4",
+    "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/line-clamp": "^0.2.0",
-    "@tailwindcss/typography": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
     "gatsby": "^3.1.2",
     "gatsby-plugin-canonical-urls": "^3.2.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
@@ -64,6 +66,8 @@
     "remark-unwrap-images": "^2.0.0",
     "rose-pine": "github:rose-pine/vscode",
     "tailwindcss-children": "^2.1.0",
+    "tailwindcss-opentype": "^1.0.0",
+    "tailwindcss-typography": "^3.1.0",
     "trim": "^1.0.1",
     "trim-newlines": "^4.0.2",
     "typeface-merriweather": "0.0.72",
@@ -80,7 +84,7 @@
     "gatsby-remark-code-titles": "^1.1.0",
     "postcss": "^8.3.6",
     "prettier": "2.2.1",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^3.0.23"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [

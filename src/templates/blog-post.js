@@ -14,7 +14,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle} pageTitle={post.frontmatter.title}>
+    <Layout location={location} title={siteTitle} pageTitle={post.frontmatter.title} hideNavbar={true}>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -23,21 +23,14 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <div className="w-full mt-8 mb-18">
-          <h1 id="pageTitle" className="mb-4" itemProp="headline">{post.frontmatter.title}</h1>
-          <p className="text-lg text-gray-400 mb-4">{post.frontmatter.date} - {post.timeToRead} min read</p>
-          {/* <ul className="flex flex-row list-none pl-0">
-            { post.frontmatter.tags.map((tag, index) => {
-              const link = `/tags/${kebabCase(tag)}`
-              return(
-                <li key={index} className="mr-4">
-                  <a href={link}>{tag}</a>
-                </li>
-              )
-            })}
-          </ul> */}
+        <div className="w-full mb-18">
+          <div className="flex flex-row justify-between items-baseline">
+            <Link to="/" className="no-tufte-underline text-base small-caps text-right my-4">⇠ Home</Link>
+            <p className="text-base small-caps text-right my-4">{post.frontmatter.date} • {post.timeToRead} min read</p>
+          </div>
+          <hr className="border-current mb-4 border-1"/>
+          <h1 id="pageTitle" className="my-16" itemProp="headline">{post.frontmatter.title}</h1>
         </div>
-        <hr className="border-gray-300 my-4 border-dashed"/>
         <div className="max-w-prose">
           <MDXRenderer 
             remoteImages={post.frontmatter.embeddedImagesRemote} 

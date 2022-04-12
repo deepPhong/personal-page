@@ -95,7 +95,7 @@ const Resume = (props) => {
         </div>
         <div className="flex flex-row items-center">
             <a 
-              href="https://github.com/deepPhong"
+              href="https://github.com/xylophong"
               target="_blank" 
               rel='noreferrer'
               className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 md:ml-0 no-tufte-underline"
@@ -111,7 +111,7 @@ const Resume = (props) => {
               <FontAwesomeIcon icon={["fab", "gitlab"]} />
             </a>
             <a 
-              href="https://twitter.com/deepPhong"
+              href="https://twitter.com/xylophong"
               target="_blank" 
               rel='noreferrer'
               className="text-3xl md:text-xl p-3 md:p-0 m-3 md:m-2 no-tufte-underline"

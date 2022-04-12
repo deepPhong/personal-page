@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --white: #fffff8;
+  --white: #ffffff;
   --black: #111;
   --green: #2f4f4f;
   --transparent-green: rgba(47, 79, 79, 0.15);
@@ -19,7 +19,7 @@
   --light-yellow: #eeeadd;
   --grvsc-border-radius: 0.375rem;
   --color-text: var(--black);
-  --color-background: var(--light-blue);
+  --color-background: var(--white);
   --color-select: var(--blue);
   --color-pre-header: var(--grey-blue);
   --color-nav: var(--transparent-light-blue);
