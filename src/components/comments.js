@@ -8,7 +8,7 @@ const Comments = (props) => {
 
     const script = document.createElement("script");
     script.src = "https://utteranc.es/client.js";
-    script.setAttribute("repo", "deepPhong/personal-page");
+    script.setAttribute("repo", "xylophong/personal-page");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", toggleDark? "icy-dark": "github-light");
     script.setAttribute("crossorigin", "anonymous");

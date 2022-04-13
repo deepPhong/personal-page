@@ -54,7 +54,7 @@ const EmailListForm: React.FunctionComponent<{}> = () => {
               onChange={handleEmailChange}
             />
             <button 
-              className='bg-transparent px-2'
+              className='bg-transparent px-2 all-small-caps text-base'
               type="submit"
             >
               subscribe

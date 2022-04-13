@@ -17,8 +17,8 @@
     "profiles": [
       {
         "network": "Twitter",
-        "username": "deepPhong",
-        "url": "https://twitter.com/deepPhong"
+        "username": "xylophong",
+        "url": "https://twitter.com/xylophong"
       },
       {
         "network": "LinkedIn",
@@ -70,7 +70,7 @@
       "website": "https://eds.aphp.fr/",
       "startDate": "2019-05-01",
       "endDate": "2019-10-31",
-      "summary": "Development of a <a href='https://github.com/deepPhong/thot' target='_blank' rel='noreferrer'>visualization webapp</a> for claims data and of a <a href='https://github.com/deepPhong/icu-readmission' target='_blank' rel='noreferrer'>model for ICU readmission prediction</a>.",
+      "summary": "Development of a <a href='https://github.com/xylophong/thot' target='_blank' rel='noreferrer'>visualization webapp</a> for claims data and of a <a href='https://github.com/xylophong/icu-readmission' target='_blank' rel='noreferrer'>model for ICU readmission prediction</a>.",
       "highlights": ["web development", "medical expertise", "machine learning"]
     },
     {
