@@ -18,7 +18,7 @@ const preHeaderSiblingPlugin = plugin(function ({ addVariant, e }) {
 
 module.exports = {
   important: true,
-  purge: ["./src/**/*.{js,jsx,ts,tsx,mdx}", "./content/**/**/*.{js,jsx,ts,tsx,mdx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx,mdx}", "./content/**/**/*.{js,jsx,ts,tsx,mdx}"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -95,24 +95,24 @@ module.exports = {
       }
     },
   },
-  variants: {
-    extend: {
-      boxShadow: ["dark"],
-      display: ["checked-sibling"],
-      float: ["checked-sibling"],
-      padding: ["checked-sibling"],
-      clear: ["checked-sibling"],
-      width: ["checked-sibling"],
-      margin: ["checked-sibling"],
-      verticalAlign: ["checked-sibling"],
-      position: ["checked-sibling"],
-      inset: ["checked-sibling"],
-      borderRadius: ["pre-header-sibling"],
-      margin: ["pre-header-sibling"],
-      animation: ["motion-safe"],
-      outline: ["focus"]
-    },
-  },
+  // variants: {
+  //   extend: {
+  //     boxShadow: ["dark"],
+  //     display: ["checked-sibling"],
+  //     float: ["checked-sibling"],
+  //     padding: ["checked-sibling"],
+  //     clear: ["checked-sibling"],
+  //     width: ["checked-sibling"],
+  //     margin: ["checked-sibling"],
+  //     verticalAlign: ["checked-sibling"],
+  //     position: ["checked-sibling"],
+  //     inset: ["checked-sibling"],
+  //     borderRadius: ["pre-header-sibling"],
+  //     margin: ["pre-header-sibling"],
+  //     animation: ["motion-safe"],
+  //     outline: ["focus"]
+  //   },
+  // },
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwindcss-opentype'),
